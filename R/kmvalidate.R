@@ -29,7 +29,7 @@ kmvalidate <- function(data, struct) {
     stop("data and struct do not match in item number!")
   distvector <- kmdist(data, struct)
   ddat <- sum(as.integer(names(distvector)) * distvector) / sum(distvector)
-  di <- kmdist(kmmaximalspace(4), struct)
+  di <- kmdist(kmmaximalspace(dim(struct)[2]), struct)
   dpot <- sum(as.integer(names(di))*di)/sum(di)
   list("dist"=distvector, "DI"=ddat, "DA"=ddat/dpot)
 }
