@@ -25,19 +25,27 @@ kmsurmiserelation <- function(x) {
   if (!inherits(x, "matrix")) {
     stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("matrix")))
   }
-  if (any(x != 1*as.logical(x))) {
+  if (any(x != 1L*as.logical(x))) {
     stop(sprintf("%s must be a binary matrix.", dQuote("x")))
   }
 
   noi <- dim(x)[2]
   sr <- matrix(rep(0, noi*noi), nrow = noi, ncol = noi)
-  for (i in 1:noi) {
-    for (j in 1:noi) {
+  lapply(as.list(1:dim(x)[2]), function(i) {
+    lapply(as.list(1:dim(x)[2]), function(j) {
       if (all(x[,i] <= x[,j])) {
-        sr[j,i] <- 1
+        sr[j,i] <<- 1
       }
-    }
-  }
+    })
+  })
+  # for (i in 1:noi) {
+  #   for (j in 1:noi) {
+  #     if (all(x[,i] <= x[,j])) {
+  #       sr[j,i] <- 1
+  #     }
+  #   }
+  # }
+  storage.mode(sr) <- "integer"
   rownames(sr) <- colnames(x)
   colnames(sr) <- colnames(x)
   sr

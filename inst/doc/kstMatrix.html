@@ -12,7 +12,7 @@
 
 <meta name="author" content="Cord Hockemeyer" />
 
-<meta name="date" content="2019-03-27" />
+<meta name="date" content="2019-06-09" />
 
 <title>kstMatrix</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">kstMatrix</h1>
 <h4 class="author"><em>Cord Hockemeyer</em></h4>
-<h4 class="date"><em>2019-03-27</em></h4>
+<h4 class="date"><em>2019-06-09</em></h4>
 
 
 
@@ -94,21 +94,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>kmunionclosure()</h3>
 <p>The <code>kmunionclosure</code> function computes the knowledge space for a basis (mathematically spoken it computes the closure under union of the given family of sets).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kmunionclosure</span>(xpl<span class="op">$</span>basis)
-<span class="co">#&gt;       a b c d</span>
-<span class="co">#&gt;  [1,] 0 0 0 0</span>
-<span class="co">#&gt;  [2,] 1 0 0 0</span>
-<span class="co">#&gt;  [3,] 0 1 0 0</span>
-<span class="co">#&gt;  [4,] 1 1 0 0</span>
-<span class="co">#&gt;  [5,] 1 0 1 0</span>
-<span class="co">#&gt;  [6,] 1 1 1 0</span>
-<span class="co">#&gt;  [7,] 0 1 1 0</span>
-<span class="co">#&gt;  [8,] 1 1 0 1</span>
-<span class="co">#&gt;  [9,] 1 1 1 1</span></code></pre></div>
-</div>
-<div id="kmconstrdowling" class="section level3">
-<h3>kmconstrDowling</h3>
-<p>The <code>kmconstrDowling</code> function applies the algorithm by Dowling (1993b) for computing the closure under union of a family of sets. Please note that while this algorithm in general is very efficient this does not necessarily hold for its implementation in R since it involves nested for-loops.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kmconstrDowling</span>(xpl<span class="op">$</span>basis)
 <span class="co">#&gt;       a b c d</span>
 <span class="co">#&gt;  [1,] 0 0 0 0</span>
 <span class="co">#&gt;  [2,] 1 0 0 0</span>
@@ -146,8 +131,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="properties-of-knowledge-structures" class="section level2">
 <h2>Properties of knowledge structures</h2>
-<div id="kmwellgraded" class="section level3">
-<h3>kmwellgraded()</h3>
+<div id="kmiswellgraded" class="section level3">
+<h3>kmiswellgraded()</h3>
 <p>The <code>kmiswellgraded</code> function determines whether a knowledge structure is wellgraded.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kmiswellgraded</span>(xpl<span class="op">$</span>space)
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
@@ -208,7 +193,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="kmvalidate" class="section level3">
 <h3>kmvalidate()</h3>
-<p>The <code>kmvalidate</code> function returns the distance vector, the discrimination index DI, and the distance agreement coefficient DA. The discrepancy index (DI) is the mean distance; the distance agreement coefficient is the ratio between the distance between data and space (ddat = DI) and the mean distance between space and power set (dpot).</p>
+<p>The <code>kmvalidate</code> function returns the distance vector, the discrimination index DI, and the distance agreement coefficient DA. The discrepancy index (DI) is the mean distance; the distance agreement coefficient is the ratio between the mean distance between data and space (ddat = DI) and the mean distance between space and power set (dpot).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kmvalidate</span>(xpl<span class="op">$</span>data, xpl<span class="op">$</span>space)
 <span class="co">#&gt; $dist</span>
 <span class="co">#&gt; 0 1 2 3 4 </span>
@@ -229,39 +214,39 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kmsimulate</span>(xpl<span class="op">$</span>space, <span class="dv">10</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>)
 <span class="co">#&gt;       a b c d</span>
 <span class="co">#&gt;  [1,] 1 0 1 0</span>
-<span class="co">#&gt;  [2,] 0 0 0 0</span>
-<span class="co">#&gt;  [3,] 1 0 0 1</span>
-<span class="co">#&gt;  [4,] 1 1 0 1</span>
-<span class="co">#&gt;  [5,] 1 0 0 0</span>
-<span class="co">#&gt;  [6,] 0 0 0 1</span>
-<span class="co">#&gt;  [7,] 1 1 0 0</span>
-<span class="co">#&gt;  [8,] 1 0 1 0</span>
-<span class="co">#&gt;  [9,] 0 0 0 1</span>
-<span class="co">#&gt; [10,] 0 1 1 0</span>
-<span class="kw">kmsimulate</span>(xpl<span class="op">$</span>space, <span class="dv">10</span>, <span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.25</span>, <span class="fl">0.15</span>, <span class="fl">0.2</span>), <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>))
-<span class="co">#&gt;       a b c d</span>
-<span class="co">#&gt;  [1,] 1 0 0 1</span>
-<span class="co">#&gt;  [2,] 0 1 1 0</span>
-<span class="co">#&gt;  [3,] 0 0 0 0</span>
-<span class="co">#&gt;  [4,] 0 1 1 1</span>
-<span class="co">#&gt;  [5,] 0 0 1 1</span>
-<span class="co">#&gt;  [6,] 0 0 1 0</span>
-<span class="co">#&gt;  [7,] 0 0 0 0</span>
-<span class="co">#&gt;  [8,] 1 0 1 0</span>
-<span class="co">#&gt;  [9,] 0 1 1 0</span>
-<span class="co">#&gt; [10,] 1 1 0 1</span>
-<span class="kw">kmsimulate</span>(xpl<span class="op">$</span>space, <span class="dv">10</span>, <span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.25</span>, <span class="fl">0.15</span>, <span class="fl">0.2</span>), <span class="dv">0</span>)
-<span class="co">#&gt;       a b c d</span>
-<span class="co">#&gt;  [1,] 1 1 1 1</span>
-<span class="co">#&gt;  [2,] 0 1 1 0</span>
+<span class="co">#&gt;  [2,] 1 1 0 0</span>
 <span class="co">#&gt;  [3,] 1 1 0 0</span>
-<span class="co">#&gt;  [4,] 1 0 0 0</span>
-<span class="co">#&gt;  [5,] 0 0 0 0</span>
+<span class="co">#&gt;  [4,] 0 0 0 0</span>
+<span class="co">#&gt;  [5,] 0 1 1 0</span>
 <span class="co">#&gt;  [6,] 1 0 0 0</span>
 <span class="co">#&gt;  [7,] 0 1 0 0</span>
-<span class="co">#&gt;  [8,] 1 1 1 1</span>
-<span class="co">#&gt;  [9,] 0 1 0 0</span>
-<span class="co">#&gt; [10,] 1 0 1 0</span></code></pre></div>
+<span class="co">#&gt;  [8,] 1 1 0 0</span>
+<span class="co">#&gt;  [9,] 1 1 0 0</span>
+<span class="co">#&gt; [10,] 1 0 1 0</span>
+<span class="kw">kmsimulate</span>(xpl<span class="op">$</span>space, <span class="dv">10</span>, <span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.25</span>, <span class="fl">0.15</span>, <span class="fl">0.2</span>), <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>))
+<span class="co">#&gt;       a b c d</span>
+<span class="co">#&gt;  [1,] 1 1 1 0</span>
+<span class="co">#&gt;  [2,] 1 0 0 0</span>
+<span class="co">#&gt;  [3,] 1 0 0 0</span>
+<span class="co">#&gt;  [4,] 0 1 1 0</span>
+<span class="co">#&gt;  [5,] 1 1 1 0</span>
+<span class="co">#&gt;  [6,] 1 1 0 0</span>
+<span class="co">#&gt;  [7,] 1 1 1 1</span>
+<span class="co">#&gt;  [8,] 0 1 0 0</span>
+<span class="co">#&gt;  [9,] 0 1 1 0</span>
+<span class="co">#&gt; [10,] 1 0 0 0</span>
+<span class="kw">kmsimulate</span>(xpl<span class="op">$</span>space, <span class="dv">10</span>, <span class="kw">c</span>(<span class="fl">0.2</span>, <span class="fl">0.25</span>, <span class="fl">0.15</span>, <span class="fl">0.2</span>), <span class="dv">0</span>)
+<span class="co">#&gt;       a b c d</span>
+<span class="co">#&gt;  [1,] 0 1 0 0</span>
+<span class="co">#&gt;  [2,] 1 1 1 0</span>
+<span class="co">#&gt;  [3,] 1 1 0 0</span>
+<span class="co">#&gt;  [4,] 1 0 1 0</span>
+<span class="co">#&gt;  [5,] 0 1 0 0</span>
+<span class="co">#&gt;  [6,] 0 0 0 0</span>
+<span class="co">#&gt;  [7,] 0 1 1 0</span>
+<span class="co">#&gt;  [8,] 1 1 0 1</span>
+<span class="co">#&gt;  [9,] 0 0 0 0</span>
+<span class="co">#&gt; [10,] 0 1 1 0</span></code></pre></div>
 </div>
 </div>
 <div id="neighbourhood-fringe" class="section level2">
@@ -362,14 +347,14 @@ xpl<span class="op">$</span>space
 <span class="co">#&gt;  [8,] 1 1 0 1</span>
 <span class="co">#&gt;  [9,] 1 1 1 1</span>
 xpl<span class="op">$</span>data
-<span class="co">#&gt;      [,1] [,2] [,3] [,4]</span>
-<span class="co">#&gt; [1,]    0    0    1    0</span>
-<span class="co">#&gt; [2,]    1    0    0    0</span>
-<span class="co">#&gt; [3,]    0    0    0    1</span>
-<span class="co">#&gt; [4,]    1    1    0    0</span>
-<span class="co">#&gt; [5,]    1    1    1    0</span>
-<span class="co">#&gt; [6,]    1    1    1    1</span>
-<span class="co">#&gt; [7,]    1    1    0    0</span></code></pre></div>
+<span class="co">#&gt;      a b c d</span>
+<span class="co">#&gt; [1,] 0 0 1 0</span>
+<span class="co">#&gt; [2,] 1 0 0 0</span>
+<span class="co">#&gt; [3,] 0 0 0 1</span>
+<span class="co">#&gt; [4,] 1 1 0 0</span>
+<span class="co">#&gt; [5,] 1 1 1 0</span>
+<span class="co">#&gt; [6,] 1 1 1 1</span>
+<span class="co">#&gt; [7,] 1 1 0 0</span></code></pre></div>
 </div>
 </div>
 <div id="references" class="section level2">

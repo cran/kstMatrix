@@ -29,80 +29,13 @@ kmunionclosure <- function(x) {
 
   noi <- dim(x)[2]
   nob <- dim(x)[1]
-  f <- matrix(rep(0, noi), nrow = 1, ncol = noi)
+  f <- matrix(rep(0L, noi), nrow = 1, ncol = noi)
 
-  for (i in 1:nob) {
-    f2 <- t(apply(f, 1, function(s) {1*(s | x[i,])}))
-    f <- unique(rbind(f, f2))
-  }
+  lapply(as.list(1:nob), function(i) {
+    f2 <- t(apply(f, 1, function(s) {1L*(s | x[i,])}))
+    f <<- unique(rbind(f, f2))
+  })
+  storage.mode(f) <- "integer"
   f
 }
 
-
-
-#' @rdname kmunionclosure
-#'
-#' @examples
-#' kmconstrDowling(xpl$basis)
-#'
-#' @export
-kmconstrDowling <- function(x) {
-  if (!inherits(x, "matrix")) {
-    stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("matrix")))
-  }
-  if (any(x != 1*as.logical(x))) {
-    stop(sprintf("%s must be a binary matrix.", dQuote("x")))
-  }
-
-  noi <- dim(x)[2]
-  nob <- dim(x)[1]
-  e <- x
-  u <- x
-
-  for (i in 1:nob) {
-    for (j in 1:(i-1)) {
-      if (j >= i) break
-      if (all(x[j,] <= x[i,])) {
-        e[i,] = 1*(e[i,] & !x[j,])
-      }
-    }
-    if (sum(e[i,])>0) {
-      u[i,] = 1*(u[i,] & !e[i,])
-    } else {
-      u[i,] = rep(0, noi)
-      e[i,] = rep(0, noi)
-      x[i,] = rep(0, noi)
-    }
-  }
-
-  f <- matrix(rep(0, noi), nrow = 1, ncol = noi)
-  nos <- 1
-  for (i in 1:nob) {
-    s <- nos
-    for (j in 1:s) {
-      if (all(u[i,] <= f[j,])) {
-        fail <- FALSE
-        if (any(e[i,] > f[j,])) {
-          for (k in 1:(i-1)) {
-            if (k >= i) break
-            state <- 1*(x[k,] & !e[i,])
-            if (all(state <= f[j,])) {
-              state <- 1*(e[i,] & e[k,])
-              if (any(state > f[j,])) {
-                fail = TRUE
-              }
-            }
-            if (fail)
-              break
-          }
-          if (!fail) {
-            nos <- nos + 1
-            f <- rbind(f, 1*(f[j,] | x[i,]))
-          }
-        }
-      }
-    }
-  }
-
-  f
-}

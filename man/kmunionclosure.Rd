@@ -2,12 +2,9 @@
 % Please edit documentation in R/kmunionclosure.R
 \name{kmunionclosure}
 \alias{kmunionclosure}
-\alias{kmconstrDowling}
 \title{Close a family of sets under union}
 \usage{
 kmunionclosure(x)
-
-kmconstrDowling(x)
 }
 \arguments{
 \item{x}{Binary matrix representing a family of sets}
@@ -25,8 +22,6 @@ that it takes quite some time for computing larger knowledge spaces.
 }
 \examples{
 kmunionclosure(xpl$basis)
-
-kmconstrDowling(xpl$basis)
 
 }
 \references{

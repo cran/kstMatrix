@@ -1,5 +1,10 @@
+2019-06-09: Version 0.1-2 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Optimized kmunionclosure() and kmsurmiserelation()
+* Deleted kmconstrDowling()
+* All data are in integer format now
+
 2019-03-27: Version 0.1-1 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
-* Corrected a stupid bug in kmvalidate()
+* Corrected a bug in kmvalidate()
 
 2018-09-10: Version 0.1-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Creation of the package

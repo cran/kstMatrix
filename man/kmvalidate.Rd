@@ -12,6 +12,7 @@ kmvalidate(data, struct)
 \item{struct}{Binary matrix representing a knowledge structure}
 }
 \value{
+A list with three elements:
 \describe{
   \item{dist}{Distance distribution vector}
   \item{DI}{Discrepancy Index}

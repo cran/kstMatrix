@@ -1,4 +1,4 @@
-#' Small example knowledge spaces
+#' Small example knowledge space
 #'
 #' Basis and space matrix of a small fictional knowledge space, and a small data set to be
 #' used in examples.

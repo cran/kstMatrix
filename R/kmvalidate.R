@@ -7,7 +7,7 @@
 #'
 #' @param data Binary matrix representing a set of response patterns
 #' @param struct Binary matrix representing a knowledge structure
-#' @return
+#' @return A list with three elements:
 #' \describe{
 #'   \item{dist}{Distance distribution vector}
 #'   \item{DI}{Discrepancy Index}

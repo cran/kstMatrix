@@ -46,15 +46,6 @@ spoken it computes the closure under union of the given family of sets).
 kmunionclosure(xpl$basis)
 ```
 
-### kmconstrDowling
-The `kmconstrDowling` function applies the algorithm by Dowling (1993b) for computing
-the closure under union of a family of sets. Please note that while this algorithm in 
-general is very efficient this does not necessarily hold for its implementation in R 
-since it involves nested for-loops.
-```{r}
-kmconstrDowling(xpl$basis)
-```
-
 ### kmsurmiserelation()
 The `kmsurmiserelation` function determines the surmise relation for a quasi-ordinal
 knowledge space. For a more general family of sets, it computes the surmise relation
@@ -68,7 +59,7 @@ kmunionclosure(t(kmsurmiserelation(xpl$space)))
 ```
 
 ## Properties of knowledge structures
-### kmwellgraded()
+### kmiswellgraded()
 The `kmiswellgraded` function determines whether a knowledge structure is wellgraded.
 ```{r}
 kmiswellgraded(xpl$space)
@@ -113,7 +104,7 @@ kmdist(xpl$data, xpl$space)
 ### kmvalidate()
 The `kmvalidate` function returns the distance vector, the discrimination index DI,
 and the distance agreement coefficient DA. The discrepancy index (DI) is the mean
-distance; the distance agreement coefficient is the ratio between the distance between
+distance; the distance agreement coefficient is the ratio between the mean distance between
 data and space (ddat = DI) and the mean distance between space and power set (dpot).
 ```{r}
 kmvalidate(xpl$data, xpl$space)
