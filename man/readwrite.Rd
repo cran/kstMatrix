@@ -4,9 +4,11 @@
 \name{readwrite}
 \alias{readwrite}
 \title{Knowledge spaces on reading and writing abilities}
-\format{A list containing four bases (rw1 to rw3, and rwmaj) in binary
+\format{
+A list containing four bases (rw1 to rw3, and rwmaj) in binary
 matrix form. Each matrix has 48 columns representing the different knowledge
-items and a varying number of rows containing the basis elements.}
+items and a varying number of rows containing the basis elements.
+}
 \usage{
 readwrite
 }

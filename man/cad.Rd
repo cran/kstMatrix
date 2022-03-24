@@ -4,9 +4,11 @@
 \name{cad}
 \alias{cad}
 \title{Knowledge spaces on AutoCAD knowledge}
-\format{A list containing seven bases (cad1 to cad6, and cadmaj) in binary
+\format{
+A list containing seven bases (cad1 to cad6, and cadmaj) in binary
 matrix form. Each matrix has 28 columns representing the different knowledge
-items and a varying number of rows containing the basis elements.}
+items and a varying number of rows containing the basis elements.
+}
 \usage{
 cad
 }

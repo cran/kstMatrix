@@ -15,6 +15,8 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(kstMatrix)
+library(igraph)
+library(grDevices)
 ```
 
 Knowledge space theory applies prerequisite relationships between items of knowledge
@@ -32,21 +34,21 @@ Knowledge spaces can easily grow very large. Therefore, their bases are often us
 the knowledge spaces with reduced space requirements. `kstmatrix` offers two  functions for 
 computing bases from spaces and vice versa.
 
-### kmbasis()
+### `kmbasis()`
 The `kmbasis` function computes the basis for a given knowledge space (actually, it can be
 any family of sets represented by a binary matrix). 
 ```{r}
 kmbasis(xpl$space)
 ```
 
-### kmunionclosure()
+### `kmunionclosure()`
 The `kmunionclosure` function computes the knowledge space for a basis (mathematically
 spoken it computes the closure under union of the given family of sets).
 ```{r}
 kmunionclosure(xpl$basis)
 ```
 
-### kmsurmiserelation()
+### `kmsurmiserelation()`
 The `kmsurmiserelation` function determines the surmise relation for a quasi-ordinal
 knowledge space. For a more general family of sets, it computes the surmise relation
 for the smallest quasi-ordinal knowledge space including that family.
@@ -59,13 +61,13 @@ kmunionclosure(t(kmsurmiserelation(xpl$space)))
 ```
 
 ## Properties of knowledge structures
-### kmiswellgraded()
+### `kmiswellgraded()`
 The `kmiswellgraded` function determines whether a knowledge structure is wellgraded.
 ```{r}
 kmiswellgraded(xpl$space)
 ```
 
-### kmnotions()
+### `kmnotions()`
 The `kmnotions` function returns a matrix specifying the notions of a knowledge strucure,
 i.e. the classes of equivalent items.
 ```{r}
@@ -80,13 +82,13 @@ power set of the item set and the basis matrix is the diagonal matrix), and the 
 knowledge space representing equivalence of all items (the knowledge space contains just 
 the empty set and the full item set, and the basis matrix contains one line full of '1's).
 
-### kmminimalspace()
+### `kmminimalspace()`
 **Example:**
 ```{r}
 kmminimalspace(5)
 ```
 
-### kmmaximalspace()
+### `kmmaximalspace()`
 **Example:**
 ```{r}
 kmmaximalspace(4)
@@ -94,14 +96,14 @@ kmmaximalspace(4)
 
 ## Validating knowledge spaces
 
-### kmdist()
+### `kmdist()`
 The `kmdist` function computes a frequency distribution for the distances between a data 
 set and a knowledge space.
 ```{r}
 kmdist(xpl$data, xpl$space)
 ```
 
-### kmvalidate()
+### `kmvalidate()`
 The `kmvalidate` function returns the distance vector, the discrimination index DI,
 and the distance agreement coefficient DA. The discrepancy index (DI) is the mean
 distance; the distance agreement coefficient is the ratio between the mean distance between
@@ -111,7 +113,7 @@ kmvalidate(xpl$data, xpl$space)
 ```
 
 ## Simulating response patterns
-### kmsimulate()
+### `kmsimulate()`
 The `kmsimulate` funtion provides a generation of response patterns by
 applying the BLIM (Basic Local Independence Model; see Doignon & Falmagne, 1999)
 to a given knowledge structure. The `beta` and `eta` parameters of the BLIM can each
@@ -124,14 +126,14 @@ kmsimulate(xpl$space, 10, c(0.2, 0.25, 0.15, 0.2), 0)
 ```
 
 ## Neighbourhood & Fringe
-### kmneighbourhood()
+### `kmneighbourhood()`
 The `kmneighbourhood` function determines the neighbourhood of a state in a knowledge structure,
 i.e. the family of all states with a symmetric set diference of 1.
 ```{r}
 kmneighbourhood(c(1,1,0,0), xpl$space)
 ```
 
-### kmfringe()
+### `kmfringe()`
 The `kmfringe` function determines the fringe of a knowledge state, i.e. the set of thse items 
 by which the state differs from its neighbouring states.
 ```{r}
@@ -139,18 +141,27 @@ kmfringe(c(1,0,0,0), xpl$space)
 ```
 
 ## Utilities
-### kmsymmsetdiff()
+### `kmsymmsetdiff()`
 The `kmsymmsetdiff` function returns the symmetric set difference between two
 sets represented as binary vectors.
 ```{r}
 kmsymmsetdiff(c(1,0,0), c(1,1,0))
 ```
 
-### kmsetdistance()
+### `kmsetdistance()`
 The `kmsetdistance` function returns the cardinality of the symmetric set 
 difference between two sets represented as binary vectors.
 ```{r}
 kmsetdistance(c(1,0,0), c(1,1,0))
+```
+
+## Plotting with `kmhasse()`and `kmcolors()`
+The `kmhasse` function draws a Hasse diagram of a knowledge structure,
+the `kmcolors`function returns a color vector to be used with `kmhasse()`.
+```{r}
+probability_vec <- (0:8)/8
+colorvec <- kmcolors(probability_vec, cm.colors)
+kmhasse(xpl$space, horizontal = TRUE, colors = colorvec)
 ```
 
 ## Datasets provided by `kstMatrix`
@@ -168,7 +179,7 @@ summary(cad)
 
 ### readwrite
 Three experts were queried about prerequisite relationships between 48 items
-on reading and writing abilities (Dowling, 1991; 1993a). A forth basis represents
+on reading and writing abilities (Dowling, 1991; 1993a). A fourth basis represents
 those prerequisite relationships on which the majority of the experts agree
 (Dowling & Hockemeyer, 1998).
 ```{r}
@@ -177,7 +188,7 @@ summary(readwrite)
 
 ### fractions
 Three experts were queried about prerequisite relationships between 77 items
-on fractions (Baumunk & Dowling, 1997). A forth basis represents those
+on fractions (Baumunk & Dowling, 1997). A fourth basis represents those
 prerequisite relationships on which the majority of the experts agree
 (Dowling & Hockemeyer, 1998).
 ```{r}

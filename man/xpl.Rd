@@ -4,7 +4,9 @@
 \name{xpl}
 \alias{xpl}
 \title{Small example knowledge space}
-\format{A list containing the basis, the space, and the data matrix}
+\format{
+A list containing the basis, the space, and the data matrix
+}
 \usage{
 xpl
 }

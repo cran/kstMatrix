@@ -4,9 +4,11 @@
 \name{fractions}
 \alias{fractions}
 \title{Knowledge spaces on fractions}
-\format{A list containing four bases (frac1 to frac3, and fracmaj) in binary
+\format{
+A list containing four bases (frac1 to frac3, and fracmaj) in binary
 matrix form. Each matrix has 77 columns representing the different knowledge
-items and a varying number of rows containing the basis elements.}
+items and a varying number of rows containing the basis elements.
+}
 \usage{
 fractions
 }
