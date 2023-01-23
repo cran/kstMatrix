@@ -3,6 +3,7 @@
 export(kmbasis)
 export(kmcolors)
 export(kmdist)
+export(kmeqreduction)
 export(kmfringe)
 export(kmhasse)
 export(kmiswellgraded)

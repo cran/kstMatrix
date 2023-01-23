@@ -1,3 +1,13 @@
+2023-01-23: Version 0.1-5 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Adding kmeqreduction()
+
+2022-10-24: Version 0.1-4 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Refining kmhasse()
+* Adding kmnneighbourhod()
+
+2022-03-24: Version 0.1-3 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Adding kmhasse() based on Wai Wong's waiplot()) function
+
 2019-06-09: Version 0.1-2 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Optimized kmunionclosure() and kmsurmiserelation()
 * Deleted kmconstrDowling()

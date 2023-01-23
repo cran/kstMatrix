@@ -75,6 +75,14 @@ x <- matrix(c(0,0,0, 1,0,0, 1,1,1), nrow = 3, byrow = TRUE)
 kmnotions(x)
 ```
 
+### `kmeqreduction()`
+The `kmeqreduction` function returns a matrix with only one item
+per equivalence class.
+```{r}
+x <- matrix(c(0,0,0, 1,0,0, 1,1,1), nrow = 3, byrow = TRUE)
+kmeqreduction(x)
+```
+
 ## Creating trivial knowledge spaces
 For a given item number, there are two trivial knowledge spaces, the maximal knowledge
 space representing absolutely no prerequisite relationships (the knowledge space is the 
