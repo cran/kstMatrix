@@ -28,4 +28,5 @@
 #' Lawrence Erlbaum Associates Ltd., Mahwah, NJ.
 #'
 #' @keywords data
+#' @family Data
 "cad"

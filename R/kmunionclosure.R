@@ -17,6 +17,7 @@
 #' kmunionclosure(xpl$basis)
 #'
 #' @keywords math
+#' @family Different representations for knowledge spaces
 #'
 #' @export
 kmunionclosure <- function(x) {

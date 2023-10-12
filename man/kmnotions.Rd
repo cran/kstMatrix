@@ -24,4 +24,10 @@ notions of a knowledge structure.
 kmnotions(xpl$space)
 
 }
+\seealso{
+Other Properties of knowledge structures: 
+\code{\link{kmeqreduction}()},
+\code{\link{kmiswellgraded}()}
+}
+\concept{Properties of knowledge structures}
 \keyword{math}

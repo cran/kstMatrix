@@ -14,6 +14,7 @@
 #' kmnotions(xpl$space)
 #'
 #' @keywords math
+#' @family Properties of knowledge structures
 #'
 #' @export
 kmnotions <- function(x) {
@@ -36,5 +37,5 @@ kmnotions <- function(x) {
   }
   rownames(sr) <- colnames(x)
   colnames(sr) <- colnames(x)
-  sr
+  unique(sr)
 }

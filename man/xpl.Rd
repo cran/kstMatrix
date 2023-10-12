@@ -14,4 +14,11 @@ xpl
 Basis and space matrix of a small fictional knowledge space, and a small data set to be
 used in examples.
 }
+\seealso{
+Other Data: 
+\code{\link{cad}},
+\code{\link{fractions}},
+\code{\link{readwrite}}
+}
+\concept{Data}
 \keyword{data}

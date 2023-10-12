@@ -12,6 +12,7 @@
 #' kmfringe(c(1,0,0,0), xpl$space)
 #'
 #' @keywords math
+#' @family Neighbourhood & fringe
 #'
 #' @export
 kmfringe <- function(state, struct) {

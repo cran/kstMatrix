@@ -35,4 +35,9 @@ power set has to be computed.
 kmvalidate(xpl$data, xpl$space)
 
 }
+\seealso{
+Other Validating knowledge spaces: 
+\code{\link{kmdist}()}
+}
+\concept{Validating knowledge spaces}
 \keyword{math}

@@ -10,6 +10,7 @@
 #' kmeqreduction(xpl$space)
 #'
 #' @keywords math
+#' @family Properties of knowledge structures
 #'
 #' @export
 kmeqreduction <- function(x) {

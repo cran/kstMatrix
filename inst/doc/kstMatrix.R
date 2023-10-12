@@ -6,6 +6,8 @@ knitr::opts_chunk$set(
 library(kstMatrix)
 library(igraph)
 library(grDevices)
+library(sets)
+library(pks)
 
 ## -----------------------------------------------------------------------------
 kmbasis(xpl$space)
@@ -18,6 +20,13 @@ kmsurmiserelation(xpl$space)
 
 ## -----------------------------------------------------------------------------
 kmunionclosure(t(kmsurmiserelation(xpl$space)))
+
+## -----------------------------------------------------------------------------
+kmsurmisefunction(xpl$space)
+
+## -----------------------------------------------------------------------------
+sf <- kmsurmisefunction(xpl$space)
+kmsf2basis(sf)
 
 ## -----------------------------------------------------------------------------
 kmiswellgraded(xpl$space)
@@ -60,9 +69,13 @@ kmsymmsetdiff(c(1,0,0), c(1,1,0))
 kmsetdistance(c(1,0,0), c(1,1,0))
 
 ## -----------------------------------------------------------------------------
+kmhasse(xpl$space, horizontal = FALSE)
 probability_vec <- (0:8)/8
 colorvec <- kmcolors(probability_vec, cm.colors)
 kmhasse(xpl$space, horizontal = TRUE, colors = colorvec)
+
+## -----------------------------------------------------------------------------
+kmbasisdiagram(xpl$basis, horizontal=FALSE)
 
 ## -----------------------------------------------------------------------------
 summary(cad)

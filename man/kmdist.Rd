@@ -24,4 +24,9 @@ Distance Agreement Coefficient (DA).
 kmdist(xpl$data, xpl$space)
 
 }
+\seealso{
+Other Validating knowledge spaces: 
+\code{\link{kmvalidate}()}
+}
+\concept{Validating knowledge spaces}
 \keyword{math}

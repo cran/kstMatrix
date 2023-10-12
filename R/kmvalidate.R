@@ -22,6 +22,7 @@
 #' kmvalidate(xpl$data, xpl$space)
 #'
 #' @keywords math
+#' @family Validating knowledge spaces
 #'
 #' @export
 kmvalidate <- function(data, struct) {

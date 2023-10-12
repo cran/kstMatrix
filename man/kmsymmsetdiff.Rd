@@ -29,4 +29,5 @@ kmsymmsetdiff(c(1,0,0), c(1,1,0))
 kmsetdistance(c(1,0,0), c(1,1,0))
 
 }
+\concept{Utilities}
 \keyword{math}

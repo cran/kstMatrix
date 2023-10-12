@@ -15,6 +15,7 @@
 #' kmmaximalspace(5)
 #'
 #' @keywords math
+#' @family Trivial knowledge spaces
 #'
 #' @name kmtrivial
 NULL

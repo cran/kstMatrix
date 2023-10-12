@@ -5,15 +5,16 @@
 #' the states are drawn in green.
 #'
 #' @param struc Binary matrix representing a knowledge structure
-#' @param horizontal Boolean defining orientation of the graph, default TRUE
+#' @param horizontal Boolean defining orientation of the graph, default FALSE
 #' @param colors Color vector (default NULL)
 #'
 #' @keywords math
+#' @family Plotting knowledge structures
 #'
 #' @importFrom igraph graph E V plot.igraph
 #'
 #' @export
-kmhasse <- function(struc, horizontal = TRUE, colors=NULL){
+kmhasse <- function(struc, horizontal = FALSE, colors=NULL){
 structure <- t(struc)
 if (!requireNamespace("igraph", quietly = TRUE)) {
 stop(sprintf("Plotting requires package 'igraph'."))
@@ -45,9 +46,12 @@ if(b[j,i]==1) d[j,]=d[j,]*(1-b[i,])
 ed <- NULL
 for(i in 1:n) for(j in 1:n) if(d[i,j]==1) ed <- c(ed,i,j)
 g1 <- igraph::graph( edges=ed, n=n, directed=TRUE )
-l <- list("0")
-for(i in 2:(n-1)) l[[i]] <- paste(c(c(letters[1:nrow(structure)])[structure[,i]*c(1:nrow(structure))]),collapse = '')
-l[[n]] <- c("Q")
+# l <- list("0")
+# for(i in 2:(n-1)) l[[i]] <- paste(c(c(letters[1:nrow(structure)])[structure[,i]*c(1:nrow(structure))]),collapse = '')
+l <- lapply(1:n, function(i) {
+  paste(c(c(letters[1:nrow(structure)])[structure[,i]*c(1:nrow(structure))]),collapse = '')
+})
+l[[1]] <- c('\u2205')
 igraph::V(g1)$label <- l
 coord = igraph::layout_with_sugiyama(g1)$layout
 if (horizontal) {

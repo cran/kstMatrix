@@ -23,4 +23,9 @@ states with a symmetric set difference of 1.
 kmneighbourhood(c(1,1,0,0), xpl$space)
 
 }
+\seealso{
+Other Neighbourhood & fringe: 
+\code{\link{kmfringe}()}
+}
+\concept{Neighbourhood & fringe}
 \keyword{math}

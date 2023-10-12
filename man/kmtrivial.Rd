@@ -30,4 +30,5 @@ kmminimalspace(5)
 kmmaximalspace(5)
 
 }
+\concept{Trivial knowledge spaces}
 \keyword{math}

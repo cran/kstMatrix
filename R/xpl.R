@@ -10,4 +10,5 @@
 #' @format A list containing the basis, the space, and the data matrix
 #'
 #' @keywords data
+#' @family Data
 "xpl"

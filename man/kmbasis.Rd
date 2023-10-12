@@ -22,4 +22,11 @@ the smallest knowledge space containing \code{x}.
 kmbasis(xpl$space)
 
 }
+\seealso{
+Other Different representations for knowledge spaces: 
+\code{\link{kmsurmisefunction}()},
+\code{\link{kmsurmiserelation}()},
+\code{\link{kmunionclosure}()}
+}
+\concept{Different representations for knowledge spaces}
 \keyword{math}

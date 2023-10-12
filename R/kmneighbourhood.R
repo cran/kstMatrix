@@ -12,6 +12,7 @@
 #' kmneighbourhood(c(1,1,0,0), xpl$space)
 #'
 #' @keywords math
+#' @family Neighbourhood & fringe
 #'
 #' @export
 kmneighbourhood <- function(state, struct) {

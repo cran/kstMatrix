@@ -41,4 +41,5 @@ kmsimulate(xpl$space, 50, c(0.2, 0.25, 0.15, 0.2), 0)
 Doignon, J.-P. & Falmagne, J.-C. (1999). Knowledge Spaces.
 Springer–Verlag, Berlin.
 }
+\concept{Simulating response patterns}
 \keyword{math}

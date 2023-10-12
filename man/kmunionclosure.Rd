@@ -28,4 +28,11 @@ kmunionclosure(xpl$basis)
 Dowling, C. E. (1993). On the irredundant construction of knowledge spaces.
 Journal of Mathematical Psychology, 37, 49–62.
 }
+\seealso{
+Other Different representations for knowledge spaces: 
+\code{\link{kmbasis}()},
+\code{\link{kmsurmisefunction}()},
+\code{\link{kmsurmiserelation}()}
+}
+\concept{Different representations for knowledge spaces}
 \keyword{math}

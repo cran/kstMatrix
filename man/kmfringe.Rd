@@ -23,4 +23,9 @@ the state differs from its neighbours.
 kmfringe(c(1,0,0,0), xpl$space)
 
 }
+\seealso{
+Other Neighbourhood & fringe: 
+\code{\link{kmneighbourhood}()}
+}
+\concept{Neighbourhood & fringe}
 \keyword{math}

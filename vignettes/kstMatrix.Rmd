@@ -17,6 +17,8 @@ knitr::opts_chunk$set(
 library(kstMatrix)
 library(igraph)
 library(grDevices)
+library(sets)
+library(pks)
 ```
 
 Knowledge space theory applies prerequisite relationships between items of knowledge
@@ -25,8 +27,8 @@ within a given domain for efficient adaptive assessment and training (Doignon & 
 knowledge space. Furthermore, it provides several empirically obtained knowledge spaces
 in form of their bases.
 
-There is a certain overlap in fuctionality between the `kst`and `kstMatrix` packages, 
-however the former uses a set representatin and the latter a matrix representation. The
+There is a certain overlap in functionality between the `kst`and `kstMatrix` packages, 
+however the former uses a set representation and the latter a matrix representation. The
 packages are to be seen as complementary, not as a replacement for each other.
 
 ## Different representations for knowledge spaces
@@ -58,6 +60,19 @@ kmsurmiserelation(xpl$space)
 The surmise relation can also be used to easily close a knowledge space under intersection:
 ```{r}
 kmunionclosure(t(kmsurmiserelation(xpl$space)))
+```
+### `kmsurmisefunction()`
+The `kmsurmisefunction`function computes the surmise function for a knowledge
+space or basis. For a more general family of sets, it computes the surmise function 
+for the smallest knowledge space including that family.
+```{r}
+kmsurmisefunction(xpl$space)
+```
+### `kmsf2basis()`
+Determine the basis of the knowledge space corresponding to a given surmise function.
+```{r}
+sf <- kmsurmisefunction(xpl$space)
+kmsf2basis(sf)
 ```
 
 ## Properties of knowledge structures
@@ -167,9 +182,17 @@ kmsetdistance(c(1,0,0), c(1,1,0))
 The `kmhasse` function draws a Hasse diagram of a knowledge structure,
 the `kmcolors`function returns a color vector to be used with `kmhasse()`.
 ```{r}
+kmhasse(xpl$space, horizontal = FALSE)
 probability_vec <- (0:8)/8
 colorvec <- kmcolors(probability_vec, cm.colors)
 kmhasse(xpl$space, horizontal = TRUE, colors = colorvec)
+```
+
+### Plotting with `kmbasisdiagram()`
+The `kmbasisdiagram` function draws a Hasse diagram of a basis similarly
+to the `kmahsse` function.
+```{r}
+kmbasisdiagram(xpl$basis, horizontal=FALSE)
 ```
 
 ## Datasets provided by `kstMatrix`

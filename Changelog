@@ -1,3 +1,8 @@
+2023-10-12: Version 0.2-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Adding kmsurmisefunction() (requiring packages sets and pks)
+* Setting horizontal default to FALSE in kmhasse() and kmbasisdiagram()
+* Adding kmbasisdiagram()
+
 2023-01-23: Version 0.1-5 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Adding kmeqreduction()
 

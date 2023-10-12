@@ -23,4 +23,10 @@ kmiswellgraded(xpl$space)
 Doignon, J.-P. & Falmagne, J.-C. (1999). Knowledge Spaces.
 Springer–Verlag, Berlin.
 }
+\seealso{
+Other Properties of knowledge structures: 
+\code{\link{kmeqreduction}()},
+\code{\link{kmnotions}()}
+}
+\concept{Properties of knowledge structures}
 \keyword{math}

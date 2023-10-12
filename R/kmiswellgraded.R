@@ -12,6 +12,7 @@
 #' kmiswellgraded(xpl$space)
 #'
 #' @keywords math
+#' @family Properties of knowledge structures
 #'
 #' @export
 kmiswellgraded <- function(x) {

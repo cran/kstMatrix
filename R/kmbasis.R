@@ -12,6 +12,7 @@
 #' kmbasis(xpl$space)
 #'
 #' @keywords math
+#' @family Different representations for knowledge spaces
 #'
 #' @export
 kmbasis <- function(x) {
