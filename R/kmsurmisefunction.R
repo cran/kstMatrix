@@ -72,8 +72,12 @@ kmsurmisefunction <- function(x) {
       as.data.frame(matrix(names(items), nrow=1)),
       as.data.frame(matrix(rep(x, length(items)), ncol = length(items), byrow = FALSE))
     ))
+    # print("printing y")
+    # print(y)
     t(y)
   }))))
+  # print("printing sf")
+  # print(sf)
   noc <- dim(sf)[2]
   sf[,2:(noc)] <- sapply(sf[,2:(noc)], as.numeric)
   colnames(sf)[1] <- "Item"

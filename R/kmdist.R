@@ -33,11 +33,10 @@ kmdist <- function(data, struct) {
     stop(sprintf("%s and %s hve different item numbers!.", dQuote("data"), dQuote("struct")))
   }
 
-  distvec <- rep(0, dim(struct)[2]+1)
+  distvec <- rep(as.integer(0), dim(struct)[2]+1)
   names(distvec) <- 0:dim(struct)[2]
-  apply(data, MARGIN = 1, function(rp) {
-    d <- min(apply(struct, MARGIN = 1, kmsetdistance, rp))
-    distvec[d+1] <<- distvec[d+1] + 1
-  })
+  result <- .C("dist", dim(data)[2], t(data), dim(data)[1], t(struct), dim(struct)[1], distvec, package="kstMatrix")
+  distvec <- result[[6]]
+  # names(distvec) <- 0:dim(struct)[2]
   distvec
 }

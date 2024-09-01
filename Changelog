@@ -1,3 +1,7 @@
+2024-08-26: Version 1.0-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Re-implementing the computationally intensive functions
+  kmunionclosure(), kmdist(), and kmbasis() in C.
+
 2023-10-12: Version 0.2-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Adding kmsurmisefunction() (requiring packages sets and pks)
 * Setting horizontal default to FALSE in kmhasse() and kmbasisdiagram()

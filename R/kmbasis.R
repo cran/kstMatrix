@@ -2,7 +2,7 @@
 #'
 #' \code{kmbasis} returns a matrix representing the basis of a
 #' knowledge space. If \code{x} is a knowledge structure or an
-#' arbitrary family of sets \code{kmbasis} returns the basis of
+#' arbitrary family of sets \code{kmreduction} returns the basis of
 #' the smallest knowledge space containing \code{x}.
 #'
 #' @param x Binary matrix representing a knowledge space
@@ -23,7 +23,6 @@ kmbasis <- function(x) {
     stop(sprintf("%s must be a binary matrix.", dQuote("x")))
   }
 
-  y <- x
   if (dim(x)[1] == 1) {
     if (sum(x) > 0)
       return(x)
@@ -31,23 +30,18 @@ kmbasis <- function(x) {
       return(NULL)
   }
 
-  for (i in 2:dim(x)[1]) {
-    for (j in 1:(i-1)) {
-      if (all(x[i,] <= x[j,])) {
-        y[j,] <- y[j,] + x[i,]
-      } else if (all(x[j,] <= x[i,])) {
-        y[i,] <- y[i,] + x[j,]
-      }
-    }
-  }
+  noi <- as.integer(dim(x)[2])
+  nos <- as.integer(dim(x)[1])
+  storage.mode(x) <- "integer"
+  nob <- as.integer(0)
 
-  v <- rep(1, dim(x)[2])
-  deleted <- 0
-  for (i in 1:dim(y)[1]) {
-    if (!any(y[i,] == v)) {
-      x <- x[-(i-deleted),]
-      deleted = deleted + 1
-    }
-  }
-  return(x)
+  result <- .C("basis_reduction", noi, nos, t(x), nob, package="kstMatrix")
+  nob <- result[[4]][1]
+
+  basis <- matrix(1:(noi*nob), ncol=noi, nrow=nob, byrow = TRUE)
+  storage.mode(basis) <- "integer"
+  result2 <- .C("basis_results", basis, package="kstMatrix")
+  b <- matrix(result2[[1]], ncol=noi, nrow=nob, byrow=TRUE)
+  colnames(b) <- colnames(x)
+  b
 }

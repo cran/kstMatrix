@@ -28,7 +28,8 @@ between a set of response patterns and a knowledge structure, the
 \section{Warning}{
 
 The DA computation can take quite some time for larger item sets as the
-power set has to be computed.
+power set has to be computed. For item sets with around 30 items or more,
+it may even crash the system due to huge memory requests.
 }
 
 \examples{

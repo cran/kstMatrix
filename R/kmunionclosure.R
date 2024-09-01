@@ -1,20 +1,23 @@
 #' Close a family of sets under union
 #'
 #' \code{kmunionclosure} returns a matrix representing a knowledge space. Please note
-#' that it takes quite some time for computing larger knowledge spaces.
+#' that it may take quite some time for computing larger knowledge spaces.
 #'
 #' @param x Binary matrix representing a family of sets
 #' @return Binary matrix representing the corresponding knowledge space, i.e. the
 #'         closure of the family under union including the empty set and
 #'         the full set.
 #'
-#' \code{kmconstrDowling} implements the irredundant algorithm deveoped by Dowling (1993).
+#' \code{kmunionclosure} implements the irredundant algorithm developed by Dowling (1993).
 #'
 #' @references Dowling, C. E. (1993). On the irredundant construction of knowledge spaces.
 #' Journal of Mathematical Psychology, 37, 49–62.
 #'
 #' @examples
 #' kmunionclosure(xpl$basis)
+#'
+#' @useDynLib kstMatrix
+#'
 #'
 #' @keywords math
 #' @family Different representations for knowledge spaces
@@ -28,15 +31,17 @@ kmunionclosure <- function(x) {
     stop(sprintf("%s must be a binary matrix.", dQuote("x")))
   }
 
-  noi <- dim(x)[2]
-  nob <- dim(x)[1]
-  f <- matrix(rep(0L, noi), nrow = 1, ncol = noi)
+  x <- kmbasis(x)
 
-  lapply(as.list(1:nob), function(i) {
-    f2 <- t(apply(f, 1, function(s) {1L*(s | x[i,])}))
-    f <<- unique(rbind(f, f2))
-  })
-  storage.mode(f) <- "integer"
-  f
+  noi <- as.integer(dim(x)[2])
+  nob <- as.integer(dim(x)[1])
+  storage.mode(x) <- "integer"
+  nos <- as.integer(0)
+  result <- .C("constr", noi, nob, t(x), nos, package="kstMatrix")
+  nos <- result[[4]][1]
+  space <- matrix(1:(noi*nos), ncol=noi, nrow=nos, byrow = TRUE)
+  storage.mode(space) <- "integer"
+  result2 <- .C("constr_results", space, package="kstMatrix")
+  result2[[1]]
 }
 

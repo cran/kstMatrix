@@ -15,7 +15,7 @@ Binary matrix representing the basis of the knowledge space.
 \description{
 \code{kmbasis} returns a matrix representing the basis of a
 knowledge space. If \code{x} is a knowledge structure or an
-arbitrary family of sets \code{kmbasis} returns the basis of
+arbitrary family of sets \code{kmreduction} returns the basis of
 the smallest knowledge space containing \code{x}.
 }
 \examples{
