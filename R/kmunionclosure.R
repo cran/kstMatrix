@@ -42,6 +42,8 @@ kmunionclosure <- function(x) {
   space <- matrix(1:(noi*nos), ncol=noi, nrow=nos, byrow = TRUE)
   storage.mode(space) <- "integer"
   result2 <- .C("constr_results", space, package="kstMatrix")
-  result2[[1]]
+  s <- result2[[1]]
+  colnames(s) <- colnames(x)
+  s
 }
 

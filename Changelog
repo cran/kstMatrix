@@ -1,3 +1,7 @@
+2024-10-03: Version 1.0-1 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Re-implmenting kmsurmisefunction() re-usaing the kmbasis() C code.
+* Copying colnames in kmunionclosure from orginal to computed structure.
+
 2024-08-26: Version 1.0-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Re-implementing the computationally intensive functions
   kmunionclosure(), kmdist(), and kmbasis() in C.

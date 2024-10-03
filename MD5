@@ -1,5 +1,5 @@
-6cbf1b0a232bfd50ef529f583caa0e60 *Changelog
-63826045a2c0d8e99f4fe14a89ce4448 *DESCRIPTION
+9c05b688cf21077c97893c1b78e4f8d8 *Changelog
+3bf56e66d057cff4db0038f6a1cbf9e8 *DESCRIPTION
 c5cd8148839addecf265ba2a7e992867 *NAMESPACE
 76bf5f47941241fe38f9af4aea81903d *R/cad.R
 4bcc017df0ad7d0577039c9ac314d09d *R/fractions.R
@@ -15,11 +15,11 @@ facfe18a34746194de7937925efece9b *R/kmhasse.R
 174eb5e1c246ff1114cf9369be5d85fe *R/kmnotions.R
 0e8023771f20fbcf66e428a3d2f7cf44 *R/kmsf2basis.R
 724a9ba09a09b10b7adc837dc9aa5bce *R/kmsimulate.R
-bb5a65a051dc00988a065c5b21c43a34 *R/kmsurmisefunction.R
+641b1a46b9655f3ef6065e934f639ce8 *R/kmsurmisefunction.R
 1bdbebcf5b81bda3cbf95cbe84d805c4 *R/kmsurmiserelation.R
 81b2947a1f393e1b049dbd0e03a0979c *R/kmsymmsetdiff.R
 4fb2c8e94e529b54ac758c11339ea81a *R/kmtrivial.R
-bae873752a9c54516b6cfdb89cb94b89 *R/kmunionclosure.R
+b22ae0eb486b2f93e138bf520aef4fbb *R/kmunionclosure.R
 4819aa39f19704050ce727fe4d069437 *R/kmvalidate.R
 2a2b01d0c0f9103ad9cb58a3776ad5c2 *R/readwrite.R
 86ac6f2cab94dbc9aaa1a65518e9ef51 *R/xpl.R
@@ -30,7 +30,7 @@ bae873752a9c54516b6cfdb89cb94b89 *R/kmunionclosure.R
 4ade86160ba9a1236745db70cdd9bdaa *data/xpl.rda
 9d9c813d8cc32d50b31b8d9899cbe5db *inst/doc/kstMatrix.R
 fcc87e59c5a8faccf37f8e6dc1e70485 *inst/doc/kstMatrix.Rmd
-9497372681b904e5f7947af68dac2f20 *inst/doc/kstMatrix.html
+3d4b16e1218c5c8e37eeb40a915ba3f1 *inst/doc/kstMatrix.html
 c65e56ef7b25825ec4ba366f4f913554 *man/cad.Rd
 8c66d3c7a448b9f0b3cfff33a44e5b4f *man/fractions.Rd
 f7cccb55b5de1342dfeb044b2228585a *man/kmbasis.Rd
@@ -54,10 +54,10 @@ bbbef7a8953566cb2a1139623da0abde *man/kmtrivial.Rd
 e568db8c6db741be2202095138648581 *man/kmvalidate.Rd
 6af504f2cd078f942b8bfb4005fdaca9 *man/readwrite.Rd
 31557c9609b11375e4d7d90b615a0b1a *man/xpl.Rd
-93a8dc9ef31a0d169105286b7bc871d8 *src/basis.c
+aa6ebbca0822c3ee0b47d519c49241a5 *src/basis.c
 92832b3b18500776fe47f85b77885597 *src/constr.c
 ce8041144f0df289a034225618bd2e81 *src/dist.c
-370339ae39d6782c4a7b5d3b5bf81c93 *src/helpers.c
-04811a3ca04271688e970c2b7c76c414 *src/kstMatrix.h
-ce657d2f7afefda3c00a80eea3a1f575 *src/kstMatrix_init.c
+6f2bc8f73d7462539822adbdee6e5061 *src/helpers.c
+8e6fc1f921177eafadd7461701311273 *src/kstMatrix.h
+1a58d23a8eb12bd308552d1131e7d795 *src/kstMatrix_init.c
 fcc87e59c5a8faccf37f8e6dc1e70485 *vignettes/kstMatrix.Rmd

@@ -10,7 +10,14 @@
 #include "kstMatrix.h"
 
 
+void print_matrix(tstate x, long rows) {
+  register int i;
 
+  for (i=0; i<rows; i++) {
+    Rprintf("%03lx ", x[i]);
+  }
+  Rprintf("\n");
+}
 
 int non_empty(tstate s, int w_size)
 {

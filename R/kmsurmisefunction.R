@@ -25,64 +25,38 @@ kmsurmisefunction <- function(x) {
     stop(sprintf("%s must be a binary matrix.", dQuote("x")))
   }
 
-  # First determine the basis of x
-  mat <- kmbasis(x)
-  x <- as.pattern(mat, as.set = TRUE)
-  class(x) <- unique(c("kbase", class(x)))
-  mat <- as.binmat(x)
-
-  rownames(mat) <- NULL
-  # colnames(mat) <- NULL
-  mat <- 2*mat
-
-  dom <- as.set(unique(unlist(as.list(x))))
-  ### compute atoms
-  y <- as.list(x)
-  atoms <- list()
-  items <- as.set(lapply(dom, as.character))
-  for (i in items) {
-    states <- y[which(sapply(y, function(j) grep(i,j))!=0)]
-    atom <- set()
-    for (j in seq_along(states)) {
-      subsets <- lapply(states[-j],set_is_subset, states[[j]])
-      if (!any(unlist(subsets))) {
-        atom <- c(atom, set(as.set(states[[j]])))
-      }
-    }
-    atoms[[i]] <- atom
+  if (dim(x)[1] == 1) {
+    return(NULL)
   }
-  names(atoms) <- unlist(items)
-  sind <- 1
-  for (s in x) {
-    qind <- 1
-    for (q in dom) {
-      if (s %e% atoms[[qind]])
-        mat[sind,qind] <- 1
-      qind <- qind + 1
-    }
-    sind <- sind + 1
-  }
-  itemnames <- colnames(mat)
 
-  sf <- as.data.frame(t(as.data.frame(apply(mat, MARGIN=1, function(x) {
-    items <- which(x == 1)
-    prereqs <- which(x == 2)
-    x[prereqs] <- 1
-    y <- t(rbind(
-      as.data.frame(matrix(names(items), nrow=1)),
-      as.data.frame(matrix(rep(x, length(items)), ncol = length(items), byrow = FALSE))
-    ))
-    # print("printing y")
-    # print(y)
-    t(y)
-  }))))
-  # print("printing sf")
-  # print(sf)
-  noc <- dim(sf)[2]
-  sf[,2:(noc)] <- sapply(sf[,2:(noc)], as.numeric)
-  colnames(sf)[1] <- "Item"
-  colnames(sf)[2:noc] <- itemnames
-  rownames(sf) <- NULL
-  sf[order(sf$Item),]
+  noi <- as.integer(dim(x)[2])
+  nos <- as.integer(dim(x)[1])
+  storage.mode(x) <- "integer"
+  nob <- as.integer(0)
 
+  result <- .C("basis_reduction", noi, nos, t(x), nob, package="kstMatrix")
+  nob <- result[[4]][1]
+
+  basis <- matrix(1:(noi*nob), ncol=noi, nrow=nob, byrow = TRUE)
+  storage.mode(basis) <- "integer"
+  mins <- matrix(1:(noi*nob), ncol=noi, nrow=nob, byrow = TRUE)
+  storage.mode(mins) <- "integer"
+  result2 <- .C("sf_results", basis, mins, package="kstMatrix")
+  b <- matrix(result2[[1]], ncol=noi, nrow=nob, byrow=TRUE)
+  colnames(b) <- colnames(x)
+  m <- matrix(result2[[2]], ncol=noi, nrow=nob, byrow=TRUE)
+  colnames(m) <- colnames(x)
+  print(m)
+
+  df <- data.frame(NULL)
+  sapply(colnames(x), function(item) {
+    hm <- matrix(b[m[,item]==1,], ncol=noi, byrow=FALSE)
+    hr <- dim(hm)[1]
+    print(hm)
+    print(hr)
+    hdf <- data.frame(cbind(t(t(rep(item, hr))), hm))
+    df <<- rbind(df, hdf)
+  })
+  colnames(df) <- c("Item", colnames(x))
+  df
 }

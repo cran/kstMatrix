@@ -68,3 +68,27 @@ void basis_results(int *basis) {
   R_Free(base);
   R_Free(minimals);
 }
+
+
+
+void sf_results(int *basis, int *mins) {
+  register long i, j, l, m;
+
+  print_matrix(base, size_b);
+  print_matrix(minimals, size_b);
+  l = 1;
+  for (m=1; m<=size_q; m++)
+    for (i=0; i<size_b; i++) {
+      if (set_size(minimals+size_w*i) == m) {
+        for (j=0; j<size_q; j++) {
+          if (base[i*size_w+word_cnt(j)] & (1L << word_pos(j))) basis[(l-1)*size_q+j] = 1;
+          else basis[(l-1)*size_q+j] = 0;
+          if (minimals[i*size_w+word_cnt(j)] & (1L << word_pos(j))) mins[(l-1)*size_q+j] = 1;
+          else mins[(l-1)*size_q+j] = 0;
+        }
+        l++;
+      }
+    }
+  R_Free(base);
+  R_Free(minimals);
+}

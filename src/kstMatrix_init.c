@@ -61,6 +61,17 @@ static const R_CMethodDef brMethods[] = {
 };
 
 
+extern void sf_results(int *basis, int *mins);
+
+static R_NativePrimitiveArgType sf_results_paramtypes[] = {VECSXP, VECSXP};
+
+static const R_CMethodDef sfrMethods[] = {
+  {"sf_results", (DL_FUNC) &sf_results, 4, sf_results_paramtypes},
+  {0,0,0,0}
+};
+
+
+
 
 
 extern void dist(int *noi,        // number of items
@@ -89,5 +100,6 @@ void R_init_kstMatrixCconstr(DllInfo *dll)
   R_registerRoutines(dll, dMethods, NULL, NULL, NULL);
   R_registerRoutines(dll, bMethods, NULL, NULL, NULL);
   R_registerRoutines(dll, brMethods, NULL, NULL, NULL);
+  R_registerRoutines(dll, sfrMethods, NULL, NULL, NULL);
   R_useDynamicSymbols(dll, FALSE);
 }

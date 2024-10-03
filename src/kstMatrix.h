@@ -26,6 +26,7 @@ extern void section_set(long *dest, long *src1, long *src2, long  l);
 extern void union_set(long *dest, long *src1, long *src2, long  l);
 extern void diff_set(long *dest, long *src1, long *src2, long  l);
 extern long *import_famset(int noi, int nos, int *data );
+extern void print_matrix(tstate x, long rows);
 
 
 extern long size_b, size_q, size_s, size_w;
