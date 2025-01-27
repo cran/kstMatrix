@@ -91,4 +91,5 @@ summary(xpl)
 xpl$basis
 xpl$space
 xpl$data
+head(xpl$sim)
 

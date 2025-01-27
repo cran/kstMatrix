@@ -1,5 +1,8 @@
+2025-01-26: Version 1.1-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* New function kmgenerate()
+
 2024-10-03: Version 1.0-1 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
-* Re-implmenting kmsurmisefunction() re-usaing the kmbasis() C code.
+* Re-implmenting kmsurmisefunction() partially re-using the kmbasis() C code.
 * Copying colnames in kmunionclosure from orginal to computed structure.
 
 2024-08-26: Version 1.0-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
