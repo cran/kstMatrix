@@ -21,7 +21,7 @@ A list with three elements:
 }
 \description{
 \code{kmvalidate} returns a list with three elements,
-a named vector with the frequencies of distances
+a named vector (dist) with the frequencies of distances
 between a set of response patterns and a knowledge structure, the
  Discrepancy Index (DI), and the Distance Agreement Coefficient (DA).
 }
@@ -38,6 +38,7 @@ kmvalidate(xpl$data, xpl$space)
 }
 \seealso{
 Other Validating knowledge spaces: 
+\code{\link{kmSRvalidate}()},
 \code{\link{kmdist}()}
 }
 \concept{Validating knowledge spaces}

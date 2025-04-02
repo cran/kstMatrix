@@ -4,12 +4,12 @@
 \alias{kmhasse}
 \title{Plot the Hasse diagram of a knowledge structure stored as a matrix}
 \usage{
-kmhasse(struc, horizontal = FALSE, colors = NULL)
+kmhasse(struc, horizontal = TRUE, colors = NULL)
 }
 \arguments{
 \item{struc}{Binary matrix representing a knowledge structure}
 
-\item{horizontal}{Boolean defining orientation of the graph, default FALSE}
+\item{horizontal}{Boolean defining orientation of the graph, default TRUE}
 
 \item{colors}{Color vector (default NULL)}
 }
@@ -20,6 +20,7 @@ the states are drawn in green.
 }
 \seealso{
 Other Plotting knowledge structures: 
+\code{\link{kmSRdiagram}()},
 \code{\link{kmbasisdiagram}()}
 }
 \concept{Plotting knowledge structures}

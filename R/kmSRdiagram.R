@@ -1,10 +1,10 @@
 #' Plot the Hasse diagram of a basis stored as a matrix
 #'
-#' \code{kmbasisdiagram} takes a matrix representing a basis and a
-#' color vector and draws a Hasse diagram. If the color vector is NULL
-#' the states are drawn in green.
+#' \code{kmSRdiagram} takes a matrix representing a surmise relation
+#' and a color vector and draws a Hasse diagram. If the color vector is
+#' NULL the states are drawn in green.
 #'
-#' @param struc Binary matrix representing a basis
+#' @param structure Binary matrix representing a surmise relation
 #' @param horizontal Boolean defining orientation of the graph, default TRUE
 #' @param colors Color vector (default NULL)
 #'
@@ -14,8 +14,7 @@
 #' @importFrom igraph graph E V plot.igraph
 #'
 #' @export
-kmbasisdiagram <- function(struc, horizontal = TRUE, colors=NULL){
-  structure <- t(struc)
+kmSRdiagram <- function(structure, horizontal = TRUE, colors=NULL){
   if (!requireNamespace("igraph", quietly = TRUE)) {
     stop(sprintf("Plotting requires package 'igraph'."))
   }
@@ -46,11 +45,7 @@ kmbasisdiagram <- function(struc, horizontal = TRUE, colors=NULL){
   ed <- NULL
   for(i in 1:n) for(j in 1:n) if(d[i,j]==1) ed <- c(ed,i,j)
   g1 <- igraph::graph( edges=ed, n=n, directed=TRUE )
-  l <- list("0")
-  # for(i in 1:n) l[[i]] <- paste(c(c(letters[1:nrow(structure)])[structure[,i]*c(1:nrow(structure))]),collapse = '')
-  l <- lapply(1:n, function(i) {
-    paste(c(c(letters[1:nrow(structure)])[structure[,i]*c(1:nrow(structure))]),collapse = '')
-  })
+  l <- as.list(colnames(structure))
   igraph::V(g1)$label <- l
   coord = igraph::layout_with_sugiyama(g1)$layout
   if (horizontal) {

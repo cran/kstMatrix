@@ -74,8 +74,6 @@ void basis_results(int *basis) {
 void sf_results(int *basis, int *mins) {
   register long i, j, l, m;
 
-  print_matrix(base, size_b);
-  print_matrix(minimals, size_b);
   l = 1;
   for (m=1; m<=size_q; m++)
     for (i=0; i<size_b; i++) {

@@ -1,3 +1,9 @@
+2025-04-02: Version 1.2-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Documentation updates
+* Additional functions kmSRdiagram & kmSRvalidate
+* Extending the xpl data set by two components sf and sr (surmise
+  function and surmise relation)
+
 2025-01-26: Version 1.1-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * New function kmgenerate()
 

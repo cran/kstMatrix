@@ -5,7 +5,7 @@
 #' the states are drawn in green.
 #'
 #' @param struc Binary matrix representing a knowledge structure
-#' @param horizontal Boolean defining orientation of the graph, default FALSE
+#' @param horizontal Boolean defining orientation of the graph, default TRUE
 #' @param colors Color vector (default NULL)
 #'
 #' @keywords math
@@ -14,7 +14,7 @@
 #' @importFrom igraph graph E V plot.igraph
 #'
 #' @export
-kmhasse <- function(struc, horizontal = FALSE, colors=NULL){
+kmhasse <- function(struc, horizontal = TRUE, colors=NULL){
 structure <- t(struc)
 if (!requireNamespace("igraph", quietly = TRUE)) {
 stop(sprintf("Plotting requires package 'igraph'."))

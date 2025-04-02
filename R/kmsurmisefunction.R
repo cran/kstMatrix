@@ -46,14 +46,11 @@ kmsurmisefunction <- function(x) {
   colnames(b) <- colnames(x)
   m <- matrix(result2[[2]], ncol=noi, nrow=nob, byrow=TRUE)
   colnames(m) <- colnames(x)
-  print(m)
 
   df <- data.frame(NULL)
   sapply(colnames(x), function(item) {
     hm <- matrix(b[m[,item]==1,], ncol=noi, byrow=FALSE)
     hr <- dim(hm)[1]
-    print(hm)
-    print(hr)
     hdf <- data.frame(cbind(t(t(rep(item, hr))), hm))
     df <<- rbind(df, hdf)
   })

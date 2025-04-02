@@ -12,7 +12,7 @@
 
 <meta name="author" content="Cord Hockemeyer" />
 
-<meta name="date" content="2025-01-27" />
+<meta name="date" content="2025-04-02" />
 
 <title>kstMatrix</title>
 
@@ -340,7 +340,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">kstMatrix</h1>
 <h4 class="author">Cord Hockemeyer</h4>
-<h4 class="date">2025-01-27</h4>
+<h4 class="date">2025-04-02</h4>
 
 
 
@@ -425,67 +425,25 @@ function for a knowledge space or basis. For a more general family of
 sets, it computes the surmise function for the smallest knowledge space
 including that family.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">kmsurmisefunction</span>(xpl<span class="sc">$</span>space)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt; 000 001 002 003 005 007 006 00b 00f </span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; 000 001 002 000 004 000 004 008 000 </span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt;      a b c d</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; [1,] 1 0 0 0</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; [2,] 0 1 0 0</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; [3,] 0 0 1 0</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt; [4,] 0 0 1 0</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; [5,] 0 0 0 1</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="co">#&gt; [1,]    1    0    0    0</span></span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="co">#&gt; [1,]    0    1    0    0</span></span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">#&gt; [1,]    1    0    1    0</span></span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="co">#&gt; [2,]    0    1    1    0</span></span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span>
-<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="co">#&gt; [1,]    1    1    0    1</span></span>
-<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="co">#&gt;   Item a b c d</span></span>
-<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="co">#&gt; 1    a 1 0 0 0</span></span>
-<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="co">#&gt; 2    b 0 1 0 0</span></span>
-<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="co">#&gt; 3    c 1 0 1 0</span></span>
-<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="co">#&gt; 4    c 0 1 1 0</span></span>
-<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="co">#&gt; 5    d 1 1 0 1</span></span></code></pre></div>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt;   Item a b c d</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; 1    a 1 0 0 0</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; 2    b 0 1 0 0</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; 3    c 1 0 1 0</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; 4    c 0 1 1 0</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; 5    d 1 1 0 1</span></span></code></pre></div>
 </div>
 <div id="kmsf2basis" class="section level3">
 <h3><code>kmsf2basis()</code></h3>
 <p>Determine the basis of the knowledge space corresponding to a given
 surmise function.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>sf <span class="ot">&lt;-</span> <span class="fu">kmsurmisefunction</span>(xpl<span class="sc">$</span>space)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#&gt; 000 001 002 003 005 007 006 00b 00f </span></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; 000 001 002 000 004 000 004 008 000 </span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt;      a b c d</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; [1,] 1 0 0 0</span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; [2,] 0 1 0 0</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; [3,] 0 0 1 0</span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; [4,] 0 0 1 0</span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt; [5,] 0 0 0 1</span></span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt; [1,]    1    0    0    0</span></span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co">#&gt; [1,]    0    1    0    0</span></span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co">#&gt; [1,]    1    0    1    0</span></span>
-<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co">#&gt; [2,]    0    1    1    0</span></span>
-<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="co">#&gt; [1] 2</span></span>
-<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="co">#&gt; [1,]    1    1    0    1</span></span>
-<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span>
-<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a><span class="fu">kmsf2basis</span>(sf)</span>
-<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a><span class="co">#&gt;      a b c d</span></span>
-<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="co">#&gt; [1,] 1 0 0 0</span></span>
-<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="co">#&gt; [2,] 0 1 0 0</span></span>
-<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a><span class="co">#&gt; [3,] 1 0 1 0</span></span>
-<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a><span class="co">#&gt; [4,] 0 1 1 0</span></span>
-<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a><span class="co">#&gt; [5,] 1 1 0 1</span></span></code></pre></div>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">kmsf2basis</span>(sf)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt;      a b c d</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; [1,] 1 0 0 0</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; [2,] 0 1 0 0</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; [3,] 1 0 1 0</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; [4,] 0 1 1 0</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; [5,] 1 1 0 1</span></span></code></pre></div>
 </div>
 </div>
 <div id="properties-of-knowledge-structures" class="section level2">
@@ -603,40 +561,40 @@ numerical where <code>beta</code> or <code>eta</code> is assumed to be
 equal for all items.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="fu">kmsimulate</span>(xpl<span class="sc">$</span>space, <span class="dv">10</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="co">#&gt;       a b c d</span></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="co">#&gt;  [1,] 1 1 1 1</span></span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="co">#&gt;  [2,] 1 0 0 1</span></span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co">#&gt;  [3,] 0 1 1 0</span></span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="co">#&gt;  [4,] 1 1 0 0</span></span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="co">#&gt;  [5,] 0 1 0 0</span></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="co">#&gt;  [1,] 0 0 0 0</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="co">#&gt;  [2,] 0 0 1 0</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="co">#&gt;  [3,] 0 1 0 0</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a><span class="co">#&gt;  [4,] 0 1 0 0</span></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="co">#&gt;  [5,] 1 1 1 0</span></span>
 <span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a><span class="co">#&gt;  [6,] 0 0 0 0</span></span>
-<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="co">#&gt;  [7,] 1 0 1 0</span></span>
-<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a><span class="co">#&gt;  [8,] 0 0 0 0</span></span>
-<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a><span class="co">#&gt;  [9,] 0 0 0 0</span></span>
-<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a><span class="co">#&gt; [10,] 1 1 1 1</span></span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a><span class="co">#&gt;  [7,] 0 1 0 0</span></span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a><span class="co">#&gt;  [8,] 1 0 0 0</span></span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a><span class="co">#&gt;  [9,] 1 0 1 0</span></span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a><span class="co">#&gt; [10,] 1 1 1 0</span></span>
 <span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a><span class="fu">kmsimulate</span>(xpl<span class="sc">$</span>space, <span class="dv">10</span>, <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.25</span>, <span class="fl">0.15</span>, <span class="fl">0.2</span>), <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>))</span>
 <span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a><span class="co">#&gt;       a b c d</span></span>
-<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a><span class="co">#&gt;  [1,] 1 1 0 0</span></span>
-<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a><span class="co">#&gt;  [2,] 1 0 0 0</span></span>
-<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a><span class="co">#&gt;  [3,] 1 0 0 0</span></span>
-<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a><span class="co">#&gt;  [4,] 1 1 0 0</span></span>
-<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a><span class="co">#&gt;  [5,] 1 0 1 0</span></span>
-<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a><span class="co">#&gt;  [6,] 1 1 1 0</span></span>
-<span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a><span class="co">#&gt;  [7,] 1 1 0 0</span></span>
-<span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a><span class="co">#&gt;  [8,] 0 0 1 0</span></span>
-<span id="cb14-23"><a href="#cb14-23" tabindex="-1"></a><span class="co">#&gt;  [9,] 1 1 1 0</span></span>
-<span id="cb14-24"><a href="#cb14-24" tabindex="-1"></a><span class="co">#&gt; [10,] 0 0 0 0</span></span>
+<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a><span class="co">#&gt;  [1,] 0 1 0 0</span></span>
+<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a><span class="co">#&gt;  [2,] 0 1 0 0</span></span>
+<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a><span class="co">#&gt;  [3,] 0 0 1 0</span></span>
+<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a><span class="co">#&gt;  [4,] 0 0 0 0</span></span>
+<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a><span class="co">#&gt;  [5,] 1 1 1 1</span></span>
+<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a><span class="co">#&gt;  [6,] 1 1 1 1</span></span>
+<span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a><span class="co">#&gt;  [7,] 0 1 0 0</span></span>
+<span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a><span class="co">#&gt;  [8,] 1 0 1 0</span></span>
+<span id="cb14-23"><a href="#cb14-23" tabindex="-1"></a><span class="co">#&gt;  [9,] 0 1 1 1</span></span>
+<span id="cb14-24"><a href="#cb14-24" tabindex="-1"></a><span class="co">#&gt; [10,] 1 1 0 0</span></span>
 <span id="cb14-25"><a href="#cb14-25" tabindex="-1"></a><span class="fu">kmsimulate</span>(xpl<span class="sc">$</span>space, <span class="dv">10</span>, <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.25</span>, <span class="fl">0.15</span>, <span class="fl">0.2</span>), <span class="dv">0</span>)</span>
 <span id="cb14-26"><a href="#cb14-26" tabindex="-1"></a><span class="co">#&gt;       a b c d</span></span>
-<span id="cb14-27"><a href="#cb14-27" tabindex="-1"></a><span class="co">#&gt;  [1,] 0 1 0 0</span></span>
-<span id="cb14-28"><a href="#cb14-28" tabindex="-1"></a><span class="co">#&gt;  [2,] 1 0 0 1</span></span>
+<span id="cb14-27"><a href="#cb14-27" tabindex="-1"></a><span class="co">#&gt;  [1,] 0 1 1 0</span></span>
+<span id="cb14-28"><a href="#cb14-28" tabindex="-1"></a><span class="co">#&gt;  [2,] 0 0 0 0</span></span>
 <span id="cb14-29"><a href="#cb14-29" tabindex="-1"></a><span class="co">#&gt;  [3,] 1 1 0 0</span></span>
-<span id="cb14-30"><a href="#cb14-30" tabindex="-1"></a><span class="co">#&gt;  [4,] 1 1 0 0</span></span>
-<span id="cb14-31"><a href="#cb14-31" tabindex="-1"></a><span class="co">#&gt;  [5,] 0 1 0 0</span></span>
-<span id="cb14-32"><a href="#cb14-32" tabindex="-1"></a><span class="co">#&gt;  [6,] 1 0 0 1</span></span>
-<span id="cb14-33"><a href="#cb14-33" tabindex="-1"></a><span class="co">#&gt;  [7,] 1 1 1 0</span></span>
-<span id="cb14-34"><a href="#cb14-34" tabindex="-1"></a><span class="co">#&gt;  [8,] 0 1 1 0</span></span>
-<span id="cb14-35"><a href="#cb14-35" tabindex="-1"></a><span class="co">#&gt;  [9,] 1 1 0 0</span></span>
-<span id="cb14-36"><a href="#cb14-36" tabindex="-1"></a><span class="co">#&gt; [10,] 1 0 1 0</span></span></code></pre></div>
+<span id="cb14-30"><a href="#cb14-30" tabindex="-1"></a><span class="co">#&gt;  [4,] 0 1 0 0</span></span>
+<span id="cb14-31"><a href="#cb14-31" tabindex="-1"></a><span class="co">#&gt;  [5,] 0 0 0 0</span></span>
+<span id="cb14-32"><a href="#cb14-32" tabindex="-1"></a><span class="co">#&gt;  [6,] 1 0 1 0</span></span>
+<span id="cb14-33"><a href="#cb14-33" tabindex="-1"></a><span class="co">#&gt;  [7,] 1 0 0 0</span></span>
+<span id="cb14-34"><a href="#cb14-34" tabindex="-1"></a><span class="co">#&gt;  [8,] 0 0 0 0</span></span>
+<span id="cb14-35"><a href="#cb14-35" tabindex="-1"></a><span class="co">#&gt;  [9,] 1 0 0 0</span></span>
+<span id="cb14-36"><a href="#cb14-36" tabindex="-1"></a><span class="co">#&gt; [10,] 0 1 0 0</span></span></code></pre></div>
 </div>
 </div>
 <div id="neighbourhood-fringe" class="section level2">
@@ -751,46 +709,48 @@ experts agree (Dowling &amp; Hockemeyer, 1998).</p>
 <p>This is just a small fictitious 4-item-example used for the examples
 in the documentation.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">summary</span>(xpl)</span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="co">#&gt;       Length Class  Mode   </span></span>
-<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="co">#&gt; basis   20   -none- numeric</span></span>
-<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="co">#&gt; space   36   -none- numeric</span></span>
-<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="co">#&gt; data    28   -none- numeric</span></span>
-<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a><span class="co">#&gt; sim   2000   -none- numeric</span></span>
-<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a>xpl<span class="sc">$</span>basis</span>
-<span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a><span class="co">#&gt;      a b c d</span></span>
-<span id="cb25-9"><a href="#cb25-9" tabindex="-1"></a><span class="co">#&gt; [1,] 1 0 0 0</span></span>
-<span id="cb25-10"><a href="#cb25-10" tabindex="-1"></a><span class="co">#&gt; [2,] 0 1 0 0</span></span>
-<span id="cb25-11"><a href="#cb25-11" tabindex="-1"></a><span class="co">#&gt; [3,] 1 0 1 0</span></span>
-<span id="cb25-12"><a href="#cb25-12" tabindex="-1"></a><span class="co">#&gt; [4,] 0 1 1 0</span></span>
-<span id="cb25-13"><a href="#cb25-13" tabindex="-1"></a><span class="co">#&gt; [5,] 1 1 0 1</span></span>
-<span id="cb25-14"><a href="#cb25-14" tabindex="-1"></a>xpl<span class="sc">$</span>space</span>
-<span id="cb25-15"><a href="#cb25-15" tabindex="-1"></a><span class="co">#&gt;       a b c d</span></span>
-<span id="cb25-16"><a href="#cb25-16" tabindex="-1"></a><span class="co">#&gt;  [1,] 0 0 0 0</span></span>
-<span id="cb25-17"><a href="#cb25-17" tabindex="-1"></a><span class="co">#&gt;  [2,] 1 0 0 0</span></span>
-<span id="cb25-18"><a href="#cb25-18" tabindex="-1"></a><span class="co">#&gt;  [3,] 0 1 0 0</span></span>
-<span id="cb25-19"><a href="#cb25-19" tabindex="-1"></a><span class="co">#&gt;  [4,] 1 1 0 0</span></span>
-<span id="cb25-20"><a href="#cb25-20" tabindex="-1"></a><span class="co">#&gt;  [5,] 1 0 1 0</span></span>
-<span id="cb25-21"><a href="#cb25-21" tabindex="-1"></a><span class="co">#&gt;  [6,] 1 1 1 0</span></span>
-<span id="cb25-22"><a href="#cb25-22" tabindex="-1"></a><span class="co">#&gt;  [7,] 0 1 1 0</span></span>
-<span id="cb25-23"><a href="#cb25-23" tabindex="-1"></a><span class="co">#&gt;  [8,] 1 1 0 1</span></span>
-<span id="cb25-24"><a href="#cb25-24" tabindex="-1"></a><span class="co">#&gt;  [9,] 1 1 1 1</span></span>
-<span id="cb25-25"><a href="#cb25-25" tabindex="-1"></a>xpl<span class="sc">$</span>data</span>
-<span id="cb25-26"><a href="#cb25-26" tabindex="-1"></a><span class="co">#&gt;      a b c d</span></span>
-<span id="cb25-27"><a href="#cb25-27" tabindex="-1"></a><span class="co">#&gt; [1,] 0 0 1 0</span></span>
-<span id="cb25-28"><a href="#cb25-28" tabindex="-1"></a><span class="co">#&gt; [2,] 1 0 0 0</span></span>
-<span id="cb25-29"><a href="#cb25-29" tabindex="-1"></a><span class="co">#&gt; [3,] 0 0 0 1</span></span>
-<span id="cb25-30"><a href="#cb25-30" tabindex="-1"></a><span class="co">#&gt; [4,] 1 1 0 0</span></span>
-<span id="cb25-31"><a href="#cb25-31" tabindex="-1"></a><span class="co">#&gt; [5,] 1 1 1 0</span></span>
-<span id="cb25-32"><a href="#cb25-32" tabindex="-1"></a><span class="co">#&gt; [6,] 1 1 1 1</span></span>
-<span id="cb25-33"><a href="#cb25-33" tabindex="-1"></a><span class="co">#&gt; [7,] 1 1 0 0</span></span>
-<span id="cb25-34"><a href="#cb25-34" tabindex="-1"></a><span class="fu">head</span>(xpl<span class="sc">$</span>sim)</span>
-<span id="cb25-35"><a href="#cb25-35" tabindex="-1"></a><span class="co">#&gt;      a b c d</span></span>
-<span id="cb25-36"><a href="#cb25-36" tabindex="-1"></a><span class="co">#&gt; [1,] 1 1 1 0</span></span>
-<span id="cb25-37"><a href="#cb25-37" tabindex="-1"></a><span class="co">#&gt; [2,] 0 1 0 0</span></span>
-<span id="cb25-38"><a href="#cb25-38" tabindex="-1"></a><span class="co">#&gt; [3,] 1 1 1 0</span></span>
-<span id="cb25-39"><a href="#cb25-39" tabindex="-1"></a><span class="co">#&gt; [4,] 1 1 1 1</span></span>
-<span id="cb25-40"><a href="#cb25-40" tabindex="-1"></a><span class="co">#&gt; [5,] 1 0 1 1</span></span>
-<span id="cb25-41"><a href="#cb25-41" tabindex="-1"></a><span class="co">#&gt; [6,] 1 1 1 1</span></span></code></pre></div>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="co">#&gt;       Length Class      Mode   </span></span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a><span class="co">#&gt; basis   20   -none-     numeric</span></span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a><span class="co">#&gt; space   36   -none-     numeric</span></span>
+<span id="cb25-5"><a href="#cb25-5" tabindex="-1"></a><span class="co">#&gt; data    28   -none-     numeric</span></span>
+<span id="cb25-6"><a href="#cb25-6" tabindex="-1"></a><span class="co">#&gt; sim   2000   -none-     numeric</span></span>
+<span id="cb25-7"><a href="#cb25-7" tabindex="-1"></a><span class="co">#&gt; sr      16   -none-     numeric</span></span>
+<span id="cb25-8"><a href="#cb25-8" tabindex="-1"></a><span class="co">#&gt; sf       5   data.frame list</span></span>
+<span id="cb25-9"><a href="#cb25-9" tabindex="-1"></a>xpl<span class="sc">$</span>basis</span>
+<span id="cb25-10"><a href="#cb25-10" tabindex="-1"></a><span class="co">#&gt;      a b c d</span></span>
+<span id="cb25-11"><a href="#cb25-11" tabindex="-1"></a><span class="co">#&gt; [1,] 1 0 0 0</span></span>
+<span id="cb25-12"><a href="#cb25-12" tabindex="-1"></a><span class="co">#&gt; [2,] 0 1 0 0</span></span>
+<span id="cb25-13"><a href="#cb25-13" tabindex="-1"></a><span class="co">#&gt; [3,] 1 0 1 0</span></span>
+<span id="cb25-14"><a href="#cb25-14" tabindex="-1"></a><span class="co">#&gt; [4,] 0 1 1 0</span></span>
+<span id="cb25-15"><a href="#cb25-15" tabindex="-1"></a><span class="co">#&gt; [5,] 1 1 0 1</span></span>
+<span id="cb25-16"><a href="#cb25-16" tabindex="-1"></a>xpl<span class="sc">$</span>space</span>
+<span id="cb25-17"><a href="#cb25-17" tabindex="-1"></a><span class="co">#&gt;       a b c d</span></span>
+<span id="cb25-18"><a href="#cb25-18" tabindex="-1"></a><span class="co">#&gt;  [1,] 0 0 0 0</span></span>
+<span id="cb25-19"><a href="#cb25-19" tabindex="-1"></a><span class="co">#&gt;  [2,] 1 0 0 0</span></span>
+<span id="cb25-20"><a href="#cb25-20" tabindex="-1"></a><span class="co">#&gt;  [3,] 0 1 0 0</span></span>
+<span id="cb25-21"><a href="#cb25-21" tabindex="-1"></a><span class="co">#&gt;  [4,] 1 1 0 0</span></span>
+<span id="cb25-22"><a href="#cb25-22" tabindex="-1"></a><span class="co">#&gt;  [5,] 1 0 1 0</span></span>
+<span id="cb25-23"><a href="#cb25-23" tabindex="-1"></a><span class="co">#&gt;  [6,] 1 1 1 0</span></span>
+<span id="cb25-24"><a href="#cb25-24" tabindex="-1"></a><span class="co">#&gt;  [7,] 0 1 1 0</span></span>
+<span id="cb25-25"><a href="#cb25-25" tabindex="-1"></a><span class="co">#&gt;  [8,] 1 1 0 1</span></span>
+<span id="cb25-26"><a href="#cb25-26" tabindex="-1"></a><span class="co">#&gt;  [9,] 1 1 1 1</span></span>
+<span id="cb25-27"><a href="#cb25-27" tabindex="-1"></a>xpl<span class="sc">$</span>data</span>
+<span id="cb25-28"><a href="#cb25-28" tabindex="-1"></a><span class="co">#&gt;      a b c d</span></span>
+<span id="cb25-29"><a href="#cb25-29" tabindex="-1"></a><span class="co">#&gt; [1,] 0 0 1 0</span></span>
+<span id="cb25-30"><a href="#cb25-30" tabindex="-1"></a><span class="co">#&gt; [2,] 1 0 0 0</span></span>
+<span id="cb25-31"><a href="#cb25-31" tabindex="-1"></a><span class="co">#&gt; [3,] 0 0 0 1</span></span>
+<span id="cb25-32"><a href="#cb25-32" tabindex="-1"></a><span class="co">#&gt; [4,] 1 1 0 0</span></span>
+<span id="cb25-33"><a href="#cb25-33" tabindex="-1"></a><span class="co">#&gt; [5,] 1 1 1 0</span></span>
+<span id="cb25-34"><a href="#cb25-34" tabindex="-1"></a><span class="co">#&gt; [6,] 1 1 1 1</span></span>
+<span id="cb25-35"><a href="#cb25-35" tabindex="-1"></a><span class="co">#&gt; [7,] 1 1 0 0</span></span>
+<span id="cb25-36"><a href="#cb25-36" tabindex="-1"></a><span class="fu">head</span>(xpl<span class="sc">$</span>sim)</span>
+<span id="cb25-37"><a href="#cb25-37" tabindex="-1"></a><span class="co">#&gt;      a b c d</span></span>
+<span id="cb25-38"><a href="#cb25-38" tabindex="-1"></a><span class="co">#&gt; [1,] 1 1 1 0</span></span>
+<span id="cb25-39"><a href="#cb25-39" tabindex="-1"></a><span class="co">#&gt; [2,] 0 1 0 0</span></span>
+<span id="cb25-40"><a href="#cb25-40" tabindex="-1"></a><span class="co">#&gt; [3,] 1 1 1 0</span></span>
+<span id="cb25-41"><a href="#cb25-41" tabindex="-1"></a><span class="co">#&gt; [4,] 1 1 1 1</span></span>
+<span id="cb25-42"><a href="#cb25-42" tabindex="-1"></a><span class="co">#&gt; [5,] 1 0 1 1</span></span>
+<span id="cb25-43"><a href="#cb25-43" tabindex="-1"></a><span class="co">#&gt; [6,] 1 1 1 1</span></span></code></pre></div>
 </div>
 </div>
 <div id="references" class="section level2">
