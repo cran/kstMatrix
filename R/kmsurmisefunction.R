@@ -10,7 +10,6 @@
 #' @examples
 #' kmsurmisefunction(xpl$space)
 #'
-#' @keywords math
 #' @family Different representations for knowledge spaces
 #'
 #' @importFrom sets as.set set_is_subset set %e%

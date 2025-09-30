@@ -5,13 +5,12 @@
 #' @param x Binary matrix representing a knowledge space
 #' @return Logical value specifying whether `x` is wellgraded
 #'
-#' @references Doignon, J.-P. & Falmagne, J.-C. (1999). Knowledge Spaces.
+#' @references Doignon, J.-P. & Falmagne, J.-C. (1999). _Knowledge Spaces._
 #' Springer–Verlag, Berlin.
 #'
 #' @examples
 #' kmiswellgraded(xpl$space)
 #'
-#' @keywords math
 #' @family Properties of knowledge structures
 #'
 #' @export

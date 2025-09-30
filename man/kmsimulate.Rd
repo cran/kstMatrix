@@ -28,8 +28,8 @@ The \code{beta} and \code{eta} parameters must be either single numericals
 or vectors with a length identical to the number of rows in the \code{x} matrix.
 A mixture is possible.
 
-The `sample` function used by `kmsimulate` might work inaccurately for knowledge
-structures `x` with 2^31 or more states.
+The \code{sample} function used by \code{kmsimulate} might work inaccurately for knowledge
+structures \code{x} with 2^31 or more states.
 }
 \examples{
 kmsimulate(xpl$space, 50, 0.2, 0.1)
@@ -38,8 +38,7 @@ kmsimulate(xpl$space, 50, c(0.2, 0.25, 0.15, 0.2), 0)
 
 }
 \references{
-Doignon, J.-P. & Falmagne, J.-C. (1999). Knowledge Spaces.
+Doignon, J.-P. & Falmagne, J.-C. (1999). \emph{Knowledge Spaces.}
 Springer–Verlag, Berlin.
 }
 \concept{Simulating response patterns}
-\keyword{math}

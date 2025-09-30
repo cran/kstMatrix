@@ -7,7 +7,6 @@
 #' @examples
 #' kmsymmsetdiff(c(1,0,0), c(1,1,0))
 #'
-#' @keywords math
 #' @family Utilities
 #'
 #' @export
@@ -21,6 +20,8 @@ kmsymmsetdiff <- function(x, y) {
 #' of the symmetric set difference
 #' @examples
 #' kmsetdistance(c(1,0,0), c(1,1,0))
+#'
+#' @family Utilities
 #'
 #' @export
 kmsetdistance <- function(x, y) {

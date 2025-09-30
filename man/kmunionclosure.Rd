@@ -11,8 +11,8 @@ kmunionclosure(x)
 }
 \value{
 Binary matrix representing the corresponding knowledge space, i.e. the
-        closure of the family under union including the empty set and
-        the full set.
+closure of the family under union including the empty set and
+the full set.
 
 \code{kmunionclosure} implements the irredundant algorithm developed by Dowling (1993).
 }
@@ -26,13 +26,13 @@ kmunionclosure(xpl$basis)
 }
 \references{
 Dowling, C. E. (1993). On the irredundant construction of knowledge spaces.
-Journal of Mathematical Psychology, 37, 49–62.
+\emph{Journal of Mathematical Psychology, 37,} 49–62.
 }
 \seealso{
 Other Different representations for knowledge spaces: 
 \code{\link{kmbasis}()},
+\code{\link{kmsf2basis}()},
 \code{\link{kmsurmisefunction}()},
 \code{\link{kmsurmiserelation}()}
 }
 \concept{Different representations for knowledge spaces}
-\keyword{math}

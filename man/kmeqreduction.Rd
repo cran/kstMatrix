@@ -26,4 +26,3 @@ Other Properties of knowledge structures:
 \code{\link{kmnotions}()}
 }
 \concept{Properties of knowledge structures}
-\keyword{math}

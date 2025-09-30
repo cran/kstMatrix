@@ -10,7 +10,7 @@ kmiswellgraded(x)
 \item{x}{Binary matrix representing a knowledge space}
 }
 \value{
-Logical value specifying whether `x` is wellgraded
+Logical value specifying whether \code{x} is wellgraded
 }
 \description{
 \code{kmiswellgraded} returns whether a knowledge structure is wellgraded.
@@ -20,7 +20,7 @@ kmiswellgraded(xpl$space)
 
 }
 \references{
-Doignon, J.-P. & Falmagne, J.-C. (1999). Knowledge Spaces.
+Doignon, J.-P. & Falmagne, J.-C. (1999). \emph{Knowledge Spaces.}
 Springer–Verlag, Berlin.
 }
 \seealso{
@@ -29,4 +29,3 @@ Other Properties of knowledge structures:
 \code{\link{kmnotions}()}
 }
 \concept{Properties of knowledge structures}
-\keyword{math}

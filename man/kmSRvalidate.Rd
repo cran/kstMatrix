@@ -14,8 +14,8 @@ kmSRvalidate(data, sr)
 \value{
 A list with two elements:
 \describe{
-  \item{gamma}{Goodman & Kruskal's gamma index}
-  \item{VC}{Viola<tional Coefficient}
+\item{gamma}{Goodman & Kruskal's gamma index}
+\item{VC}{Violational Coefficient}
 }
 }
 \description{
@@ -33,4 +33,3 @@ Other Validating knowledge spaces:
 \code{\link{kmvalidate}()}
 }
 \concept{Validating knowledge spaces}
-\keyword{math}

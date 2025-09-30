@@ -13,7 +13,6 @@
 #' @examples
 #' kmnotions(xpl$space)
 #'
-#' @keywords math
 #' @family Properties of knowledge structures
 #'
 #' @export

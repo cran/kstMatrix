@@ -28,4 +28,3 @@ Other Neighbourhood & fringe:
 \code{\link{kmneighbourhood}()}
 }
 \concept{Neighbourhood & fringe}
-\keyword{math}

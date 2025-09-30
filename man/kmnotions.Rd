@@ -30,4 +30,3 @@ Other Properties of knowledge structures:
 \code{\link{kmiswellgraded}()}
 }
 \concept{Properties of knowledge structures}
-\keyword{math}

@@ -15,4 +15,10 @@ kmcolors(prob, palette = cm.colors)
 \code{kmcolors} takes a probabilty vector and a color palette and
 creates a color vector to be used with \code{kmhasse}.
 }
-\keyword{math}
+\seealso{
+Other Plotting knowledge structures: 
+\code{\link{kmSRdiagram}()},
+\code{\link{kmbasisdiagram}()},
+\code{\link{kmhasse}()}
+}
+\concept{Plotting knowledge structures}

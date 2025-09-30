@@ -17,7 +17,7 @@
 #' @param eta Lucky guess probability value or vector
 #' @return Binary matrix representing the simulated data set
 #'
-#' @references Doignon, J.-P. & Falmagne, J.-C. (1999). Knowledge Spaces.
+#' @references Doignon, J.-P. & Falmagne, J.-C. (1999). _Knowledge Spaces._
 #' Springer–Verlag, Berlin.
 #'
 #' @examples
@@ -25,7 +25,6 @@
 #' kmsimulate(xpl$space, 50, c(0.2, 0.25, 0.15, 0.2), c(0.1, 0.15, 0.05, 0.1))
 #' kmsimulate(xpl$space, 50, c(0.2, 0.25, 0.15, 0.2), 0)
 #'
-#' @keywords math
 #' @family Simulating response patterns
 #'
 #' @importFrom stats runif

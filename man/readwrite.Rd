@@ -23,16 +23,16 @@ those prerequisite relationships on which the majority of the experts agree
 (Dowling & Hockemeyer, 1998).
 }
 \references{
-Dowling, C. E. (1991). Constructing Knowledge Structures from
-the Judgements of Experts. Habilitationsschrift, Technische Universität
+Dowling, C. E. (1991). \emph{Constructing Knowledge Structures from
+the Judgements of Experts.} Habilitationsschrift, Technische Universität
 Carolo-Wilhelmina, Braunschweig, Germany.
 
 Dowling, C. E. (1993). Applying the basis of a knowledge space for controlling
-the questioning of an expert. Journal of Mathematical Psychology, 37, 21–48.
+the questioning of an expert. \emph{Journal of Mathematical Psychology, 37,} 21–48.
 
 Dowling, C. E. & Hockemeyer, C. (1998). Computing the intersection of knowledge
 spaces using only their basis. In Cornelia E. Dowling, Fred S. Roberts, & Peter
-Theuns, editors, Recent Progress in Mathematical Psychology, pp. 133–141.
+Theuns, editors, \emph{Recent Progress in Mathematical Psychology,} pp. 133–141.
 Lawrence Erlbaum Associates Ltd., Mahwah, NJ.
 }
 \seealso{
@@ -42,4 +42,4 @@ Other Data:
 \code{\link{xpl}}
 }
 \concept{Data}
-\keyword{data}
+\keyword{datasets}

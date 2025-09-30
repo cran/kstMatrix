@@ -6,7 +6,7 @@
 #' @param prob Probability vector
 #' @param palette Color palette (default = cm.colors)
 #'
-#' @keywords math
+#' @family Plotting knowledge structures
 #'
 #' @importFrom grDevices cm.colors
 #'

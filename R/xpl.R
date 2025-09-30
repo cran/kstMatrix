@@ -12,6 +12,5 @@
 #' @format A list containing the basis, the space, the surmise relation,
 #'         the surmise function, and the two data matrices data and sim.
 #'
-#' @keywords data
 #' @family Data
 "xpl"

@@ -8,7 +8,6 @@
 #' @param horizontal Boolean defining orientation of the graph, default TRUE
 #' @param colors Color vector (default NULL)
 #'
-#' @keywords math
 #' @family Plotting knowledge structures
 #'
 #' @importFrom igraph graph E V plot.igraph

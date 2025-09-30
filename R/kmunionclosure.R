@@ -11,7 +11,7 @@
 #' \code{kmunionclosure} implements the irredundant algorithm developed by Dowling (1993).
 #'
 #' @references Dowling, C. E. (1993). On the irredundant construction of knowledge spaces.
-#' Journal of Mathematical Psychology, 37, 49–62.
+#' _Journal of Mathematical Psychology, 37,_ 49–62.
 #'
 #' @examples
 #' kmunionclosure(xpl$basis)
@@ -19,7 +19,6 @@
 #' @useDynLib kstMatrix
 #'
 #'
-#' @keywords math
 #' @family Different representations for knowledge spaces
 #'
 #' @export

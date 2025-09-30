@@ -16,13 +16,12 @@
 #' items and a varying number of rows containing the basis elements.
 #'
 #' @references Baumunk, K. & Dowling, C. E. (1997). Validity of spaces for assessing
-#' knowledge about fractions. Journal of Mathematical Psychology, 41 ,99–105.
+#' knowledge about fractions. _Journal of Mathematical Psychology, 41,_ 99–105.
 #'
 #' Dowling, C. E. & Hockemeyer, C. (1998). Computing the intersection of knowledge
 #' spaces using only their basis. In Cornelia E. Dowling, Fred S. Roberts, & Peter
-#' Theuns, editors, Recent Progress in Mathematical Psychology, pp. 133–141.
+#' Theuns, editors, _Recent Progress in Mathematical Psychology,_ pp. 133–141.
 #' Lawrence Erlbaum Associates Ltd., Mahwah, NJ.
 #'
-#' @keywords data
 #' @family Data
 "fractions"

@@ -38,13 +38,12 @@ discordance <- function(data, sr) {
 #' @return A list with two elements:
 #' \describe{
 #'   \item{gamma}{Goodman & Kruskal's gamma index}
-#'   \item{VC}{Viola<tional Coefficient}
+#'   \item{VC}{Violational Coefficient}
 #' }
 #'
 #' @examples
 #' kmSRvalidate(xpl$data, xpl$sr)
 #'
-#' @keywords math
 #' @family Validating knowledge spaces
 #'
 #' @export

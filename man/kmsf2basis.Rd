@@ -16,3 +16,11 @@ Matrix representing the basis.
 \code{kmsf2basis} expects a surmise function data frame
 and returns the corresponding basis.
 }
+\seealso{
+Other Different representations for knowledge spaces: 
+\code{\link{kmbasis}()},
+\code{\link{kmsurmisefunction}()},
+\code{\link{kmsurmiserelation}()},
+\code{\link{kmunionclosure}()}
+}
+\concept{Different representations for knowledge spaces}

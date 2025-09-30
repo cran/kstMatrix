@@ -29,5 +29,11 @@ kmsymmsetdiff(c(1,0,0), c(1,1,0))
 kmsetdistance(c(1,0,0), c(1,1,0))
 
 }
+\seealso{
+Other Utilities: 
+\code{\link{kmdoubleequal}()}
+
+Other Utilities: 
+\code{\link{kmdoubleequal}()}
+}
 \concept{Utilities}
-\keyword{math}

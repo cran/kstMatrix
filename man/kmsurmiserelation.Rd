@@ -32,8 +32,8 @@ kmsurmiserelation(xpl$space)
 \seealso{
 Other Different representations for knowledge spaces: 
 \code{\link{kmbasis}()},
+\code{\link{kmsf2basis}()},
 \code{\link{kmsurmisefunction}()},
 \code{\link{kmunionclosure}()}
 }
 \concept{Different representations for knowledge spaces}
-\keyword{math}

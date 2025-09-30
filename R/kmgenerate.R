@@ -22,7 +22,7 @@
 #' @useDynLib kstMatrix
 #'
 #'
-#' @keywords math
+#' @family Generating knolwedge spaces
 #'
 #' @export
 kmgenerate <- function(x, threshold = 0) {

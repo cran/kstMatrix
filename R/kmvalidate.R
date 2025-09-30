@@ -22,7 +22,6 @@
 #' @examples
 #' kmvalidate(xpl$data, xpl$space)
 #'
-#' @keywords math
 #' @family Validating knowledge spaces
 #'
 #' @export

@@ -21,7 +21,7 @@ the states are drawn in green.
 \seealso{
 Other Plotting knowledge structures: 
 \code{\link{kmSRdiagram}()},
+\code{\link{kmcolors}()},
 \code{\link{kmhasse}()}
 }
 \concept{Plotting knowledge structures}
-\keyword{math}

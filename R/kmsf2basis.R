@@ -7,6 +7,8 @@
 #'
 #' @return Matrix representing the basis.
 #'
+#' @family Different representations for knowledge spaces
+#'
 #' @export
 kmsf2basis <- function(sf) {
   noc <- dim(sf)[2]

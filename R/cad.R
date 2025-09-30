@@ -15,18 +15,17 @@
 #' matrix form. Each matrix has 28 columns representing the different knowledge
 #' items and a varying number of rows containing the basis elements.
 #'
-#' @references Dowling, C. E. (1991). Constructing Knowledge Structures from
-#' the Judgements of Experts. Habilitationsschrift, Technische Universität
+#' @references Dowling, C. E. (1991). _Constructing Knowledge Structures from
+#' the Judgements of Experts._ Habilitationsschrift, Technische Universität
 #' Carolo-Wilhelmina, Braunschweig, Germany.
 #'
 #' Dowling, C. E. (1993). Applying the basis of a knowledge space for controlling
-#' the questioning of an expert. Journal of Mathematical Psychology, 37, 21–48.
+#' the questioning of an expert. _Journal of Mathematical Psychology, 37,_ 21–48.
 #'
 #' Dowling, C. E. & Hockemeyer, C. (1998). Computing the intersection of knowledge
 #' spaces using only their basis. In Cornelia E. Dowling, Fred S. Roberts, & Peter
-#' Theuns, editors, Recent Progress in Mathematical Psychology, pp. 133–141.
+#' Theuns, editors, _Recent Progress in Mathematical Psychology,_ pp. 133–141.
 #' Lawrence Erlbaum Associates Ltd., Mahwah, NJ.
 #'
-#' @keywords data
 #' @family Data
 "cad"

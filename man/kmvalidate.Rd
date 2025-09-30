@@ -14,16 +14,16 @@ kmvalidate(data, struct)
 \value{
 A list with three elements:
 \describe{
-  \item{dist}{Distance distribution vector}
-  \item{DI}{Discrepancy Index}
-  \item{DA}{Distance Agreement Coefficient}
+\item{dist}{Distance distribution vector}
+\item{DI}{Discrepancy Index}
+\item{DA}{Distance Agreement Coefficient}
 }
 }
 \description{
 \code{kmvalidate} returns a list with three elements,
 a named vector (dist) with the frequencies of distances
 between a set of response patterns and a knowledge structure, the
- Discrepancy Index (DI), and the Distance Agreement Coefficient (DA).
+Discrepancy Index (DI), and the Distance Agreement Coefficient (DA).
 }
 \section{Warning}{
 
@@ -42,4 +42,3 @@ Other Validating knowledge spaces:
 \code{\link{kmdist}()}
 }
 \concept{Validating knowledge spaces}
-\keyword{math}

@@ -18,7 +18,6 @@
 #' @examples
 #' kmsurmiserelation(xpl$space)
 #'
-#' @keywords math
 #' @family Different representations for knowledge spaces
 #'
 #' @export

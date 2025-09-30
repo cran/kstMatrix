@@ -30,4 +30,3 @@ Other Validating knowledge spaces:
 \code{\link{kmvalidate}()}
 }
 \concept{Validating knowledge spaces}
-\keyword{math}

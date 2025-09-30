@@ -30,4 +30,4 @@ memory problems way earlier anyway.
 kmgenerate(xpl$sim, 15)
 
 }
-\keyword{math}
+\concept{Generating knolwedge spaces}

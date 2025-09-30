@@ -23,11 +23,11 @@ prerequisite relationships on which the majority of the experts agree
 }
 \references{
 Baumunk, K. & Dowling, C. E. (1997). Validity of spaces for assessing
-knowledge about fractions. Journal of Mathematical Psychology, 41 ,99–105.
+knowledge about fractions. \emph{Journal of Mathematical Psychology, 41,} 99–105.
 
 Dowling, C. E. & Hockemeyer, C. (1998). Computing the intersection of knowledge
 spaces using only their basis. In Cornelia E. Dowling, Fred S. Roberts, & Peter
-Theuns, editors, Recent Progress in Mathematical Psychology, pp. 133–141.
+Theuns, editors, \emph{Recent Progress in Mathematical Psychology,} pp. 133–141.
 Lawrence Erlbaum Associates Ltd., Mahwah, NJ.
 }
 \seealso{
@@ -37,4 +37,4 @@ Other Data:
 \code{\link{xpl}}
 }
 \concept{Data}
-\keyword{data}
+\keyword{datasets}
