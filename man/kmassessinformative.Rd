@@ -45,7 +45,6 @@ Other Knowledge assessment:
 \code{\link{kmassessbayesian}()},
 \code{\link{kmassesshalfsplit}()},
 \code{\link{kmassessmentsimulation}()},
-\code{\link{kmassessmultiplicative}()},
-\code{\link{kmsassess}()}
+\code{\link{kmassessmultiplicative}()}
 }
 \concept{Knowledge assessment}

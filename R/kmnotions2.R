@@ -1,6 +1,6 @@
 #' Determine the notions of a knowledge structure
 #'
-#' \code{kmnotions} returns a matrix representing the
+#' \code{kmnotions2} returns a matrix representing the
 #' notions of a knowledge structure.
 #'
 #' @param x Binary matrix representing a knowledge structure
@@ -11,12 +11,12 @@
 #' with '1's in the main diagonal.
 #'
 #' @examples
-#' kmnotions(xpl$space)
+#' kmnotions2(xpl$space)
 #'
 #' @family Properties of knowledge structures
 #'
 #' @export
-kmnotions <- function(x) {
+kmnotions2 <- function(x) {
   if (!inherits(x, "matrix")) {
     stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("matrix")))
   }
@@ -24,19 +24,23 @@ kmnotions <- function(x) {
     stop(sprintf("%s must be a binary matrix.", dQuote("x")))
   }
 
-  noi <- dim(x)[2]
-  sr <- matrix(rep(0, noi*noi), nrow = noi, ncol = noi)
-  for (i in 1:noi) {
-    for (j in 1:i) {
-      if (all(x[,i] == x[,j])) {
-        sr[j,i] <- 1
-        sr[i,j] <- 1
-      }
-    }
-  }
-  rownames(sr) <- colnames(x)
-  colnames(sr) <- colnames(x)
-  red <-unique(sr)
-  class(red) <- unique(c("kmstructure", "kmfamily", class(red)))
+  if (is.null(colnames(x))) colnames(x) <- as.character(1:dim(x)[2])
+
+  l <- unique(lapply(colnames(x), function(item) {
+    which(apply(x, 2, function(i) {
+      all(i == x[,item])
+    }))
+  }))
+  print(l)
+
+  red <- matrix(rep(0, length(l)*dim(x)[2]), nrow = length(l))
+  sapply((1:length(l)), function(n) {
+    sapply(l[[n]], function(i) {
+      red[n,i] <<- 1
+      })
+  })
+
+  class(red) <- unique(c("kmfamset", class(red)))
+  colnames(red) <- colnames(x)
   red
 }

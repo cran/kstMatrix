@@ -17,8 +17,8 @@
 #'
 #' @export
 kmsurmisefunction <- function(x) {
-  if (!inherits(x, "matrix")) {
-    stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("matrix")))
+  if (!inherits(x, "kmfamset")) {
+    stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("kmfamset")))
   }
   if (any(x != 1*as.logical(x))) {
     stop(sprintf("%s must be a binary matrix.", dQuote("x")))
@@ -26,6 +26,10 @@ kmsurmisefunction <- function(x) {
 
   if (dim(x)[1] == 1) {
     return(NULL)
+  }
+  if (is.null(colnames(x))) {
+    warning("Empty column names - numbering the columns.")
+    colnames(x) <- as.character(c(1:(dim(x)[2])))
   }
 
   noi <- as.integer(dim(x)[2])
@@ -54,5 +58,6 @@ kmsurmisefunction <- function(x) {
     df <<- rbind(df, hdf)
   })
   colnames(df) <- c("Item", colnames(x))
+  class(df) <- unique(c("kmsurmisefunction", class(df)))
   df
 }

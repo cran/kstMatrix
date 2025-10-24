@@ -13,12 +13,14 @@
 #'
 #' @export
 kmeqreduction <- function(x) {
-  if (!inherits(x, "matrix")) {
-    stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("matrix")))
-  }
+  # if (!inherits(x, "kmfamset")) {
+  #   stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("kmfamset")))
+  # }
   if (any(x != 1*as.logical(x))) {
     stop(sprintf("%s must be a binary matrix.", dQuote("x")))
   }
 
-  unique(x, MARGIN = 2)
+  red <- unique(x, MARGIN = 2)
+  class(red) <- unique(c("kmfamset", class(x)), fromLast = TRUE)
+  red
 }

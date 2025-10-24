@@ -4,7 +4,7 @@
 \alias{kmnneighbourhood}
 \title{Compute the n-neighbourhod of a state within a knowledge structure}
 \usage{
-kmnneighbourhood(state, struct, distance)
+kmnneighbourhood(state, struct, distance, include = FALSE)
 }
 \arguments{
 \item{state}{Binary vector representing a knowledge state}
@@ -12,6 +12,9 @@ kmnneighbourhood(state, struct, distance)
 \item{struct}{Binary matrix representing a knowledge structure}
 
 \item{distance}{Size of the n-neighbourhood}
+
+\item{include}{Boolean whether the original state should be included
+(defaul FALSE)}
 }
 \value{
 Matrix containing the neighbouring states, one per row
@@ -25,4 +28,9 @@ states with a symmetric set difference maximal n.
 kmnneighbourhood(c(1,1,0,0), xpl$space, 2)
 
 }
-\keyword{math}
+\seealso{
+Other Neighbourhood & fringe: 
+\code{\link{kmfringe}()},
+\code{\link{kmneighbourhood}()}
+}
+\concept{Neighbourhood & fringe}

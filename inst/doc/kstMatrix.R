@@ -4,7 +4,6 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(kstMatrix)
-library(igraph)
 library(grDevices)
 library(sets)
 library(pks)
@@ -67,15 +66,6 @@ kmsymmsetdiff(c(1,0,0), c(1,1,0))
 
 ## -----------------------------------------------------------------------------
 kmsetdistance(c(1,0,0), c(1,1,0))
-
-## -----------------------------------------------------------------------------
-kmhasse(xpl$space, horizontal = FALSE)
-probability_vec <- (0:8)/8
-colorvec <- kmcolors(probability_vec, cm.colors)
-kmhasse(xpl$space, horizontal = TRUE, colors = colorvec)
-
-## -----------------------------------------------------------------------------
-kmbasisdiagram(xpl$basis, horizontal=FALSE)
 
 ## -----------------------------------------------------------------------------
 summary(cad)

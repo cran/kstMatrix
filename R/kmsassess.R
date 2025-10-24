@@ -14,23 +14,28 @@
 #' @param zeta0 Update parameter for wrong responses
 #' @param zeta1 Update parameter for correct responses
 #' @param threshold Probability threshold for stopping criterion
+#' @param probdev Provide information on the probability development
+#'    including Hasse diagrams stored in \code{tempdir()}. Defaults to FALSE.
 #' @return A list with the following elements:
 #' \describe{
 #'   \item{state}{Diagnosed knowledge state (binary vector)}
-#'   \item{probs}{Resultng probability distribution}
+#'   \item{probs}{Resulting probability distribution. If probdev is set to TRUE,
+#'                a list of probability distributions for each step is given
+#'                instead.}
 #'   \item{queried}{Sequence of items used in the assessment (list)}
+#'   \item{qtime}{Average time for finding a question}
+#'   \item{utime}{Average time for updating the probabilities}
 #' }
 #'
-#' @details
-#' \code{kmsassess} uses the \code{kmassess} function, so the explanations there hold also here.
 #'
 #' @examples
-#' kmsassess(c(1,1,0,0), xpl$space, "halfsplit", "Bayesian", 0.3, 0.2, NULL, NULL, 0.55)
+#' kmsassess(c(1,1,0,0), xpl$space, "halfsplit", "Bayesian", 0.1, 0.1, NULL, NULL, 0.55)
 #'
 #' @family Knowledge assessment
 #'
+#' @rdname kmassess
 #' @export
-kmsassess <- function(r, ks, questioning, update, beta, eta, zeta0, zeta1, threshold) {
+kmsassess <- function(r, ks, questioning, update, beta, eta, zeta0, zeta1, threshold, probdev=FALSE) {
   storage.mode(ks) <- "integer"
   if ((threshold < 0) | (threshold > 1))
     stop("Threshokd must be between 0 and 1.")
@@ -67,7 +72,7 @@ kmsassess <- function(r, ks, questioning, update, beta, eta, zeta0, zeta1, thres
   z0 <- rep(zeta0, noi)
   z1 <- rep(zeta1, noi)
   if (update == "Bayesian")
-    kmassess(r, pks, questioning, update, bv, ev, NULL, NULL, threshold)
+    kmassess(r, pks, questioning, update, bv, ev, NULL, NULL, threshold, probdev)
   else
-    kmassess(r, pks, questioning, update, NULL, NULL, z0, z1, threshold)
+    kmassess(r, pks, questioning, update, NULL, NULL, z0, z1, threshold, probdev)
 }

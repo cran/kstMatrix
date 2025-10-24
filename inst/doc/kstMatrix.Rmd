@@ -15,7 +15,6 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(kstMatrix)
-library(igraph)
 library(grDevices)
 library(sets)
 library(pks)
@@ -178,22 +177,7 @@ difference between two sets represented as binary vectors.
 kmsetdistance(c(1,0,0), c(1,1,0))
 ```
 
-## Plotting with `kmhasse()`and `kmcolors()`
-The `kmhasse` function draws a Hasse diagram of a knowledge structure,
-the `kmcolors`function returns a color vector to be used with `kmhasse()`.
-```{r}
-kmhasse(xpl$space, horizontal = FALSE)
-probability_vec <- (0:8)/8
-colorvec <- kmcolors(probability_vec, cm.colors)
-kmhasse(xpl$space, horizontal = TRUE, colors = colorvec)
-```
-
-### Plotting with `kmbasisdiagram()`
-The `kmbasisdiagram` function draws a Hasse diagram of a basis similarly
-to the `kmahsse` function.
-```{r}
-kmbasisdiagram(xpl$basis, horizontal=FALSE)
-```
+## Plotting 
 
 ## Datasets provided by `kstMatrix`
 The provided datasets were obtained by the research group around Cornelia Dowling by querying experts

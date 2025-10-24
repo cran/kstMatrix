@@ -13,12 +13,10 @@ kmcolors(prob, palette = cm.colors)
 }
 \description{
 \code{kmcolors} takes a probabilty vector and a color palette and
-creates a color vector to be used with \code{kmhasse}.
+creates a color vector to be used with \code{kstMatrix::plot}.
 }
 \seealso{
 Other Plotting knowledge structures: 
-\code{\link{kmSRdiagram}()},
-\code{\link{kmbasisdiagram}()},
-\code{\link{kmhasse}()}
+\code{\link{plot}()}
 }
 \concept{Plotting knowledge structures}

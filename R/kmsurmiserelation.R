@@ -22,8 +22,8 @@
 #'
 #' @export
 kmsurmiserelation <- function(x) {
-  if (!inherits(x, "matrix")) {
-    stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("matrix")))
+  if (!inherits(x, "kmfamset")) {
+    stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("kmfamset")))
   }
   if (any(x != 1L*as.logical(x))) {
     stop(sprintf("%s must be a binary matrix.", dQuote("x")))
@@ -48,5 +48,6 @@ kmsurmiserelation <- function(x) {
   storage.mode(sr) <- "integer"
   rownames(sr) <- colnames(x)
   colnames(sr) <- colnames(x)
+  class(sr) <- unique(c("kmsurmiserelation", class(sr)))
   sr
 }

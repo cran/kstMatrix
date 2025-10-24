@@ -43,6 +43,7 @@ kmunionclosure <- function(x) {
   result2 <- .C("constr_results", space, package="kstMatrix")
   s <- result2[[1]]
   colnames(s) <- colnames(x)
+  class(s) <- unique(c("kmspace", "kmstructure", "kmfamset", class(s)))
   s
 }
 

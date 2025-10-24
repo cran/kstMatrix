@@ -6,6 +6,8 @@
 #'
 #' @param state Binary vector representing a knowledge state
 #' @param struct Binary matrix representing a knowledge structure
+#' @param include Boolean whether the original state should be included
+#' in the result (default FALSE)
 #' @return Matrix containing the neighbouring states, one per row
 #'
 #' @examples
@@ -14,7 +16,7 @@
 #' @family Neighbourhood & fringe
 #'
 #' @export
-kmneighbourhood <- function(state, struct) {
+kmneighbourhood <- function(state, struct, include = FALSE) {
   if (!inherits(struct, "matrix")) {
     stop(sprintf("%s must be of class %s.", dQuote("struct"), dQuote("matrix")))
   }
@@ -34,7 +36,9 @@ kmneighbourhood <- function(state, struct) {
     ncol = length(state),
     byrow = TRUE
   )
+  if (include) n <- rbind(n, state)
   colnames(n) <- colnames(struct)
+  class(n) <- unique(c("kmfamset", class(n)))
   n
 }
 
@@ -49,15 +53,17 @@ kmneighbourhood <- function(state, struct) {
 #' @param state Binary vector representing a knowledge state
 #' @param struct Binary matrix representing a knowledge structure
 #' @param distance Size of the n-neighbourhood
+#' @param include Boolean whether the original state should be included
+#' (defaul FALSE)
 #' @return Matrix containing the neighbouring states, one per row
 #'
 #' @examples
 #' kmnneighbourhood(c(1,1,0,0), xpl$space, 2)
 #'
-#' @keywords math
+#' @family Neighbourhood & fringe
 #'
 #' @export
-kmnneighbourhood <- function(state, struct, distance) {
+kmnneighbourhood <- function(state, struct, distance, include=FALSE) {
   if (!inherits(struct, "matrix")) {
     stop(sprintf("%s must be of class %s.", dQuote("struct"), dQuote("matrix")))
   }
@@ -78,6 +84,8 @@ kmnneighbourhood <- function(state, struct, distance) {
     ncol = length(state),
     byrow = TRUE
   )
+  if (include) n <- rbind(n, state)
   colnames(n) <- colnames(struct)
+  class(n) <- unique(c("kmfamset", class(n)))
   n
 }

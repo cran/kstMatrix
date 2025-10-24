@@ -22,11 +22,15 @@ NULL
 #' @rdname kmtrivial
 #' @export
 kmminimalspace <- function(noi) {
-  matrix(c(rep(0,noi), rep(1,noi)), nrow = 2, ncol = noi, byrow = TRUE)
+  m <- matrix(c(rep(0,noi), rep(1,noi)), nrow = 2, ncol = noi, byrow = TRUE)
+  class(m) <- unique(c("kmspace", "kmstructure", "kmfamset", class(m)))
+  m
 }
 
 #' @rdname kmtrivial
 #' @export
 kmmaximalspace <- function(noi) {
-  kmunionclosure(diag(noi))
+  m <- kmunionclosure(diag(noi))
+  class(m) <- unique(c("kmspace", "kmstructure", "kmfamset", class(m)))
+  m
 }

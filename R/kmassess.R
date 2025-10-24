@@ -14,10 +14,14 @@
 #' @param zeta0 Vector of update parameters for wrong responses
 #' @param zeta1 Vector of update parameters for correct responses
 #' @param threshold Probability threshold for stopping criterion
+#' @param probdev Create colored Hasse diagrams in each step (default FALSE)
+#'    and save them to \code{tempdir()}.
 #' @return A list with the following elements:
 #' \describe{
 #'   \item{state}{Diagnosed knowledge state (binary vector)}
-#'   \item{probs}{Resultng probability distribution}
+#'   \item{probs}{Resulting probability distribution. If probdev is set to TRUE,
+#'                a list of probability distributions for each step is given
+#'                instead.}
 #'   \item{queried}{Sequence of items used in the assessment (list)}
 #'   \item{qtime}{Average time for finding a question}
 #'   \item{utime}{Average time for updating the probabilities}
@@ -106,28 +110,45 @@
 #'          cbind(as.data.frame(as.matrix(rep(1/9.0, 9), ncol=1)), xpl$space),
 #'          "halfsplit",
 #'          "Bayesian",
-#'          rep(0.3, 4),
-#'          rep(0.2, 4),
+#'          rep(0.12, 4),
+#'          rep(0.1, 4),
 #'          NULL,
 #'          NULL,
 #'          0.55
 #'         )
 #'
+#' @importFrom grDevices dev.off jpeg terrain.colors
+#' @importFrom DiagrammeR grViz
+#' @importFrom rsvg rsvg_png
+#' @importFrom DiagrammeRsvg export_svg
+#'
 #' @family Knowledge assessment
 #' @aliases Assessment
 #'
 #' @export
-kmassess <- function(r, pks, questioning, update, beta, eta, zeta0, zeta1, threshold) {
+kmassess <- function(r,
+                     pks,
+                     questioning,
+                     update,
+                     beta,
+                     eta,
+                     zeta0,
+                     zeta1,
+                     threshold,
+                     probdev = FALSE) {
+  problist <- list()
   noi <- dim(pks)[2] - 1
   nos = dim(pks)[1]
 
   debug <- FALSE
+  td <- tempdir()
 
   if ((threshold < 0) | (threshold > 1))
     stop("Threshokd must be between 0 and 1.")
   if (threshold <= 0.5)
     warning("Threshold shoud be larger than 0.5!")
   ks <- as.matrix(pks[,(2:(noi+1))])
+  class(ks) <- unique(c("kmstructure", "kmfamset", class(ks)))
   storage.mode(ks) <- "integer"
   if ((min(ks) < 0) | (max(ks) > 1))
     stop("Knowledge structure must be a binary matrix.")
@@ -168,6 +189,12 @@ kmassess <- function(r, pks, questioning, update, beta, eta, zeta0, zeta1, thres
   queried <- c()
   qtime <- c()
   utime <- c()
+  if (probdev) {
+    # plog <- log(probs + 1e-8)
+    # pnorm <- (plog - min(plog)) / (max(plog) - min(plog))
+    pl <- plot(ks, colors=kmcolors(probs, terrain.colors), method="DiagrammeR")
+    rsvg_png(charToRaw(export_svg(pl)), paste0(tempdir(), "/assess-fig0.png"))
+  }
   while (max(probs) <= threshold) {
     if (questioning == "halfsplit") {
       qtime <- c(qtime, system.time(q <- kmassesshalfsplit(probs, ks))[3])
@@ -180,7 +207,7 @@ kmassess <- function(r, pks, questioning, update, beta, eta, zeta0, zeta1, thres
     if (length(queried) > 2*noi) {
       warning("Reached twice of number of items as number of questions!")
       qs <- paste(queried, collapse = ", ")
-      warning(sprintf("QUestion sequence: %s", qs))
+      warning(sprintf("Question sequence: %s", qs))
       return(NULL)
     }
 
@@ -191,16 +218,25 @@ kmassess <- function(r, pks, questioning, update, beta, eta, zeta0, zeta1, thres
     else
       utime <- c(utime, system.time(probs <- kmassessbayesian(probs, ks, beta, eta, q, resp))[3])
 
+    problist <- append(problist, list(probs))
+    if (probdev) {
+      # plog <- log(probs + 1e-10)
+      # pnorm <- (plog - min(plog)) / (max(plog) - min(plog))
+      fn <- paste0(td, "/assess-fig", length(queried), ".png")
+      pl <- plot(ks, colors=kmcolors(probs, terrain.colors), method="DiagrammeR")
+      rsvg_png(charToRaw(export_svg(pl)), fn)
+    }
     if (debug) {
-      print(probs)
+      print(problist)
       print(sum(probs))
     }
   }
   result <- which(probs == max(probs))
+  if (probdev) probs <- problist
   list(state = as.integer(ks[result,]),
        probs = probs,
        queried = queried,
        qtime = sum(qtime)/length(qtime),
        utime = sum(utime)/length(utime)
-      )
+  )
 }

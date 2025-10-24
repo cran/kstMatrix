@@ -4,12 +4,15 @@
 \alias{kmneighbourhood}
 \title{Compute the neighbourhod of a state within a knowledge structure}
 \usage{
-kmneighbourhood(state, struct)
+kmneighbourhood(state, struct, include = FALSE)
 }
 \arguments{
 \item{state}{Binary vector representing a knowledge state}
 
 \item{struct}{Binary matrix representing a knowledge structure}
+
+\item{include}{Boolean whether the original state should be included
+in the result (default FALSE)}
 }
 \value{
 Matrix containing the neighbouring states, one per row
@@ -25,6 +28,7 @@ kmneighbourhood(c(1,1,0,0), xpl$space)
 }
 \seealso{
 Other Neighbourhood & fringe: 
-\code{\link{kmfringe}()}
+\code{\link{kmfringe}()},
+\code{\link{kmnneighbourhood}()}
 }
 \concept{Neighbourhood & fringe}

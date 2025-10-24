@@ -30,4 +30,8 @@ memory problems way earlier anyway.
 kmgenerate(xpl$sim, 15)
 
 }
-\concept{Generating knolwedge spaces}
+\seealso{
+Other Generating knowledge spaces: 
+\code{\link{kmiita2SR}()}
+}
+\concept{Generating knowledge spaces}

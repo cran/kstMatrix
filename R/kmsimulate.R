@@ -57,6 +57,7 @@ kmsimulate <- function(x, n, beta, eta) {
     1*(stats::runif(noi) <= (x[y,]*(1-beta) + ((1-x[y,])*eta)))
   }))
   colnames(px) <- colnames(x)
+  class(px) <- unique(c("kmdata", class(px)))
   px
 
 }

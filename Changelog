@@ -1,4 +1,13 @@
-2025-09-10: Vwesion 1.3-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+2025-10-24: Version 2.0-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Introducing classes for KST objects
+* kmbasis() S3 method
+* New functions kmiita2SR()
+* Reworking of the graphical functions; plot() S3 method, obsoleting
+  the old functions kmbasisdiagram(), kmSRdiagram(), and kmhasse()
+* include flag for kmneighbourhood() and kmnneighbourhood()
+* Some bug fixes around column naming
+
+2025-09-30: Version 1.3-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Added functions for probabilistic knowledge assessment
 * New utility function kmdoubleequal()
 

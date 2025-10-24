@@ -2,31 +2,18 @@
 % Please edit documentation in R/kmbasis.R
 \name{kmbasis}
 \alias{kmbasis}
-\title{Compute the basis of a knowledge space}
+\title{Generic \code{kmbasis()} function}
 \usage{
-kmbasis(x)
+kmbasis(x, ...)
 }
 \arguments{
-\item{x}{Binary matrix representing a knowledge space}
+\item{x}{Fsmilx of sets or surmise relation in matrix representation}
+
+\item{...}{Optional additional parameters}
 }
 \value{
-Binary matrix representing the basis of the knowledge space.
+Basis for a knowledge space
 }
 \description{
-\code{kmbasis} returns a matrix representing the basis of a
-knowledge space. If \code{x} is a knowledge structure or an
-arbitrary family of sets \code{kmreduction} returns the basis of
-the smallest knowledge space containing \code{x}.
+Generic \code{kmbasis()} function
 }
-\examples{
-kmbasis(xpl$space)
-
-}
-\seealso{
-Other Different representations for knowledge spaces: 
-\code{\link{kmsf2basis}()},
-\code{\link{kmsurmisefunction}()},
-\code{\link{kmsurmiserelation}()},
-\code{\link{kmunionclosure}()}
-}
-\concept{Different representations for knowledge spaces}

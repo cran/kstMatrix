@@ -25,6 +25,7 @@ kmfringe(c(1,0,0,0), xpl$space)
 }
 \seealso{
 Other Neighbourhood & fringe: 
-\code{\link{kmneighbourhood}()}
+\code{\link{kmneighbourhood}()},
+\code{\link{kmnneighbourhood}()}
 }
 \concept{Neighbourhood & fringe}

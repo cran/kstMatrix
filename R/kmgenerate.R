@@ -22,7 +22,7 @@
 #' @useDynLib kstMatrix
 #'
 #'
-#' @family Generating knolwedge spaces
+#' @family Generating knowledge spaces
 #'
 #' @export
 kmgenerate <- function(x, threshold = 0) {
@@ -56,6 +56,7 @@ kmgenerate <- function(x, threshold = 0) {
   storage.mode(kstruct) <- "integer"
   result2 <- .C("generate_results", kstruct, package="kstMatrix")
   s <- result2[[1]]
-  colnames(s) <- NULL
+  colnames(s) <- colnames(x)
+  class(s) <- unique(c("kmstructure", "kmfamset", class(s)))
   s
 }

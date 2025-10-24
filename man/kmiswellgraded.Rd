@@ -26,6 +26,7 @@ Springer–Verlag, Berlin.
 \seealso{
 Other Properties of knowledge structures: 
 \code{\link{kmeqreduction}()},
-\code{\link{kmnotions}()}
+\code{\link{kmnotions}()},
+\code{\link{kmnotions2}()}
 }
 \concept{Properties of knowledge structures}
