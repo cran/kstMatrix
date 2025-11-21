@@ -5,7 +5,7 @@
 #' and the full item set are added if missing.
 #'
 #' @param x Binary matrix representing a family of sets
-#' @return Distance distribution vector
+#' @return \code{kmstructure} object
 #'
 #' @examples
 #' m <- as.matrix(c(1,0,0,0,1,0,1,1,1), nrow=3, byrow=TRUE)

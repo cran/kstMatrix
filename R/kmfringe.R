@@ -11,7 +11,7 @@
 #' @examples
 #' kmfringe(c(1,0,0,0), xpl$space)
 #'
-#' @family Neighbourhood & fringe
+#' @family Fringes & paths
 #'
 #' @export
 kmfringe <- function(state, struct) {
@@ -25,6 +25,24 @@ kmfringe <- function(state, struct) {
     stop(sprintf("%s and %s don't match in size.", dQuote("state"), dQuote("struct")))
   }
 
-  n <- kmneighbourhood(state, struct)
+  n <- kmneighbourhood(state, struct, include=FALSE)
   apply(t(apply(n, 1, function(x) {(state | x) - (state & x)})), 2, sum)
 }
+
+
+#' @rdname kmfringe
+#' @export
+kminnerfringe <- function(state, struct) {
+  f <- kmfringe(state, struct)
+  as.integer(f & state)
+}
+
+
+#' @rdname kmfringe
+#' @export
+kmouterfringe <- function(state, struct) {
+  f <- kmfringe(state, struct)
+  as.integer(f & !state)
+}
+
+

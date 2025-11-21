@@ -10,7 +10,7 @@ kmspace(x)
 \item{x}{Binary matrix representing a family of sets}
 }
 \value{
-KMSPACE OBJECT
+\code{kmspace} object
 }
 \description{
 \code{kmspace()} returns a \code{kmspace} object for a binary matrix.

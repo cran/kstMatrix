@@ -3,6 +3,7 @@
 \name{plot}
 \alias{plot}
 \alias{plot.kmfamset}
+\alias{plot.kmneighbourhood}
 \alias{plot.kmsurmiserelation}
 \title{Plot a Hasse diagram}
 \usage{
@@ -15,7 +16,22 @@
   itemsep = ",",
   braces = TRUE,
   vertexshape = "box",
-  arrowhead = "none"
+  arrowhead = "none",
+  edgelabel = FALSE
+)
+
+\method{plot}{kmneighbourhood}(
+  x,
+  ...,
+  horizontal = FALSE,
+  colors = c("#eeee00", "#aaccff", "#bbffbb"),
+  keepNames = TRUE,
+  itemsep = ",",
+  braces = TRUE,
+  vertexshape = "oval",
+  arrowhead = "none",
+  edgelabel = FALSE,
+  state
 )
 
 \method{plot}{kmsurmiserelation}(
@@ -45,13 +61,18 @@ of states)}
 \item{braces}{Put braces around vertices (default TRUE; only for
 families of states)}
 
-\item{vertexshape}{Shape of the vertex objects. See
+\item{vertexshape}{Shape of the vertex objects, e.g. circle, oval, box, or none. See
 \href{https://graphviz.org/doc/info/shapes.html}{Graphviz Node Shapes}
-for possible values.}
+for a complete list of possible values.}
 
-\item{arrowhead}{Form of the arrow head. See
+\item{arrowhead}{Form of the arrow head, e.g. vee or none. See
 \href{https://graphviz.org/docs/attr-types/arrowType/}{Graphviz Arrow
-Types} for possible values.}
+Types} for a complete list of possible values.}
+
+\item{edgelabel}{Boolean whether to label the edges of the diagram
+(default FALSE)}
+
+\item{state}{Knowledge state whose neighbourhood is to be pictured}
 }
 \description{
 \code{plot} takes a matrix representing a family of sets (knowledge states)

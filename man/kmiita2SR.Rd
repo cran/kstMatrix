@@ -4,15 +4,25 @@
 \alias{kmiita2SR}
 \title{Convert an IITA result into a surmise relation matrix}
 \usage{
-kmiita2SR(ii, names = NULL)
+kmiita2SR(ii, names = NULL, items = 0)
 }
 \arguments{
 \item{ii}{\code{iita()} result}
 
 \item{names}{Vector of item names (default NULL)}
+
+\item{items}{Minimal number of items (default 0)}
 }
 \value{
 Surmise relation matrix
+
+The \code{iita()} function looses information on the item names and
+uses consecutive numbers instead. The \code{implications} part of its
+result does not give any hint on isolated items, i.e. items which#
+neither have a prerequisite nor are prerequisite of any other item.
+Therefore, a minimal number of items can be passed to
+\code{kmiita2SR()}. If the highest item number within
+\code{implications} is higher, this \code{items} parameter is ignored.
 }
 \description{
 \code{kmiita2SR} takes the result of a \code{DAKS::iita()} call and

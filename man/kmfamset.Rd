@@ -10,7 +10,7 @@ kmfamset(x)
 \item{x}{Binary matrix representing a family of sets}
 }
 \value{
-Distance distribution vector
+\code{kmfamset} object
 }
 \description{
 \code{kmfamset} returns a \code{kmfamset} object after checking that

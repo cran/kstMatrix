@@ -18,6 +18,7 @@ corresponding basis.
 }
 \seealso{
 Other Different representations for knowledge spaces: 
+\code{\link{kmbasis.kmsurmisefunction}()},
 \code{\link{kmbasis.kmsurmiserelation}()},
 \code{\link{kmbasis.matrix}()},
 \code{\link{kmsf2basis}()},

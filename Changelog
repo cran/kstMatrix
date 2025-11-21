@@ -1,3 +1,12 @@
+2025-11-21: Version 2.1-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* New functions kmlearningpaths() and kmgradations()
+* New utiity function kmsetiselement()
+* New method plot.kmneighbourhood()
+* New method kmbasis.kmsurmisefunction()
+* Fixed bug in kmiita2SR for isolated items in surmise relations
+* Vignette updates
+* Including PHSG data
+
 2025-10-24: Version 2.0-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Introducing classes for KST objects
 * kmbasis() S3 method

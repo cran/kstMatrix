@@ -18,5 +18,11 @@ creates a color vector to be used with \code{kstMatrix::plot}.
 \seealso{
 Other Plotting knowledge structures: 
 \code{\link{plot}()}
+
+Other Utilities: 
+\code{\link{kmdoubleequal}()},
+\code{\link{kmsetiselement}()},
+\code{\link{kmsymmsetdiff}()}
 }
 \concept{Plotting knowledge structures}
+\concept{Utilities}

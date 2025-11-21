@@ -31,6 +31,7 @@ Dowling, C. E. (1993). On the irredundant construction of knowledge spaces.
 \seealso{
 Other Different representations for knowledge spaces: 
 \code{\link{kmSR2basis}()},
+\code{\link{kmbasis.kmsurmisefunction}()},
 \code{\link{kmbasis.kmsurmiserelation}()},
 \code{\link{kmbasis.matrix}()},
 \code{\link{kmsf2basis}()},

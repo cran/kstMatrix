@@ -10,7 +10,7 @@ kmstructure(x)
 \item{x}{Binary matrix representing a family of sets}
 }
 \value{
-Distance distribution vector
+\code{kmstructure} object
 }
 \description{
 \code{kmstructure()} returns a \code{kmstructure} object after checking that

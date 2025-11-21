@@ -21,6 +21,7 @@ the space with \code{kmsimulate()} with beta and eta values of 0.1.
 Other Data: 
 \code{\link{cad}},
 \code{\link{fractions}},
+\code{\link{phsg}},
 \code{\link{readwrite}}
 }
 \concept{Data}

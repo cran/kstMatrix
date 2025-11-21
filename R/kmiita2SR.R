@@ -5,15 +5,23 @@
 #'
 #' @param ii \code{iita()} result
 #' @param names Vector of item names (default NULL)
+#' @param items Minimal number of items (default 0)
 #' @return Surmise relation matrix
+#'
+#' The \code{iita()} function looses information on the item names and
+#' uses consecutive numbers instead. The \code{implications} part of its
+#' result does not give any hint on isolated items, i.e. items which#
+#' neither have a prerequisite nor are prerequisite of any other item.
+#' Therefore, a minimal number of items can be passed to
+#' \code{kmiita2SR()}. If the highest item number within
+#' \code{implications} is higher, this \code{items} parameter is ignored.
 #'
 #' @family Generating knowledge spaces
 #'
 #' @export
-kmiita2SR <- function(ii, names = NULL) {
+kmiita2SR <- function(ii, names = NULL, items = 0) {
   hm <- matrix(unlist(ii$implications), nrow=2)
-  items <- sort(unique(unlist(ii$implications)))
-  noi <- length(items)
+  noi <- max(max(unlist(ii$implications)), items)
   sr <- diag(noi)
   apply(hm, 2, function(x) {sr[x[1],x[2]] <<- 1})
   if (!is.null(names)) {

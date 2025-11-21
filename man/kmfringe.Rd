@@ -2,9 +2,15 @@
 % Please edit documentation in R/kmfringe.R
 \name{kmfringe}
 \alias{kmfringe}
+\alias{kminnerfringe}
+\alias{kmouterfringe}
 \title{Compute the fringe of a state within a knowledge structure}
 \usage{
 kmfringe(state, struct)
+
+kminnerfringe(state, struct)
+
+kmouterfringe(state, struct)
 }
 \arguments{
 \item{state}{Binary vector representing a knowledge state}
@@ -24,8 +30,10 @@ kmfringe(c(1,0,0,0), xpl$space)
 
 }
 \seealso{
-Other Neighbourhood & fringe: 
+Other Fringes & paths: 
+\code{\link{kmgradations}()},
+\code{\link{kmlearningpaths}()},
 \code{\link{kmneighbourhood}()},
 \code{\link{kmnneighbourhood}()}
 }
-\concept{Neighbourhood & fringe}
+\concept{Fringes & paths}

@@ -33,6 +33,7 @@ Lawrence Erlbaum Associates Ltd., Mahwah, NJ.
 \seealso{
 Other Data: 
 \code{\link{cad}},
+\code{\link{phsg}},
 \code{\link{readwrite}},
 \code{\link{xpl}}
 }

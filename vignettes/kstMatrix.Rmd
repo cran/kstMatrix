@@ -7,6 +7,7 @@ vignette: >
   %\VignetteIndexEntry{kstMatrix}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+
 ---
 
 ```{r setup, include = FALSE}
@@ -20,6 +21,23 @@ library(sets)
 library(pks)
 ```
 
+# Content
+
+- [Introduction](#introduction)
+- [S3 classes in `kstMatrix`](#s3-classes-in-kstmatrix)
+- [Different representations for knowledge spaces](#different-representations-for-knowledge-spaces)
+- [Propertiesd of knowledge spaces](#propertiesd-of-knowledge-spaces)
+- [Creating trivial knowledge spaces](#creating-trivial-knowledge-spaces)
+- [Simulating response patterns](#simulating-response-patterns)
+- [Validating knowledge structures](#validating-knowledge-structures)
+- [Assessment](#assessment)
+- [Fringes and paths](#fringes-and-paths)
+- [Plotting](#plotting)
+- [Utilities](#utilities)
+- [Datasets provided by `kstMatrix`](#datasets-provided-by-kstmatrix)
+- [References](#references)
+
+# Introduction
 Knowledge space theory applies prerequisite relationships between items of knowledge
 within a given domain for efficient adaptive assessment and training (Doignon & Falmagne, 
 1999). The `kstMatrix` package implements some basic functions for working with
@@ -30,157 +48,148 @@ There is a certain overlap in functionality between the `kst`and `kstMatrix` pac
 however the former uses a set representation and the latter a matrix representation. The
 packages are to be seen as complementary, not as a replacement for each other.
 
-## Different representations for knowledge spaces
-Knowledge spaces can easily grow very large. Therefore, their bases are often used to store
-the knowledge spaces with reduced space requirements. `kstmatrix` offers two  functions for 
-computing bases from spaces and vice versa.
+This document gives a short overview on the `kstMatrix` package. For more details on the specific functions, please have a look at the manual.
 
-### `kmbasis()`
-The `kmbasis` function computes the basis for a given knowledge space (actually, it can be
-any family of sets represented by a binary matrix). 
-```{r}
-kmbasis(xpl$space)
-```
+Subsequently, we start with a introduction into the S3 classes used in `kstMatrix`. Afterwards,
+the various functions are presented groupd by topic.
 
-### `kmunionclosure()`
-The `kmunionclosure` function computes the knowledge space for a basis (mathematically
-spoken it computes the closure under union of the given family of sets).
-```{r}
-kmunionclosure(xpl$basis)
-```
+# S3 classes in `kstMatrix`
+With version 2, S3 classes were introduced in `kstMatrix`. The following classes are used:
 
-### `kmsurmiserelation()`
-The `kmsurmiserelation` function determines the surmise relation for a quasi-ordinal
-knowledge space. For a more general family of sets, it computes the surmise relation
-for the smallest quasi-ordinal knowledge space including that family.
-```{r}
-kmsurmiserelation(xpl$space)
-```
-The surmise relation can also be used to easily close a knowledge space under intersection:
-```{r}
-kmunionclosure(t(kmsurmiserelation(xpl$space)))
-```
-### `kmsurmisefunction()`
-The `kmsurmisefunction`function computes the surmise function for a knowledge
-space or basis. For a more general family of sets, it computes the surmise function 
-for the smallest knowledge space including that family.
-```{r}
-kmsurmisefunction(xpl$space)
-```
-### `kmsf2basis()`
-Determine the basis of the knowledge space corresponding to a given surmise function.
-```{r}
-sf <- kmsurmisefunction(xpl$space)
-kmsf2basis(sf)
+* `kmfamset`
+* `kmbasis`
+* `kmstructure`
+* `kmspace`
+* `kmneighbourhood`
+* `kmsurmiserelation`
+* `kmsurmisefunction`
+
+The following figure shows the dependencies between these classes, e.g., `kmspace` being a sub-class of `kmstructure`.
+
+<style>
+  img {
+    border: 0;
+  }
+  </style>
+```{r kstMatrixClasses, echo=FALSE, fig.cap="Structure of <tt>kstMatrix</tt> classes", out.width="700"}
+knitr::include_graphics("kstMatrixClasses.png")
 ```
 
-## Properties of knowledge structures
-### `kmiswellgraded()`
-The `kmiswellgraded` function determines whether a knowledge structure is wellgraded.
-```{r}
-kmiswellgraded(xpl$space)
-```
+## Constructors
+There exist four constructors
 
-### `kmnotions()`
-The `kmnotions` function returns a matrix specifying the notions of a knowledge strucure,
-i.e. the classes of equivalent items.
-```{r}
-x <- matrix(c(0,0,0, 1,0,0, 1,1,1), nrow = 3, byrow = TRUE)
-kmnotions(x)
-```
+- `kmfamset()`
+- `kmstructure()`
+- `kmbasis()`
+- `kmspace()`
 
-### `kmeqreduction()`
-The `kmeqreduction` function returns a matrix with only one item
-per equivalence class.
-```{r}
-x <- matrix(c(0,0,0, 1,0,0, 1,1,1), nrow = 3, byrow = TRUE)
-kmeqreduction(x)
-```
+which create the respective objects from a given matrix.
 
-## Creating trivial knowledge spaces
+# Different representations for knowledge spaces
+There exist various ways to represent knowledge spaces: the whole space itself, its basis, and the corresponding
+surmise function; in case of quasi-ordinal spaces also the surmise relation. The subsequent functions allow to 
+map between these representations.
+
+## `kmbasis()`
+The `kmbasis()` S3 method allows to ap different representations to bases. There are implementations for the classes
+`kmsurmiserelation`, `kmsurmisefunction`, and `matrix`, the latter aiming at `kmfamset`s including `kmstructure`s 
+and `kmspace`s.
+
+## `kmsf2basis()`
+This function determines a basis from a surmise function.
+
+## `kmSR2basis()`
+This function creates a basis from a surmise relation.
+
+## `kmsurmisefunction()`
+This function takes an arbitrary `kmfamset` (family of sets) and determines the surmise function of the smallest
+knowledge space containing this family of sets, i.e. its closure under union.
+
+## `kmsurmiserelation()`
+This function determines the surmise relation for a quasi-ordinal knowledge space. If the parameter is an arbitrary
+`kmfamset`, the result is the surmise relation for the smalest quasi-ordinal knowledge space containing the family 
+of sets, i.e. its closure under union *and* intersection.
+
+## `kmunionclosure()`
+This function returns the closure under union (i.e. a knowledge space) of a family of sets.
+
+# Properties of knowledge spaces
+There are `kmeqreduction()` and `kmnotions()` for dealing with equivalent items. The former reduces a famset
+to the structure on its notions, and the latter gives the notions itself.
+
+Another point is the weelgradedness - `kmiswellgraded()`tests if a structure fulfils this condition.
+
+# Creating trivial knowledge spaces
 For a given item number, there are two trivial knowledge spaces, the maximal knowledge
 space representing absolutely no prerequisite relationships (the knowledge space is the 
 power set of the item set and the basis matrix is the diagonal matrix), and the minimal
 knowledge space representing equivalence of all items (the knowledge space contains just 
 the empty set and the full item set, and the basis matrix contains one line full of '1's).
 
-### `kmminimalspace()`
-**Example:**
+# Simulating response patterns
+Response patterns are simulated by `kmsimulate()` applying the BLIM (Basic Local
+Independence Model). It assumes identical $\beta$ and $\eta$ values for all items. 
+
+More elaborated functions may follow.
+
+# Validating knowledge structures
+There exist two core functions for validation. `kmvalidate()` determines validity indices based on the states in the
+knowledge structure, and `kmSRvalidate()`determines indices based on the surmise relation of a quasi-ordinal knowledge space.
+Furthermore, there is a helpüer function `kmdist()` ehich returns a distance distribution.
+
+# Assessment
+There exist several functions in the assessment context. They are all based on a paper by Falmagne & Doignon (1988,
+see also Doignon & Falmagne, 1999, Chapter 10).
+
+The core functiuon is `kmassess()`. It does a complete assessmednt for a given response vector and a given 
+knowledge structure. A simplified version is `kmsassess()` where the originally item-specific parameters are identical
+for all items.
+
+Both these functions rely on alternative question and update rules realised by `kmassesshalfsplit()` and
+`kmassessinfomrative()` and by `kmassessbayesian()` and `kmassessmultipöicatiuve()`, respectively. The separation of 
+these functions allows also for a use in an interactive system, e.g., a Shiny app.
+
+Finally, there is `kmassessmentsimulation()` which does assessments for a whole dataset of response patterns and 
+produces a table which could be further evaluated statistically.
+
+# Fringes and Paths
+Well-graded learning paths are an important concept in knowledge space theory. With `kmlearningpaths()`, we obtain a 
+collection of all learning paths in a knowledge structure, with `kmgradations()` a collection of all gradations
+between two states in a structure. In this context also `kmiswellgraded()` should be mentioned which tests if a
+structure is well-graded.
+
+In mthis context, we may also need fringes and neighbourhoods. The former can be determined with `kmfringe()`, `kminnerfringe()`,
+and `kmouterfringe()`. For the latter, there are the functions `kmneighbourhood()` (determining the 1-neighbourhood of a state)
+and `kmnneighbourhood()` (determining an arbitrary n-neighbourhood).
+
+# Plotting 
+With version 2.0  of `kstMatrix`, plotting functionality is provided through the S3 `plot` 
+method. The method is available for the `kmfamset`,  `kmsurmiserelation`, and `kmneidghbourhood` classes.
 ```{r}
-kmminimalspace(5)
+plot(xpl$space)
+plot(xpl$sr)
+```
+`plot` uses the `DiagrammeR` package which in turn uses the `Graphviz` software. The default parameters are slightly different for `kmfamset`s and `kmsurmiserelation`s. 
+```{r}
+plot(xpl$sr, colors="#aaffaa", vertexshape="box")
+```
+For plotting neighbourhoods, by default three different colors are used.
+```{r}
+plot(kmneighbourhood(c(1,1,0,0), xpl$space, include=TRUE), state=c(1,1,0,0), edgelabel=TRUE)
 ```
 
-### `kmmaximalspace()`
-**Example:**
-```{r}
-kmmaximalspace(4)
-```
+# Utilities
+This group contains several smaller helper functions.
 
-## Validating knowledge spaces
+- `kmsymmsetdiff()`
+- `kmsetdistance()`
+- `kmsetiselement()`
+- `kmdoubleequal()`
+- `kmcolors()`
 
-### `kmdist()`
-The `kmdist` function computes a frequency distribution for the distances between a data 
-set and a knowledge space.
-```{r}
-kmdist(xpl$data, xpl$space)
-```
-
-### `kmvalidate()`
-The `kmvalidate` function returns the distance vector, the discrimination index DI,
-and the distance agreement coefficient DA. The discrepancy index (DI) is the mean
-distance; the distance agreement coefficient is the ratio between the mean distance between
-data and space (ddat = DI) and the mean distance between space and power set (dpot).
-```{r}
-kmvalidate(xpl$data, xpl$space)
-```
-
-## Simulating response patterns
-### `kmsimulate()`
-The `kmsimulate` funtion provides a generation of response patterns by
-applying the BLIM (Basic Local Independence Model; see Doignon & Falmagne, 1999)
-to a given knowledge structure. The `beta` and `eta` parameters of the BLIM can each
-be either a vector specifying different values for each item or a single numerical
-where `beta` or `eta` is assumed to be equal for all items.
-```{r}
-kmsimulate(xpl$space, 10, 0.2, 0.1)
-kmsimulate(xpl$space, 10, c(0.2, 0.25, 0.15, 0.2), c(0.1, 0.15, 0.05, 0.1))
-kmsimulate(xpl$space, 10, c(0.2, 0.25, 0.15, 0.2), 0)
-```
-
-## Neighbourhood & Fringe
-### `kmneighbourhood()`
-The `kmneighbourhood` function determines the neighbourhood of a state in a knowledge structure,
-i.e. the family of all states with a symmetric set diference of 1.
-```{r}
-kmneighbourhood(c(1,1,0,0), xpl$space)
-```
-
-### `kmfringe()`
-The `kmfringe` function determines the fringe of a knowledge state, i.e. the set of thse items 
-by which the state differs from its neighbouring states.
-```{r}
-kmfringe(c(1,0,0,0), xpl$space)
-```
-
-## Utilities
-### `kmsymmsetdiff()`
-The `kmsymmsetdiff` function returns the symmetric set difference between two
-sets represented as binary vectors.
-```{r}
-kmsymmsetdiff(c(1,0,0), c(1,1,0))
-```
-
-### `kmsetdistance()`
-The `kmsetdistance` function returns the cardinality of the symmetric set 
-difference between two sets represented as binary vectors.
-```{r}
-kmsetdistance(c(1,0,0), c(1,1,0))
-```
-
-## Plotting 
-
-## Datasets provided by `kstMatrix`
-The provided datasets were obtained by the research group around Cornelia Dowling by querying experts
+# Datasets provided by `kstMatrix`
+## Empirical structures
+The provided empirical datasets were obtained by the research group around Cornelia Dowling through querying experts
 in the respective fields. 
 
 ### cad
@@ -188,40 +197,30 @@ Six experts were queried about prerequisite relationships between 28 AutoCAD
 knowledge items (Dowling, 1991; 1993a). A seventh basis represents those
 prerequisite relationships on which the majority (4 out of 6) of the experts
 agree (Dowling & Hockemeyer, 1998).
-```{r}
-summary(cad)
-```
-
-### readwrite
-Three experts were queried about prerequisite relationships between 48 items
-on reading and writing abilities (Dowling, 1991; 1993a). A fourth basis represents
-those prerequisite relationships on which the majority of the experts agree
-(Dowling & Hockemeyer, 1998).
-```{r}
-summary(readwrite)
-```
 
 ### fractions
 Three experts were queried about prerequisite relationships between 77 items
 on fractions (Baumunk & Dowling, 1997). A fourth basis represents those
 prerequisite relationships on which the majority of the experts agree
 (Dowling & Hockemeyer, 1998).
-```{r}
-summary(fractions)
-```
+
+### readwrite
+Three experts were queried about prerequisite relationships between 48 items
+on reading and writing abilities (Dowling, 1991; 1993a). A fourth basis represents
+those prerequisite relationships on which the majority of the experts agree
+(Dowling & Hockemeyer, 1998).
+
+## Example structures
+### phsg
+A small knowledge space on a set of seven items on linear functions. This example
+is used in a manuscript by Steiner et al.
+
 
 ### xpl
 This is just a small fictitious 4-item-example used for the examples in the
-documentation.
-```{r}
-summary(xpl)
-xpl$basis
-xpl$space
-xpl$data
-head(xpl$sim)
-```
+documentation. Please note that this knowledge space is not quasi-ordinal.
 
-## References
+# References
 - Baumunk, K. & Dowling, C. E. (1997). Validity of spaces for assessing knowledge 
   about fractions. _Journal of Mathematical Psychology, 41,_ 99–105.
 - Doignon, J.-P. & Falmagne, J.-C. (1999). _Knowledge Spaces._ Springer–Verlag, Berlin.
@@ -235,3 +234,5 @@ head(xpl$sim)
   their basis. In Cornelia E. Dowling, Fred S. Roberts, & Peter Theuns, editors,
   _Recent Progress in Mathematical Psychology,_ pp. 133–141. Lawrence Erlbaum
   Associates Ltd., Mahwah, NJ.
+- Falmagne J.-C. & Doignon J.-P. (1988). A class of stochastic procedures for the assessment of knowledge. 
+  _British Journal of Mathematical and Statistical Psychology, 41,_ 1–23. 

@@ -25,6 +25,8 @@ kmdoubleequal(0.5+0.5, 1)
 }
 \seealso{
 Other Utilities: 
+\code{\link{kmcolors}()},
+\code{\link{kmsetiselement}()},
 \code{\link{kmsymmsetdiff}()}
 }
 \concept{Utilities}

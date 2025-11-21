@@ -39,6 +39,7 @@ Lawrence Erlbaum Associates Ltd., Mahwah, NJ.
 Other Data: 
 \code{\link{cad}},
 \code{\link{fractions}},
+\code{\link{phsg}},
 \code{\link{xpl}}
 }
 \concept{Data}

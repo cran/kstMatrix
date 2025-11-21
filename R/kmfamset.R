@@ -6,7 +6,7 @@
 #' changed.
 #'
 #' @param x Binary matrix representing a family of sets
-#' @return Distance distribution vector
+#' @return \code{kmfamset} object
 #'
 #' @examples
 #' m <- as.matrix(c(1,0,0,0,1,0,1,1,1), nrow=3, byrow=TRUE)

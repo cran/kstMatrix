@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{Binary matrix representing a knowledge space}
 
-\item{...}{Space or future, optiona parameters}
+\item{...}{Space or future, optional parameters}
 }
 \value{
 Binary matrix representing the basis of the knowledge space.
@@ -27,6 +27,7 @@ kmbasis(xpl$space)
 \seealso{
 Other Different representations for knowledge spaces: 
 \code{\link{kmSR2basis}()},
+\code{\link{kmbasis.kmsurmisefunction}()},
 \code{\link{kmbasis.kmsurmiserelation}()},
 \code{\link{kmsf2basis}()},
 \code{\link{kmsurmisefunction}()},

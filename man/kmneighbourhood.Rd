@@ -27,8 +27,10 @@ kmneighbourhood(c(1,1,0,0), xpl$space)
 
 }
 \seealso{
-Other Neighbourhood & fringe: 
+Other Fringes & paths: 
 \code{\link{kmfringe}()},
+\code{\link{kmgradations}()},
+\code{\link{kmlearningpaths}()},
 \code{\link{kmnneighbourhood}()}
 }
-\concept{Neighbourhood & fringe}
+\concept{Fringes & paths}

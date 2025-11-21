@@ -6,7 +6,7 @@
 #' the smallest knowledge space containing \code{x}.
 #'
 #' @param x Binary matrix representing a knowledge space
-#' @param ... Space or future, optiona parameters
+#' @param ... Space or future, optional parameters
 #' @return Binary matrix representing the basis of the knowledge space.
 #'
 #' @examples

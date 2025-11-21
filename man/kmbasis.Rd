@@ -7,7 +7,7 @@
 kmbasis(x, ...)
 }
 \arguments{
-\item{x}{Fsmilx of sets or surmise relation in matrix representation}
+\item{x}{Family of sets or surmise relation in matrix representation}
 
 \item{...}{Optional additional parameters}
 }

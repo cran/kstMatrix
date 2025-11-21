@@ -3,7 +3,7 @@
 #' \code{kmspace()} returns a \code{kmspace} object for a binary matrix.
 #'
 #' @param x Binary matrix representing a family of sets
-#' @return KMSPACE OBJECT
+#' @return \code{kmspace} object
 #'
 #' @examples
 #' m <- as.matrix(c(1,0,0,0,1,0,1,1,1), nrow=3, byrow=TRUE)

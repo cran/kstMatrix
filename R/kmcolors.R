@@ -7,6 +7,7 @@
 #' @param palette Color palette (default = cm.colors)
 #'
 #' @family Plotting knowledge structures
+#' @family Utilities
 #'
 #' @importFrom grDevices cm.colors
 #'
