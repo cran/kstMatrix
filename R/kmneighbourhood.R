@@ -13,7 +13,7 @@
 #' @examples
 #' kmneighbourhood(c(1,1,0,0), xpl$space)
 #'
-#' @family Fringes & paths
+#' @family Fringes & learning paths
 #'
 #' @export
 kmneighbourhood <- function(state, struct, include = FALSE) {
@@ -38,6 +38,7 @@ kmneighbourhood <- function(state, struct, include = FALSE) {
   )
   if (include) n <- rbind(n, state)
   colnames(n) <- colnames(struct)
+  rownames(n) <- NULL
   class(n) <- unique(c("kmneighbourhood", "kmfamset", class(n)))
   n
 }
@@ -60,7 +61,7 @@ kmneighbourhood <- function(state, struct, include = FALSE) {
 #' @examples
 #' kmnneighbourhood(c(1,1,0,0), xpl$space, 2)
 #'
-#' @family Fringes & paths
+#' @family Fringes & learning paths
 #'
 #' @export
 kmnneighbourhood <- function(state, struct, distance, include=FALSE) {
@@ -86,6 +87,7 @@ kmnneighbourhood <- function(state, struct, distance, include=FALSE) {
   )
   if (include) n <- rbind(n, state)
   colnames(n) <- colnames(struct)
+  rownames(n) <- NULL
   class(n) <- unique(c("kmneighbourhood", "kmfamset", class(n)))
   n
 }

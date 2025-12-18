@@ -11,7 +11,7 @@
 #' @examples
 #' kmfringe(c(1,0,0,0), xpl$space)
 #'
-#' @family Fringes & paths
+#' @family Fringes & learning paths
 #'
 #' @export
 kmfringe <- function(state, struct) {

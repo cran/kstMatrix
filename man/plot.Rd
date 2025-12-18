@@ -15,8 +15,9 @@
   keepNames = TRUE,
   itemsep = ",",
   braces = TRUE,
-  vertexshape = "box",
+  vertexshape = "oval",
   arrowhead = "none",
+  arrowtail = "none",
   edgelabel = FALSE
 )
 
@@ -30,6 +31,7 @@
   braces = TRUE,
   vertexshape = "oval",
   arrowhead = "none",
+  arrowtail = "none",
   edgelabel = FALSE,
   state
 )
@@ -41,7 +43,8 @@
   colors = NULL,
   keepNames = TRUE,
   vertexshape = "circle",
-  arrowhead = "none"
+  arrowhead = "none",
+  arrowtail = "none"
 )
 }
 \arguments{
@@ -65,9 +68,15 @@ families of states)}
 \href{https://graphviz.org/doc/info/shapes.html}{Graphviz Node Shapes}
 for a complete list of possible values.}
 
-\item{arrowhead}{Form of the arrow head, e.g. vee or none. See
+\item{arrowhead}{Form of the arrow head, e.g. vee or none (default). See
 \href{https://graphviz.org/docs/attr-types/arrowType/}{Graphviz Arrow
-Types} for a complete list of possible values.}
+Types} for a complete list of possible values. This may be used for vertical
+graphs although none is the standard there.}
+
+\item{arrowtail}{Form of the arrow tail, e.g. vee or none (default). See
+\href{https://graphviz.org/docs/attr-types/arrowType/}{Graphviz Arrow
+Types} for a complete list of possible values. This should be used for
+horizontal graphs.}
 
 \item{edgelabel}{Boolean whether to label the edges of the diagram
 (default FALSE)}

@@ -17,9 +17,14 @@
 #' @param vertexshape Shape of the vertex objects, e.g. circle, oval, box, or none. See
 #' \href{https://graphviz.org/doc/info/shapes.html}{Graphviz Node Shapes}
 #' for a complete list of possible values.
-#' @param arrowhead Form of the arrow head, e.g. vee or none. See
+#' @param arrowhead Form of the arrow head, e.g. vee or none (default). See
 #' \href{https://graphviz.org/docs/attr-types/arrowType/}{Graphviz Arrow
-#' Types} for a complete list of possible values.
+#' Types} for a complete list of possible values. This may be used for vertical
+#' graphs although none is the standard there.
+#' @param arrowtail Form of the arrow tail, e.g. vee or none (default). See
+#' \href{https://graphviz.org/docs/attr-types/arrowType/}{Graphviz Arrow
+#' Types} for a complete list of possible values. This should be used for
+#' horizontal graphs.
 #' @param edgelabel Boolean whether to label the edges of the diagram
 #' (default FALSE)
 #'
@@ -38,8 +43,9 @@ plot.kmfamset <- function(x,
                           keepNames = TRUE,
                           itemsep = ',',
                           braces = TRUE,
-                          vertexshape = "box",
+                          vertexshape = "oval",
                           arrowhead = "none",
+                          arrowtail = "none",
                           edgelabel = FALSE
 ){
   structure <- t(x)
@@ -119,12 +125,17 @@ plot.kmfamset <- function(x,
       sprintf('"%s" -> "%s";', l[e[2]], l[e[1]])
     }
   })
+  if (horizontal) {
+    direction <- "RL"
+    if (arrowtail == "none") warning("For horizontal diagrams, arrowtail should be set.")
+  } else
+    direction <- "TB"
   dot <- paste0(
-    'digraph hasse {
-       rankdir=TB;',
+    'digraph hasse {',
+    sprintf('rankdir=%s;', direction),
     sprintf('node [fontname="Helvetica", shape=%s, style=filled];', vertexshape),
     paste(nl, collapse="\n"),
-    sprintf("edge [arrowhead=%s]", arrowhead),
+    sprintf('edge [dir="both", arrowtail="%s", arrowhead="%s"];', arrowtail, arrowhead),
     paste(el, collapse="\n"),
     # print(el, collapse="\n"),
     '}'
@@ -147,6 +158,7 @@ plot.kmneighbourhood <- function(x,
                                  braces = TRUE,
                                  vertexshape = "oval",
                                  arrowhead = "none",
+                                 arrowtail = "none",
                                  edgelabel = FALSE,
                                  state
 ){
@@ -246,12 +258,17 @@ plot.kmneighbourhood <- function(x,
       sprintf('"%s" -> "%s";', l[e[2]], l[e[1]])
     }
   })
+  if (horizontal) {
+    direction <- "RL"
+    if (arrowtail == "none") warning("For horizontal diagrams, arrowtail should be set.")
+  } else
+    direction <- "TB"
   dot <- paste0(
-    'digraph hasse {
-       rankdir=TB;',
+    'digraph hasse {',
+    sprintf('rankdir=%s;', direction),
     sprintf('node [fontname="Helvetica", shape=%s, style=filled];', vertexshape),
     paste(nl, collapse="\n"),
-    sprintf("edge [arrowhead=%s]", arrowhead),
+    sprintf('edge [dir="both", arrowtail="%s", arrowhead="%s"];', arrowtail, arrowhead),
     paste(el, collapse="\n"),
     # print(el, collapse="\n"),
     '}'
@@ -274,7 +291,8 @@ plot.kmsurmiserelation <- function(x,
                                    colors = NULL,
                                    keepNames = TRUE,
                                    vertexshape = "circle",
-                                   arrowhead = "none"
+                                   arrowhead = "none",
+                                   arrowtail = "none"
 ){
   n <- ncol(x)
   b = diag(0,n)
@@ -314,14 +332,19 @@ plot.kmsurmiserelation <- function(x,
   el <- apply(edges, 1, function(e) {
     sprintf('"%s" -> "%s";', l[e[2]], l[e[1]])
   })
+  if (horizontal) {
+    direction <- "RL"
+    if (arrowtail == "none") warning("For horizontal diagrams, arrowtail should be set.")
+  } else
+    direction <- "TB"
   dot <- paste0(
-    'digraph hasse {
-       rankdir=TB;
-       TBbalance="max";
+    'digraph hasse {',
+    sprintf('rankdir=%s;', direction),
+    'TBbalance="max";
        fontsize=18.0;',
     sprintf('node [fontname="Helvetica", shape=%s, style=filled];', vertexshape),
     paste(nl, collapse="\n"),
-    sprintf('edge [arrowhead=%s]', arrowhead),
+    sprintf('edge [dir="both", arrowtail="%s", arrowhead="%s"];', arrowtail, arrowhead),
     paste(el, collapse="\n"),
     '}'
   )

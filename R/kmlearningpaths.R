@@ -8,7 +8,7 @@
 #' kmlearningpaths(xpl$space)
 #'
 #'
-#' @family Fringes & paths
+#' @family Fringes & learning paths
 #'
 #'
 #'@export

@@ -19,10 +19,10 @@ Determine the basis for a surmise function
 }
 \seealso{
 Other Different representations for knowledge spaces: 
+\code{\link{kmSF2basis}()},
 \code{\link{kmSR2basis}()},
 \code{\link{kmbasis.kmsurmiserelation}()},
 \code{\link{kmbasis.matrix}()},
-\code{\link{kmsf2basis}()},
 \code{\link{kmsurmisefunction}()},
 \code{\link{kmsurmiserelation}()},
 \code{\link{kmunionclosure}()}

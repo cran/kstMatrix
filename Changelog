@@ -1,3 +1,11 @@
+2025-12-18: Version 2.2-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Re-implementing horizontal mode in plot() functions which got lost
+  in the changes for versions 2.0-0 and 2.1-0
+  In this context: additional optional parameter arrowtail for plot()
+* New function kmbasisfringe(), kmbasisinnerfringe(), kmbasisouterfringe(),
+  and kmbasisneighbourhood() mimplementing the algorithm by Hockemeyer
+  (1997, JMP)
+
 2025-11-21: Version 2.1-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * New functions kmlearningpaths() and kmgradations()
 * New utiity function kmsetiselement()

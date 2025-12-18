@@ -12,7 +12,7 @@
 
 <meta name="author" content="Cord Hockemeyer" />
 
-<meta name="date" content="2025-11-21" />
+<meta name="date" content="2025-12-18" />
 
 <title>kstMatrix</title>
 
@@ -1574,7 +1574,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">kstMatrix</h1>
 <h4 class="author">Cord Hockemeyer</h4>
-<h4 class="date">2025-11-21</h4>
+<h4 class="date">2025-12-18</h4>
 
 
 
@@ -1595,7 +1595,8 @@ patterns</a></li>
 <li><a href="#validating-knowledge-structures">Validating knowledge
 structures</a></li>
 <li><a href="#assessment">Assessment</a></li>
-<li><a href="#fringes-and-paths">Fringes and paths</a></li>
+<li><a href="#fringes-and-learning-paths">Fringes and learning
+paths</a></li>
 <li><a href="#plotting">Plotting</a></li>
 <li><a href="#utilities">Utilities</a></li>
 <li><a href="#datasets-provided-by-kstmatrix">Datasets provided by
@@ -1759,8 +1760,8 @@ Shiny app.</p>
 assessments for a whole dataset of response patterns and produces a
 table which could be further evaluated statistically.</p>
 </div>
-<div id="fringes-and-paths" class="section level1">
-<h1>Fringes and Paths</h1>
+<div id="fringes-and-learning-paths" class="section level1">
+<h1>Fringes and Learning Paths</h1>
 <p>Well-graded learning paths are an important concept in knowledge
 space theory. With <code>kmlearningpaths()</code>, we obtain a
 collection of all learning paths in a knowledge structure, with
@@ -1768,13 +1769,22 @@ collection of all learning paths in a knowledge structure, with
 states in a structure. In this context also
 <code>kmiswellgraded()</code> should be mentioned which tests if a
 structure is well-graded.</p>
-<p>In mthis context, we may also need fringes and neighbourhoods. The
+<p>In this context, we may also need fringes and neighbourhoods. The
 former can be determined with <code>kmfringe()</code>,
 <code>kminnerfringe()</code>, and <code>kmouterfringe()</code>. For the
 latter, there are the functions <code>kmneighbourhood()</code>
 (determining the 1-neighbourhood of a state) and
 <code>kmnneighbourhood()</code> (determining an arbitrary
 n-neighbourhood).</p>
+<p>There exists also an alternative implementation with the functions
+<code>kmbasisfringe()</code>, <code>kmbasisinnerfringe()</code>, and
+<code>kmbasisouterfringe()</code>, as well as
+<code>kmbasisneighbourhood()</code>. These functions work on the basis
+of a knowledge space and may, thus, be faster, especially for large
+knowledge spaces (see Hockemeyer, 1997). Please note that, as a
+consequence of using the basis, these functions do not apply for general
+knowledge structures but only for knowledge spaces. Furthermore, due to
+complexity, there is no <code>kmbasisnneighbourhood()</code>(yet).</p>
 </div>
 <div id="plotting" class="section level1">
 <h1>Plotting</h1>
@@ -1783,23 +1793,32 @@ provided through the S3 <code>plot</code> method. The method is
 available for the <code>kmfamset</code>, <code>kmsurmiserelation</code>,
 and <code>kmneidghbourhood</code> classes.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">plot</span>(xpl<span class="sc">$</span>space)</span></code></pre></div>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-c3075e096c4f9c094747" style="width:288px;height:288px;"></div>
-<script type="application/json" data-for="htmlwidget-c3075e096c4f9c094747">{"x":{"diagram":"digraph hasse {\n       rankdir=TB;node [fontname=\"Helvetica\", shape=box, style=filled];\"∅\" [color=\"#aaffbb\"];\n\"{a}\" [color=\"#aaffbb\"];\n\"{b}\" [color=\"#aaffbb\"];\n\"{a,b}\" [color=\"#aaffbb\"];\n\"{a,c}\" [color=\"#aaffbb\"];\n\"{a,b,c}\" [color=\"#aaffbb\"];\n\"{b,c}\" [color=\"#aaffbb\"];\n\"{a,b,d}\" [color=\"#aaffbb\"];\n\"{a,b,c,d}\" [color=\"#aaffbb\"];edge [arrowhead=none]\"{a}\" -> \"∅\";\n\"{b}\" -> \"∅\";\n\"{a,b}\" -> \"{a}\";\n\"{a,c}\" -> \"{a}\";\n\"{a,b}\" -> \"{b}\";\n\"{b,c}\" -> \"{b}\";\n\"{a,b,c}\" -> \"{a,b}\";\n\"{a,b,d}\" -> \"{a,b}\";\n\"{a,b,c}\" -> \"{a,c}\";\n\"{a,b,c,d}\" -> \"{a,b,c}\";\n\"{a,b,c}\" -> \"{b,c}\";\n\"{a,b,c,d}\" -> \"{a,b,d}\";}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-2b29b35e94bf063d3c30" style="width:288px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-2b29b35e94bf063d3c30">{"x":{"diagram":"digraph hasse {rankdir=TB;node [fontname=\"Helvetica\", shape=oval, style=filled];\"∅\" [color=\"#aaffbb\"];\n\"{a}\" [color=\"#aaffbb\"];\n\"{b}\" [color=\"#aaffbb\"];\n\"{a,b}\" [color=\"#aaffbb\"];\n\"{a,c}\" [color=\"#aaffbb\"];\n\"{a,b,c}\" [color=\"#aaffbb\"];\n\"{b,c}\" [color=\"#aaffbb\"];\n\"{a,b,d}\" [color=\"#aaffbb\"];\n\"{a,b,c,d}\" [color=\"#aaffbb\"];edge [dir=\"both\", arrowtail=\"none\", arrowhead=\"none\"];\"{a}\" -> \"∅\";\n\"{b}\" -> \"∅\";\n\"{a,b}\" -> \"{a}\";\n\"{a,c}\" -> \"{a}\";\n\"{a,b}\" -> \"{b}\";\n\"{b,c}\" -> \"{b}\";\n\"{a,b,c}\" -> \"{a,b}\";\n\"{a,b,d}\" -> \"{a,b}\";\n\"{a,b,c}\" -> \"{a,c}\";\n\"{a,b,c,d}\" -> \"{a,b,c}\";\n\"{a,b,c}\" -> \"{b,c}\";\n\"{a,b,c,d}\" -> \"{a,b,d}\";}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">plot</span>(xpl<span class="sc">$</span>sr)</span></code></pre></div>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-ff0a7a6ce305aa427d68" style="width:288px;height:288px;"></div>
-<script type="application/json" data-for="htmlwidget-ff0a7a6ce305aa427d68">{"x":{"diagram":"digraph hasse {\n       rankdir=TB;\n       TBbalance=\"max\";\n       fontsize=18.0;node [fontname=\"Helvetica\", shape=circle, style=filled];\"a\" [color=\"orange\"];\n\"b\" [color=\"orange\"];\n\"c\" [color=\"orange\"];\n\"d\" [color=\"orange\"];edge [arrowhead=none]\"d\" -> \"a\";\n\"d\" -> \"b\";}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-8ef6d4fc41a77e55114f" style="width:288px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-8ef6d4fc41a77e55114f">{"x":{"diagram":"digraph hasse {rankdir=TB;TBbalance=\"max\";\n       fontsize=18.0;node [fontname=\"Helvetica\", shape=circle, style=filled];\"a\" [color=\"orange\"];\n\"b\" [color=\"orange\"];\n\"c\" [color=\"orange\"];\n\"d\" [color=\"orange\"];edge [dir=\"both\", arrowtail=\"none\", arrowhead=\"none\"];\"d\" -> \"a\";\n\"d\" -> \"b\";}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p><code>plot</code> uses the <code>DiagrammeR</code> package which in
 turn uses the <code>Graphviz</code> software. The default parameters are
 slightly different for <code>kmfamset</code>s and
 <code>kmsurmiserelation</code>s.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">plot</span>(xpl<span class="sc">$</span>sr, <span class="at">colors=</span><span class="st">&quot;#aaffaa&quot;</span>, <span class="at">vertexshape=</span><span class="st">&quot;box&quot;</span>)</span></code></pre></div>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-c53523d44e89187c6937" style="width:288px;height:288px;"></div>
-<script type="application/json" data-for="htmlwidget-c53523d44e89187c6937">{"x":{"diagram":"digraph hasse {\n       rankdir=TB;\n       TBbalance=\"max\";\n       fontsize=18.0;node [fontname=\"Helvetica\", shape=box, style=filled];\"a\" [color=\"#aaffaa\"];\n\"b\" [color=\"#aaffaa\"];\n\"c\" [color=\"#aaffaa\"];\n\"d\" [color=\"#aaffaa\"];edge [arrowhead=none]\"d\" -> \"a\";\n\"d\" -> \"b\";}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-86670799eb88e3dc73d2" style="width:288px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-86670799eb88e3dc73d2">{"x":{"diagram":"digraph hasse {rankdir=TB;TBbalance=\"max\";\n       fontsize=18.0;node [fontname=\"Helvetica\", shape=box, style=filled];\"a\" [color=\"#aaffaa\"];\n\"b\" [color=\"#aaffaa\"];\n\"c\" [color=\"#aaffaa\"];\n\"d\" [color=\"#aaffaa\"];edge [dir=\"both\", arrowtail=\"none\", arrowhead=\"none\"];\"d\" -> \"a\";\n\"d\" -> \"b\";}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>For plotting neighbourhoods, by default three different colors are
 used.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">kmneighbourhood</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), xpl<span class="sc">$</span>space, <span class="at">include=</span><span class="cn">TRUE</span>), <span class="at">state=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">edgelabel=</span><span class="cn">TRUE</span>)</span></code></pre></div>
-<div class="grViz html-widget html-fill-item" id="htmlwidget-96574d984cb589adc888" style="width:288px;height:288px;"></div>
-<script type="application/json" data-for="htmlwidget-96574d984cb589adc888">{"x":{"diagram":"digraph hasse {\n       rankdir=TB;node [fontname=\"Helvetica\", shape=oval, style=filled];\"{a}\" [color=\"#bbffbb\"];\n\"{b}\" [color=\"#bbffbb\"];\n\"{a,b,c}\" [color=\"#aaccff\"];\n\"{a,b,d}\" [color=\"#aaccff\"];\n\"{a,b}\" [color=\"#eeee00\"];edge [arrowhead=none]\"{a,b}\" -> \"{a}\" [label = \"b\"];\n\"{a,b}\" -> \"{b}\" [label = \"a\"];\n\"{a,b,c}\" -> \"{a,b}\" [label = \"c\"];\n\"{a,b,d}\" -> \"{a,b}\" [label = \"d\"];}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-6a82b9d183d2d7da066e" style="width:288px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-6a82b9d183d2d7da066e">{"x":{"diagram":"digraph hasse {rankdir=TB;node [fontname=\"Helvetica\", shape=oval, style=filled];\"{a}\" [color=\"#bbffbb\"];\n\"{b}\" [color=\"#bbffbb\"];\n\"{a,b,c}\" [color=\"#aaccff\"];\n\"{a,b,d}\" [color=\"#aaccff\"];\n\"{a,b}\" [color=\"#eeee00\"];edge [dir=\"both\", arrowtail=\"none\", arrowhead=\"none\"];\"{a,b}\" -> \"{a}\" [label = \"b\"];\n\"{a,b}\" -> \"{b}\" [label = \"a\"];\n\"{a,b,c}\" -> \"{a,b}\" [label = \"c\"];\n\"{a,b,d}\" -> \"{a,b}\" [label = \"d\"];}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>By default, Hasse diagrams are drawn vertically with just lines as
+edges. However, on finds also horizontal diagrams in which case the
+arrows are set as arrows from left to right.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">plot</span>(xpl<span class="sc">$</span>space, <span class="at">horizontal=</span><span class="cn">TRUE</span>, <span class="at">arrowtail=</span><span class="st">&quot;open&quot;</span>)</span></code></pre></div>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-72301c652df242158acf" style="width:288px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-72301c652df242158acf">{"x":{"diagram":"digraph hasse {rankdir=RL;node [fontname=\"Helvetica\", shape=oval, style=filled];\"∅\" [color=\"#aaffbb\"];\n\"{a}\" [color=\"#aaffbb\"];\n\"{b}\" [color=\"#aaffbb\"];\n\"{a,b}\" [color=\"#aaffbb\"];\n\"{a,c}\" [color=\"#aaffbb\"];\n\"{a,b,c}\" [color=\"#aaffbb\"];\n\"{b,c}\" [color=\"#aaffbb\"];\n\"{a,b,d}\" [color=\"#aaffbb\"];\n\"{a,b,c,d}\" [color=\"#aaffbb\"];edge [dir=\"both\", arrowtail=\"open\", arrowhead=\"none\"];\"{a}\" -> \"∅\";\n\"{b}\" -> \"∅\";\n\"{a,b}\" -> \"{a}\";\n\"{a,c}\" -> \"{a}\";\n\"{a,b}\" -> \"{b}\";\n\"{b,c}\" -> \"{b}\";\n\"{a,b,c}\" -> \"{a,b}\";\n\"{a,b,d}\" -> \"{a,b}\";\n\"{a,b,c}\" -> \"{a,c}\";\n\"{a,b,c,d}\" -> \"{a,b,c}\";\n\"{a,b,c}\" -> \"{b,c}\";\n\"{a,b,c,d}\" -> \"{a,b,d}\";}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">plot</span>(xpl<span class="sc">$</span>space, <span class="at">arrowhead=</span><span class="st">&quot;empty&quot;</span>)</span></code></pre></div>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-cb80e327bfa093e9026c" style="width:288px;height:288px;"></div>
+<script type="application/json" data-for="htmlwidget-cb80e327bfa093e9026c">{"x":{"diagram":"digraph hasse {rankdir=TB;node [fontname=\"Helvetica\", shape=oval, style=filled];\"∅\" [color=\"#aaffbb\"];\n\"{a}\" [color=\"#aaffbb\"];\n\"{b}\" [color=\"#aaffbb\"];\n\"{a,b}\" [color=\"#aaffbb\"];\n\"{a,c}\" [color=\"#aaffbb\"];\n\"{a,b,c}\" [color=\"#aaffbb\"];\n\"{b,c}\" [color=\"#aaffbb\"];\n\"{a,b,d}\" [color=\"#aaffbb\"];\n\"{a,b,c,d}\" [color=\"#aaffbb\"];edge [dir=\"both\", arrowtail=\"none\", arrowhead=\"empty\"];\"{a}\" -> \"∅\";\n\"{b}\" -> \"∅\";\n\"{a,b}\" -> \"{a}\";\n\"{a,c}\" -> \"{a}\";\n\"{a,b}\" -> \"{b}\";\n\"{b,c}\" -> \"{b}\";\n\"{a,b,c}\" -> \"{a,b}\";\n\"{a,b,d}\" -> \"{a,b}\";\n\"{a,b,c}\" -> \"{a,c}\";\n\"{a,b,c,d}\" -> \"{a,b,c}\";\n\"{a,b,c}\" -> \"{b,c}\";\n\"{a,b,c,d}\" -> \"{a,b,d}\";}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="utilities" class="section level1">
 <h1>Utilities</h1>
@@ -1880,6 +1899,9 @@ Associates Ltd., Mahwah, NJ.</li>
 <li>Falmagne J.-C. &amp; Doignon J.-P. (1988). A class of stochastic
 procedures for the assessment of knowledge. <em>British Journal of
 Mathematical and Statistical Psychology, 41,</em> 1–23.</li>
+<li>Hockemeyer C (1997). Using the Basis of a Knowledge Space for
+Determining the Fringe of a Knowledge State. <em>Journal of Mathematical
+Psychology, 41,</em> 275–279.</li>
 </ul>
 </div>
 

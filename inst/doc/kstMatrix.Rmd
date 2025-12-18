@@ -31,7 +31,7 @@ library(pks)
 - [Simulating response patterns](#simulating-response-patterns)
 - [Validating knowledge structures](#validating-knowledge-structures)
 - [Assessment](#assessment)
-- [Fringes and paths](#fringes-and-paths)
+- [Fringes and learning paths](#fringes-and-learning-paths)
 - [Plotting](#plotting)
 - [Utilities](#utilities)
 - [Datasets provided by `kstMatrix`](#datasets-provided-by-kstmatrix)
@@ -152,15 +152,21 @@ these functions allows also for a use in an interactive system, e.g., a Shiny ap
 Finally, there is `kmassessmentsimulation()` which does assessments for a whole dataset of response patterns and 
 produces a table which could be further evaluated statistically.
 
-# Fringes and Paths
+# Fringes and Learning Paths
 Well-graded learning paths are an important concept in knowledge space theory. With `kmlearningpaths()`, we obtain a 
 collection of all learning paths in a knowledge structure, with `kmgradations()` a collection of all gradations
 between two states in a structure. In this context also `kmiswellgraded()` should be mentioned which tests if a
 structure is well-graded.
 
-In mthis context, we may also need fringes and neighbourhoods. The former can be determined with `kmfringe()`, `kminnerfringe()`,
+In this context, we may also need fringes and neighbourhoods. The former can be determined with `kmfringe()`, `kminnerfringe()`,
 and `kmouterfringe()`. For the latter, there are the functions `kmneighbourhood()` (determining the 1-neighbourhood of a state)
 and `kmnneighbourhood()` (determining an arbitrary n-neighbourhood).
+
+There exists also an alternative implementation with the functions `kmbasisfringe()`, `kmbasisinnerfringe()`, and
+`kmbasisouterfringe()`, as well as `kmbasisneighbourhood()`. These functions work on the basis of a knowledge space and
+may, thus, be faster, especially for large knowledge spaces (see Hockemeyer, 1997). Please note that, as a consequence 
+of using the basis, these functions do not apply for general knowledge structures but only for knowledge spaces. 
+Furthermore, due to complexity, there is no `kmbasisnneighbourhood()`(yet).
 
 # Plotting 
 With version 2.0  of `kstMatrix`, plotting functionality is provided through the S3 `plot` 
@@ -176,6 +182,12 @@ plot(xpl$sr, colors="#aaffaa", vertexshape="box")
 For plotting neighbourhoods, by default three different colors are used.
 ```{r}
 plot(kmneighbourhood(c(1,1,0,0), xpl$space, include=TRUE), state=c(1,1,0,0), edgelabel=TRUE)
+```
+By default, Hasse diagrams are drawn vertically with just lines as edges. However, on finds also horizontal diagrams
+in which case the arrows are set as arrows from left to right.
+```{r}
+plot(xpl$space, horizontal=TRUE, arrowtail="open")
+plot(xpl$space, arrowhead="empty")
 ```
 
 # Utilities
@@ -236,3 +248,5 @@ documentation. Please note that this knowledge space is not quasi-ordinal.
   Associates Ltd., Mahwah, NJ.
 - Falmagne J.-C. & Doignon J.-P. (1988). A class of stochastic procedures for the assessment of knowledge. 
   _British Journal of Mathematical and Statistical Psychology, 41,_ 1–23. 
+- Hockemeyer C (1997). Using the Basis of a Knowledge Space for Determining the Fringe of a Knowledge State. 
+  _Journal of Mathematical Psychology, 41,_ 275–279. 

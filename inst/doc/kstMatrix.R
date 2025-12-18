@@ -21,3 +21,7 @@ plot(xpl$sr, colors="#aaffaa", vertexshape="box")
 ## -----------------------------------------------------------------------------
 plot(kmneighbourhood(c(1,1,0,0), xpl$space, include=TRUE), state=c(1,1,0,0), edgelabel=TRUE)
 
+## -----------------------------------------------------------------------------
+plot(xpl$space, horizontal=TRUE, arrowtail="open")
+plot(xpl$space, arrowhead="empty")
+

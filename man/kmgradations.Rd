@@ -25,10 +25,12 @@ kmgradations(xpl$space)
 
 }
 \seealso{
-Other Fringes & paths: 
+Other Fringes & learning paths: 
+\code{\link{kmbasisfringe}()},
+\code{\link{kmbasisneighbourhood}()},
 \code{\link{kmfringe}()},
 \code{\link{kmlearningpaths}()},
 \code{\link{kmneighbourhood}()},
 \code{\link{kmnneighbourhood}()}
 }
-\concept{Fringes & paths}
+\concept{Fringes & learning paths}
