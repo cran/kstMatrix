@@ -1,5 +1,5 @@
-9fe34e62812ddacee2209b03b73a1f84 *Changelog
-4508c68d5ef803e240e92f3c7ddf01e3 *DESCRIPTION
+50a4e38f5b9896e8d479cdba52035ddd *Changelog
+b0664268cfbf1011322bcd5dd338f94e *DESCRIPTION
 dd79cc4d70a8f22e18e2d22d4b026b31 *NAMESPACE
 855266e83f838bb4bfcc42928a3bcd57 *R/cad.R
 25727664c0dde775e6e3507fe4cac611 *R/fractions.R
@@ -43,7 +43,7 @@ b2b117743359662547f8d87f62498c84 *R/kmspace.R
 56650f2869efbcfcb970f70bb749c2d7 *R/kmunionclosure.R
 c2267b3b3e4ef666a09dde72b4aefa72 *R/kmvalidate.R
 0801ae4518d235db257778ccfd765cc0 *R/phsg.R
-a9f24dcc474cfbb32831eab7c71921a0 *R/plot.R
+ad231cda74bc903db1fefc3ce2c1186b *R/plot.R
 44756bed15513d0fb1afb3abdac83c8b *R/readwrite.R
 878a67e92ee18b8ab7d7ce5930a78bd6 *R/xpl.R
 76e123f5dcc8dee07678412adc0a2a84 *build/partial.rdb
@@ -55,7 +55,7 @@ b6e182fafdbc422b7bb7b239f58a2dee *data/readwrite.rda
 117ccb7e6cd471c0016737961fd625f8 *data/xpl.rda
 fdd716f4f6371ade8400504243fdaeae *inst/doc/kstMatrix.R
 c0997bc5db99e9d77a6b095850dd433f *inst/doc/kstMatrix.Rmd
-f46fafd8f8a561b44bd7bc65214c56d1 *inst/doc/kstMatrix.html
+b43a521d5154acebb78af65d0537f055 *inst/doc/kstMatrix.html
 a8f13a59249465ec25f19337e27ef178 *man/cad.Rd
 26ad569e0b25d9386ce10c7e6b49a0c2 *man/fractions.Rd
 1fb89b72582b73497f62f6c2a955fbde *man/kmSF2basis.Rd
@@ -98,7 +98,7 @@ cab0bb2a24ec2e6d73b3773e6d785857 *man/kmtrivial.Rd
 76d8578d49ba57a78362717469a48bc8 *man/kmunionclosure.Rd
 37b3b6a247089f597a6736176dbce36e *man/kmvalidate.Rd
 99e4c98ebc5bc19246f808c8bf932673 *man/phsg.Rd
-903a5d3b619df77c07e3cf00492894ad *man/plot.Rd
+871feb537aa0c5fec7a9f6262c1f826a *man/plot.Rd
 327b2ca705300de2f137e7d89c472b5e *man/readwrite.Rd
 7d983568e16f5ad379aa4944f0dc3949 *man/xpl.Rd
 13f4e0118061bf2a5091a88ab2346139 *src/basis.c

@@ -27,6 +27,7 @@
 #' horizontal graphs.
 #' @param edgelabel Boolean whether to label the edges of the diagram
 #' (default FALSE)
+#' @param verbose Verbosity level (0 (default), 1, or 2)
 #'
 #'
 #' @family Plotting knowledge structures
@@ -46,7 +47,8 @@ plot.kmfamset <- function(x,
                           vertexshape = "oval",
                           arrowhead = "none",
                           arrowtail = "none",
-                          edgelabel = FALSE
+                          edgelabel = FALSE,
+                          verbose = 0
 ){
   structure <- t(x)
 
@@ -73,15 +75,36 @@ plot.kmfamset <- function(x,
       if(sum(structure[,i]*structure[,j])==sum(structure[,i])) b[i,j]=1
     }
   }
-  diag(b)<-0
-  d <- b
-  for(i in 1:n){
-    for(j in c(1:n)[-i]){
-      if(b[j,i]==1) d[j,]=d[j,]*(1-b[i,])
-    }
+  # Build (reduced) list of edges
+  if (verbose > 0) {
+    print("Start Building edges")
+    print(Sys.time())
   }
+  nos <- dim(x)[1]
   ed <- NULL
-  for(i in 1:n) for(j in 1:n) if(d[i,j]==1) ed <- c(ed,i,j)
+  lapply(1:nos, function(i) {
+    if (verbose > 1)
+      print(sprintf("Searching neighbours for state %d", i))
+    lapply(1:nos, function(j) {
+      if (all((x[i,] & x[j,]) == x[i,]) && (i != j)) {
+        trans <- FALSE
+        k <- 0
+        while (k < nos && !trans) {
+          k <- k + 1
+          if ((i != k) && (j != k) &&
+              (all((x[i,] & x[k,]) == x[i,])) &&
+              (all((x[k,] & x[j,]) == x[k,]))) {
+            trans <- TRUE
+          }
+        }
+        if (k <= nos && !trans)
+          ed <<- c(ed, i, j)      }
+    })
+  })
+  if (verbose > 0) {
+    print("Finished Building edges, start building vertices")
+    print(Sys.time())
+  }
   if (keepNames && !is.null(rownames(structure))) {
     l <- lapply(1:n, function(i) {
       paste(c(c(rownames(structure))[structure[,i]*c(1:nrow(structure))]),collapse = itemsep)
@@ -130,7 +153,7 @@ plot.kmfamset <- function(x,
     if (arrowtail == "none") warning("For horizontal diagrams, arrowtail should be set.")
   } else
     direction <- "TB"
-  dot <- paste0(
+  dotGraph <- paste0(
     'digraph hasse {',
     sprintf('rankdir=%s;', direction),
     sprintf('node [fontname="Helvetica", shape=%s, style=filled];', vertexshape),
@@ -140,7 +163,11 @@ plot.kmfamset <- function(x,
     # print(el, collapse="\n"),
     '}'
   )
-  grViz(dot)
+  if (verbose > 0) {
+    print("Ready for plotting")
+    print(Sys.time())
+  }
+  grViz(dotGraph)
 }
 
 
@@ -160,12 +187,12 @@ plot.kmneighbourhood <- function(x,
                                  arrowhead = "none",
                                  arrowtail = "none",
                                  edgelabel = FALSE,
-                                 state
+                                 state,
+                                 verbose = 0
 ){
   structure <- t(x)
 
   n <- ncol(structure)
-  b = diag(0,n)
   items <- nrow(structure)
 
   # if (is.null(rownames(structure))) {
@@ -202,21 +229,29 @@ plot.kmneighbourhood <- function(x,
     stop("Incompatible parameters (length of 'colors')!")
   }
 
-  for(i in 1:n){
-    for(j in 1:n){
-      if(sum(structure[,i]*structure[,j])==sum(structure[,i])) b[i,j]=1
-    }
-  }
-  diag(b)<-0
-  d <- b
-  for(i in 1:n){
-    for(j in c(1:n)[-i]){
-      if(b[j,i]==1) d[j,]=d[j,]*(1-b[i,])
-    }
-  }
+  nos <- dim(x)[1]
   ed <- NULL
-  for(i in 1:n) for(j in 1:n) if(d[i,j]==1) ed <- c(ed,i,j)
-  if (keepNames && !is.null(rownames(structure))) {
+  lapply(1:nos, function(i) {
+    if (verbose > 1)
+      print(sprintf("Searching neighbours for state %d", i))
+    lapply(1:nos, function(j) {
+      if (all((x[i,] & x[j,]) == x[i,]) && (i != j)) {
+        trans <- FALSE
+        k <- 0
+        while (k < nos && !trans) {
+          k <- k + 1
+          if ((i != k) && (j != k) &&
+              (all((x[i,] & x[k,]) == x[i,])) &&
+              (all((x[k,] & x[j,]) == x[k,]))) {
+            trans <- TRUE
+          }
+        }
+        if (k <= nos && !trans)
+          ed <<- c(ed, i, j)      }
+    })
+  })
+
+    if (keepNames && !is.null(rownames(structure))) {
     l <- lapply(1:n, function(i) {
       paste(c(c(rownames(structure))[structure[,i]*c(1:nrow(structure))]),collapse = itemsep)
     })
@@ -292,10 +327,10 @@ plot.kmsurmiserelation <- function(x,
                                    keepNames = TRUE,
                                    vertexshape = "circle",
                                    arrowhead = "none",
-                                   arrowtail = "none"
+                                   arrowtail = "none",
+                                   verbose = 0
 ){
   n <- ncol(x)
-  b = diag(0,n)
 
   if (is.null(colors)) {
     colors <- rep("orange", n)
@@ -304,20 +339,27 @@ plot.kmsurmiserelation <- function(x,
   if (length(colors) != n)
     stop("Incompatible parameters (length of 'colors').")
 
-  for(i in 1:n){
-    for(j in 1:n){
-      if(sum(x[,i]*x[,j])==sum(x[,i])) b[i,j]=1
-    }
-  }
-  diag(b)<-0
-  d <- b
-  for(i in 1:n){
-    for(j in c(1:n)[-i]){
-      if(b[j,i]==1) d[j,]=d[j,]*(1-b[i,])
-    }
-  }
+  nos <- dim(x)[1]
   ed <- NULL
-  for(i in 1:n) for(j in 1:n) if(d[i,j]==1) ed <- c(ed,i,j)
+  lapply(1:nos, function(i) {
+    if (verbose > 1)
+      print(sprintf("Searching neighbours for item %d", i))
+    lapply(1:nos, function(j) {
+      if (all((x[i,] & x[j,]) == x[i,]) && (i != j)) {
+        trans <- FALSE
+        k <- 0
+        while (k < nos && !trans) {
+          k <- k + 1
+          if ((i != k) && (j != k) &&
+              (all((x[i,] & x[k,]) == x[i,])) &&
+              (all((x[k,] & x[j,]) == x[k,]))) {
+            trans <- TRUE
+          }
+        }
+        if (k <= nos && !trans)
+          ed <<- c(ed, j, i)      }
+    })
+  })
   if (keepNames && !is.null(colnames(x))) {
     l <- colnames(x)
   } else {

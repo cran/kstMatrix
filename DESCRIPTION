@@ -1,7 +1,7 @@
 Package: kstMatrix
 Type: Package
-Date: 2025-12-18
-Version: 2.2-0
+Date: 2026-01-23
+Version: 2.2-1
 Title: Basic Functions in Knowledge Space Theory Using Matrix
         Representation
 Description: Knowledge space theory by Doignon and Falmagne (1999)
@@ -15,8 +15,8 @@ Description: Knowledge space theory by Doignon and Falmagne (1999)
    developed by the research group around Cornelia Dowling through
    querying experts.
 Depends: R (>= 4.4.0)
-Imports: stats, grDevices, sets, pks, tidyr, DiagrammeR, DiagrammeRsvg,
-        rsvg
+Imports: stats, grDevices, sets, pks, tidyr, DiagrammeR, rsvg,
+        DiagrammeRsvg
 Suggests: knitr, markdown
 Authors@R: c(person(given = "Cord", family = "Hockemeyer",
                     role = c("aut", "cre"),
@@ -36,8 +36,8 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.3
 VignetteBuilder: knitr
-Packaged: 2025-12-18 12:06:15 UTC; cord
+Packaged: 2026-01-23 12:24:07 UTC; cord
 Author: Cord Hockemeyer [aut, cre],
   Peter Steiner [aut],
   Wai Wong [aut]
-Date/Publication: 2025-12-18 16:10:02 UTC
+Date/Publication: 2026-01-23 13:40:07 UTC

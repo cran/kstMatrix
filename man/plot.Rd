@@ -18,7 +18,8 @@
   vertexshape = "oval",
   arrowhead = "none",
   arrowtail = "none",
-  edgelabel = FALSE
+  edgelabel = FALSE,
+  verbose = 0
 )
 
 \method{plot}{kmneighbourhood}(
@@ -33,7 +34,8 @@
   arrowhead = "none",
   arrowtail = "none",
   edgelabel = FALSE,
-  state
+  state,
+  verbose = 0
 )
 
 \method{plot}{kmsurmiserelation}(
@@ -44,7 +46,8 @@
   keepNames = TRUE,
   vertexshape = "circle",
   arrowhead = "none",
-  arrowtail = "none"
+  arrowtail = "none",
+  verbose = 0
 )
 }
 \arguments{
@@ -80,6 +83,8 @@ horizontal graphs.}
 
 \item{edgelabel}{Boolean whether to label the edges of the diagram
 (default FALSE)}
+
+\item{verbose}{Verbosity level (0 (default), 1, or 2)}
 
 \item{state}{Knowledge state whose neighbourhood is to be pictured}
 }
