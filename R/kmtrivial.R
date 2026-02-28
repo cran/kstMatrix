@@ -30,7 +30,7 @@ kmminimalspace <- function(noi) {
 #' @rdname kmtrivial
 #' @export
 kmmaximalspace <- function(noi) {
-  m <- kmunionclosure(diag(noi))
+  m <- kmunionclosure(kmfamset(diag(noi)))
   class(m) <- unique(c("kmspace", "kmstructure", "kmfamset", class(m)))
   m
 }

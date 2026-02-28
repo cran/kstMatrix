@@ -23,10 +23,6 @@ kmfamset <- function(x) {
     stop(sprintf("%s must be a binary matrix.", dQuote("data")))
   }
   res <- unique(x, MARGIN = 1)
-  if (!inherits(x, "kmfamset")) {
-    class(res) <- c('kmfamset', class(x))
-  } else {
-    class(res) <- class(x)
-  }
-  x
+  class(res) <- unique(c('kmfamset', class(x)))
+  res
 }

@@ -2,11 +2,10 @@
 #'
 #' \code{kmbasis.matrix} returns a matrix representing the basis of a
 #' knowledge space. If \code{x} is a knowledge structure or an
-#' arbitrary family of sets \code{kmreduction} returns the basis of
+#' arbitrary family of sets \code{kmbasis} returns the basis of
 #' the smallest knowledge space containing \code{x}.
 #'
 #' @param x Binary matrix representing a knowledge space
-#' @param ... Space or future, optional parameters
 #' @return Binary matrix representing the basis of the knowledge space.
 #'
 #' @examples
@@ -14,8 +13,10 @@
 #'
 #' @family Different representations for knowledge spaces
 #'
+#' @method kmbasis matrix
+#' @rdname kmbasis
 #' @export
-kmbasis.matrix <- function(x, ...) {
+kmbasis.matrix <- function(x) {
   if (!inherits(x, "matrix")) {
     stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("matrix")))
   }

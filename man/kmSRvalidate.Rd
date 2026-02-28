@@ -15,7 +15,7 @@ kmSRvalidate(data, sr)
 A list with two elements:
 \describe{
 \item{gamma}{Goodman & Kruskal's gamma index}
-\item{VC}{Violational Coefficient}
+\item{vc}{Violational Coefficient}
 }
 }
 \description{

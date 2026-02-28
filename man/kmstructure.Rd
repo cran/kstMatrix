@@ -18,7 +18,7 @@ the passed object is a binary matrix without double rows. The empty set
 and the full item set are added if missing.
 }
 \examples{
-m <- as.matrix(c(1,0,0,0,1,0,1,1,1), nrow=3, byrow=TRUE)
+m <- matrix(c(1,0,0,0,1,0,1,1,1), nrow=3, byrow=TRUE)
 kmstructure(m)
 
 }

@@ -38,7 +38,7 @@ discordance <- function(data, sr) {
 #' @return A list with two elements:
 #' \describe{
 #'   \item{gamma}{Goodman & Kruskal's gamma index}
-#'   \item{VC}{Violational Coefficient}
+#'   \item{vc}{Violational Coefficient}
 #' }
 #'
 #' @examples

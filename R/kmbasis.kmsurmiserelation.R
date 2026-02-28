@@ -4,14 +4,14 @@
 #' corresponding basis.
 #'
 #' @param x Surmise relation
-#' @param ... Space for additional, optional arameters
 #' @return Basis
 #'
 #' @family Different representations for knowledge spaces
 #'
 #' @method kmbasis kmsurmiserelation
+#' @rdname kmbasis
 #' @export
-kmbasis.kmsurmiserelation <- function(x, ...) {
+kmbasis.kmsurmiserelation <- function(x) {
   mat <- unique(t(x))
   class(mat) <- unique(c("kmbasis", "kmfamset", class(mat)))
   mat

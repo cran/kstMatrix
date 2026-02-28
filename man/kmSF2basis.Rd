@@ -19,9 +19,7 @@ and returns the corresponding basis.
 \seealso{
 Other Different representations for knowledge spaces: 
 \code{\link{kmSR2basis}()},
-\code{\link{kmbasis.kmsurmisefunction}()},
-\code{\link{kmbasis.kmsurmiserelation}()},
-\code{\link{kmbasis.matrix}()},
+\code{\link{kmbasis}()},
 \code{\link{kmsurmisefunction}()},
 \code{\link{kmsurmiserelation}()},
 \code{\link{kmunionclosure}()}

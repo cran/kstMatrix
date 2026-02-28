@@ -93,6 +93,9 @@ horizontal graphs.}
 or a surmise relation and a color vector, and draws a Hasse diagram.
 If the color vector is NULL the states are drawn in green, the items in
 the relation are drawn in orange.
+If the plot is to be used within a Shiny app, it must be included with
+\code{grVizOutput()} and \code{renderGrViz()} from the \code{DiagrammeR}
+package (\code{plotOutput()} and \code{renderPlot()} do not work).
 }
 \seealso{
 Other Plotting knowledge structures: 

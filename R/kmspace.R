@@ -6,7 +6,7 @@
 #' @return \code{kmspace} object
 #'
 #' @examples
-#' m <- as.matrix(c(1,0,0,0,1,0,1,1,1), nrow=3, byrow=TRUE)
+#' m <- matrix(c(1,0,0,0,1,0,1,1,1), nrow=3, byrow=TRUE)
 #' kmspace(m)
 #'
 #' @family Constructors

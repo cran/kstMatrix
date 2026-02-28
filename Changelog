@@ -1,3 +1,11 @@
+2026-02-27: Version 2.3-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Correcting a minor bug in kmfamset.R (returned wrong variable)
+* Providing kmunionclosure as a method for object classes kmfamset, kmdata,
+  kmsurmiserelation, and kmsurmisefunction.
+* Omitting optional parameters from kmbasis() methods because they are
+  nowhere used.
+* Extending documentation for plot() w.r.t. Shiny
+
 2026-01-23: Version 2.2-1 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Re-programmed edge-determination in plot functions to allow for larger
   structures.

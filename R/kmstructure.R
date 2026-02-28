@@ -8,7 +8,7 @@
 #' @return \code{kmstructure} object
 #'
 #' @examples
-#' m <- as.matrix(c(1,0,0,0,1,0,1,1,1), nrow=3, byrow=TRUE)
+#' m <- matrix(c(1,0,0,0,1,0,1,1,1), nrow=3, byrow=TRUE)
 #' kmstructure(m)
 #'
 #' @family Constructors
@@ -25,6 +25,6 @@ kmstructure <- function(x) {
   t <- kmminimalspace(dim(x)[2])
   r <- rbind(x,t)
   res <- kmfamset(r)
-  class(res) <- unique(c("kmstructure", class(x)))
+  class(res) <- unique(c("kmstructure", class(res)))
   res
 }
