@@ -7,11 +7,10 @@
 kmsurmiserelation(x)
 }
 \arguments{
-\item{x}{Binary matrix representing a quasi-ordinal knowledge space}
+\item{x}{Binary matrix representing a family of sets (class kmfamset)}
 }
 \value{
-Binary matrix representing the surmise relation of the
-corresponding quasi-ordinal knowledge space
+Binary matrix representing the surmise relation
 
 Note: The columns of the surmise relation matrix describe the
 minimal state for the respective item in the quasi-ordinal

@@ -1,5 +1,11 @@
+2026-04-02: Version 2.3-1 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Making package DiagrammeRsvg an optional dependency
+* Additional directory name parameter for kmassess() and kmsassess()
+* Switching from knitr to litedown for vignette
+
 2026-02-27: Version 2.3-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Correcting a minor bug in kmfamset.R (returned wrong variable)
+* Correcting a typo in kmunionclosure.R
 * Providing kmunionclosure as a method for object classes kmfamset, kmdata,
   kmsurmiserelation, and kmsurmisefunction.
 * Omitting optional parameters from kmbasis() methods because they are

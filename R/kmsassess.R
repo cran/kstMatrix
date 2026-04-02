@@ -16,6 +16,7 @@
 #' @param threshold Probability threshold for stopping criterion
 #' @param probdev Provide information on the probability development
 #'    including Hasse diagrams stored in \code{tempdir()}. Defaults to FALSE.
+#' @param directory Where to store the Hasse diagrams.
 #' @return A list with the following elements:
 #' \describe{
 #'   \item{state}{Diagnosed knowledge state (binary vector)}
@@ -35,7 +36,7 @@
 #'
 #' @rdname kmassess
 #' @export
-kmsassess <- function(r, ks, questioning, update, beta, eta, zeta0, zeta1, threshold, probdev=FALSE) {
+kmsassess <- function(r, ks, questioning, update, beta, eta, zeta0, zeta1, threshold, probdev=FALSE, directory=NULL) {
   storage.mode(ks) <- "integer"
   if ((threshold < 0) | (threshold > 1))
     stop("Threshokd must be between 0 and 1.")
@@ -72,7 +73,7 @@ kmsassess <- function(r, ks, questioning, update, beta, eta, zeta0, zeta1, thres
   z0 <- rep(zeta0, noi)
   z1 <- rep(zeta1, noi)
   if (update == "Bayesian")
-    kmassess(r, pks, questioning, update, bv, ev, NULL, NULL, threshold, probdev)
+    kmassess(r, pks, questioning, update, bv, ev, NULL, NULL, threshold, probdev, directory)
   else
-    kmassess(r, pks, questioning, update, NULL, NULL, z0, z1, threshold, probdev)
+    kmassess(r, pks, questioning, update, NULL, NULL, z0, z1, threshold, probdev, directory)
 }

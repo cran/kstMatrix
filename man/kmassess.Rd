@@ -16,7 +16,8 @@ kmassess(
   zeta0,
   zeta1,
   threshold,
-  probdev = FALSE
+  probdev = FALSE,
+  directory = tempdir()
 )
 
 kmsassess(
@@ -29,7 +30,8 @@ kmsassess(
   zeta0,
   zeta1,
   threshold,
-  probdev = FALSE
+  probdev = FALSE,
+  directory = NULL
 )
 }
 \arguments{
@@ -55,6 +57,8 @@ matrix in the subsequent columns.}
 
 \item{probdev}{Provide information on the probability development
 including Hasse diagrams stored in \code{tempdir()}. Defaults to FALSE.}
+
+\item{directory}{Where to store the Hasse diagrams.}
 
 \item{ks}{Knowledge structure: a binary matrix}
 }
@@ -134,7 +138,7 @@ suitable questions and for updating the probability estimates, respectively.
 They could also be used in an interactive system, e.g. a Shiny app, for
 "real" adaptive assessment.
 
-The remaining thee assessment functions serve for mere simulation of
+The remaining three assessment functions serve for mere simulation of
 adaptive assessment. \code{kmassess} takes, among others, a full response
 pattern as parameter and takes the responses for the selected questions
 from this vector. \code{kmsassess} is a simplified version where the

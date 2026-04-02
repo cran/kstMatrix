@@ -2,19 +2,19 @@
 title: "kstMatrix"
 author: "Cord Hockemeyer"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: html
 vignette: >
   %\VignetteIndexEntry{kstMatrix}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{litedown::vignette}
   %\VignetteEncoding{UTF-8}
 
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+# knitr::opts_chunk$set(
+#   collapse = TRUE,
+#   comment = "#>"
+# )
 library(kstMatrix)
 library(grDevices)
 library(sets)
@@ -70,9 +70,10 @@ The following figure shows the dependencies between these classes, e.g., `kmspac
   img {
     border: 0;
   }
-  </style>
+</style>
+![](kstMatrixClasses.png)
 ```{r kstMatrixClasses, echo=FALSE, fig.cap="Structure of <tt>kstMatrix</tt> classes", out.width="700"}
-knitr::include_graphics("kstMatrixClasses.png")
+# litedown::include_graphics("kstMatrixClasses.png")
 ```
 
 ## Constructors
@@ -170,7 +171,7 @@ Furthermore, due to complexity, there is no `kmbasisnneighbourhood()`(yet).
 
 # Plotting 
 With version 2.0  of `kstMatrix`, plotting functionality is provided through the S3 `plot` 
-method. The method is available for the `kmfamset`,  `kmsurmiserelation`, and `kmneidghbourhood` classes.
+method. The method is available for the `kmfamset`,  `kmsurmiserelation`, and `kmneighbourhood` classes.
 ```{r}
 plot(xpl$space)
 plot(xpl$sr)

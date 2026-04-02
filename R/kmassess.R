@@ -13,9 +13,15 @@
 #' @param eta Lucky guess probabilities (vector)
 #' @param zeta0 Vector of update parameters for wrong responses
 #' @param zeta1 Vector of update parameters for correct responses
-#' @param threshold Probability threshold for stopping criterion
+#' @param threshold Probability threshold for stopping criterion. SHould be
+#'    larger than 0.5.
 #' @param probdev Create colored Hasse diagrams in each step (default FALSE)
-#'    and save them to \code{tempdir()}.
+#'    and save them to \code{tempdir()}. This requires the installation of
+#'    the \code{DiagrammeRsvg} package. Additionally, the development of the
+#'    probabilities is stored in the result.
+#' @param directory Directory to store diagrams requested through \code{probdev}.
+#'    Will be created if non-existent. Default is \code{tempdir()}. If NULL,
+#'    no plots will be generated.
 #' @return A list with the following elements:
 #' \describe{
 #'   \item{state}{Diagnosed knowledge state (binary vector)}
@@ -70,7 +76,7 @@
 #' They could also be used in an interactive system, e.g. a Shiny app, for
 #' "real" adaptive assessment.
 #'
-#' The remaining thee assessment functions serve for mere simulation of
+#' The remaining three assessment functions serve for mere simulation of
 #' adaptive assessment. \code{kmassess} takes, among others, a full response
 #' pattern as parameter and takes the responses for the selected questions
 #' from this vector. \code{kmsassess} is a simplified version where the
@@ -120,7 +126,6 @@
 #' @importFrom grDevices dev.off jpeg terrain.colors
 #' @importFrom DiagrammeR grViz
 #' @importFrom rsvg rsvg_png
-#' @importFrom DiagrammeRsvg export_svg
 #'
 #' @family Knowledge assessment
 #' @aliases Assessment
@@ -135,13 +140,26 @@ kmassess <- function(r,
                      zeta0,
                      zeta1,
                      threshold,
-                     probdev = FALSE) {
-  problist <- list()
+                     probdev = FALSE,
+                     directory = tempdir()) {
+  debug <- FALSE
+  probdevplots <- FALSE
+  if (probdev) {
+    if (!requireNamespace("DiagrammeRsvg", quietly = TRUE)) {
+      warning(sprintf("Plotting stepwise Hasse diagrams requires package 'DiagrammeRsvg'. Setting 'probdev' to FALSE."))
+      probdevplots <- FALSE
+    } else if (is.null(directory)) probdevplots <- FALSE
+    else {
+      if (!dir.exists(directory)) {
+        if (!dir.create(directory)) probdevplots <- FALSE
+      }
+      else probdevplots <- TRUE
+    }
+  }
+
+  problist <- list(pks[,1])
   noi <- dim(pks)[2] - 1
   nos = dim(pks)[1]
-
-  debug <- FALSE
-  td <- tempdir()
 
   if ((threshold < 0) | (threshold > 1))
     stop("Threshokd must be between 0 and 1.")
@@ -189,11 +207,11 @@ kmassess <- function(r,
   queried <- c()
   qtime <- c()
   utime <- c()
-  if (probdev) {
+  if (probdevplots) {
     # plog <- log(probs + 1e-8)
     # pnorm <- (plog - min(plog)) / (max(plog) - min(plog))
     pl <- plot(ks, colors=kmcolors(probs, terrain.colors), method="DiagrammeR")
-    rsvg_png(charToRaw(export_svg(pl)), paste0(tempdir(), "/assess-fig0.png"))
+    rsvg_png(charToRaw(DiagrammeRsvg::export_svg(pl)), paste0(directory, "/assess-fig0.png"))
   }
   while (max(probs) <= threshold) {
     if (questioning == "halfsplit") {
@@ -202,7 +220,6 @@ kmassess <- function(r,
       qtime <- c(qtime, system.time(q <- kmassessinformative(probs, ks, update, beta, eta, zeta0, zeta1))[3])
     } else
       stop("Undefined questioning rule.")
-    if (debug) print(sprintf("question = %i", q))
     queried <- c(queried, q)
     if (length(queried) > 2*noi) {
       warning("Reached twice of number of items as number of questions!")
@@ -219,12 +236,12 @@ kmassess <- function(r,
       utime <- c(utime, system.time(probs <- kmassessbayesian(probs, ks, beta, eta, q, resp))[3])
 
     problist <- append(problist, list(probs))
-    if (probdev) {
+    if (probdevplots) {
       # plog <- log(probs + 1e-10)
       # pnorm <- (plog - min(plog)) / (max(plog) - min(plog))
-      fn <- paste0(td, "/assess-fig", length(queried), ".png")
+      fn <- paste0(directory, "/assess-fig", length(queried), ".png")
       pl <- plot(ks, colors=kmcolors(probs, terrain.colors), method="DiagrammeR")
-      rsvg_png(charToRaw(export_svg(pl)), fn)
+      rsvg_png(charToRaw(DiagrammeRsvg::export_svg(pl)), fn)
     }
     if (debug) {
       print(problist)
