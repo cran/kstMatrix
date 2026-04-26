@@ -34,9 +34,9 @@ kmnotions <- function(x) {
       }
     }
   }
-  rownames(sr) <- colnames(x)
+  rownames(sr) <- NULL
   colnames(sr) <- colnames(x)
   red <-unique(sr)
-  class(red) <- unique(c("kmstructure", "kmfamily", class(red)))
+  class(red) <- unique(c("kmfamset", class(red)))
   red
 }

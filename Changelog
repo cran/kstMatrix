@@ -1,3 +1,9 @@
+2026-04-26: Version 2.3-2 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Correcting rownames and class of kmnotions() result
+* Setting basis rownames to NULL in kmbasis.kmsurmiserelation()
+* Revision of  plot.kmsurmiserelation() for equivalent items
+* Name items in plot.kmsurmiserelation() if is.null(colnames)
+
 2026-04-02: Version 2.3-1 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Making package DiagrammeRsvg an optional dependency
 * Additional directory name parameter for kmassess() and kmsassess()

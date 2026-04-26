@@ -1,12 +1,22 @@
 #' Plot a Hasse diagram
 #'
+#' \code{plot} draws a Hasse diagram for a family of sets or a surmise relation.
+#'
 #' \code{plot} takes a matrix representing a family of sets (knowledge states)
 #' or a surmise relation and a color vector, and draws a Hasse diagram.
 #' If the color vector is NULL the states are drawn in green, the items in
 #' the relation are drawn in orange.
+#'
+#' For a surmise relation, if there are equivalent items, they are contracted
+#' into one vertex labelled 'a ~ b ~ ...' for equivalent items a, b, ...
+#'
 #' If the plot is to be used within a Shiny app, it must be included with
 #' \code{grVizOutput()} and \code{renderGrViz()} from the \code{DiagrammeR}
 #' package (\code{plotOutput()} and \code{renderPlot()} do not work).
+#'
+#' Please note that, for equivalent items in a relation plot, the prerequisites
+#' are lost.
+#'
 #'
 #' @param x Binary matrix representing a family of sets
 #' @param ... Optional inherited parameters
@@ -32,6 +42,16 @@
 #' (default FALSE)
 #' @param verbose Verbosity level (0 (default), 1, or 2)
 #'
+#' @examples
+#' plot(phsg$basis)
+#'
+#' sp <- kmunionclosure(phsg$basis)
+#' n <- kmneighbourhood(phsg$basis[3,], sp, include=TRUE)
+#' plot(n, state=phsg$basis[3,])
+#'
+#' m <- matrix(c(1,0,0,1,1,1,1,1,1), ncol=3, byrow=FALSE)
+#' class(m) <- unique(c("kmsurmiserelation", class(m)))
+#' plot(m, vertexshape="oval")
 #'
 #' @family Plotting knowledge structures
 #'
@@ -333,6 +353,23 @@ plot.kmsurmiserelation <- function(x,
                                    arrowtail = "none",
                                    verbose = 0
 ){
+  if (is.null(colnames(x))) {
+    colnames(x) <- make.unique(letters[(0L:(ncol(x)-1)) %% 26 + 1])
+    rownames(x) <- colnames(x)
+  }
+  bas <- kmbasis(x)
+  notions <- kmnotions(bas)
+  w <- which(rowSums(notions)>1)
+  if (length(w) > 0) {  # There exist equivalent items
+    redsr <- kmsurmiserelation(kmeqreduction(bas))
+    label <- sapply(as.list(1:(dim(notions)[1])), function(item) {
+      paste(colnames(notions)[which(notions[item,]>0)], collapse='~')
+    })
+    x <- redsr
+    rownames(x) <- label
+    colnames(x) <- label
+  }
+
   n <- ncol(x)
 
   if (is.null(colors)) {

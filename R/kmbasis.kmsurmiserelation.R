@@ -13,6 +13,7 @@
 #' @export
 kmbasis.kmsurmiserelation <- function(x) {
   mat <- unique(t(x))
+  rownames(mat) <- NULL
   class(mat) <- unique(c("kmbasis", "kmfamset", class(mat)))
   mat
 }

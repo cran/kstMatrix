@@ -89,13 +89,35 @@ horizontal graphs.}
 \item{state}{Knowledge state whose neighbourhood is to be pictured}
 }
 \description{
+\code{plot} draws a Hasse diagram for a family of sets or a surmise relation.
+}
+\details{
 \code{plot} takes a matrix representing a family of sets (knowledge states)
 or a surmise relation and a color vector, and draws a Hasse diagram.
 If the color vector is NULL the states are drawn in green, the items in
 the relation are drawn in orange.
+
+For a surmise relation, if there are equivalent items, they are contracted
+into one vertex labelled 'a ~ b ~ ...' for equivalent items a, b, ...
+
 If the plot is to be used within a Shiny app, it must be included with
 \code{grVizOutput()} and \code{renderGrViz()} from the \code{DiagrammeR}
 package (\code{plotOutput()} and \code{renderPlot()} do not work).
+
+Please note that, for equivalent items in a relation plot, the prerequisites
+are lost.
+}
+\examples{
+plot(phsg$basis)
+
+sp <- kmunionclosure(phsg$basis)
+n <- kmneighbourhood(phsg$basis[3,], sp, include=TRUE)
+plot(n, state=phsg$basis[3,])
+
+m <- matrix(c(1,0,0,1,1,1,1,1,1), ncol=3, byrow=FALSE)
+class(m) <- unique(c("kmsurmiserelation", class(m)))
+plot(m, vertexshape="oval")
+
 }
 \seealso{
 Other Plotting knowledge structures: 
