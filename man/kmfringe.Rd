@@ -30,12 +30,12 @@ kmfringe(c(1,0,0,0), xpl$space)
 
 }
 \seealso{
-Other Fringes & learning paths: 
-\code{\link{kmbasisfringe}()},
-\code{\link{kmbasisneighbourhood}()},
-\code{\link{kmgradations}()},
-\code{\link{kmlearningpaths}()},
-\code{\link{kmneighbourhood}()},
-\code{\link{kmnneighbourhood}()}
+Other Fringes & learning paths:
+\code{\link[=kmbasisfringe]{kmbasisfringe()}},
+\code{\link[=kmbasisneighbourhood]{kmbasisneighbourhood()}},
+\code{\link[=kmgradations]{kmgradations()}},
+\code{\link[=kmlearningpaths]{kmlearningpaths()}},
+\code{\link[=kmneighbourhood]{kmneighbourhood()}},
+\code{\link[=kmnneighbourhood]{kmnneighbourhood()}}
 }
 \concept{Fringes & learning paths}

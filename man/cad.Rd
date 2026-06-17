@@ -35,7 +35,7 @@ Theuns, editors, \emph{Recent Progress in Mathematical Psychology,} pp. 133–14
 Lawrence Erlbaum Associates Ltd., Mahwah, NJ.
 }
 \seealso{
-Other Data: 
+Other Data:
 \code{\link{fractions}},
 \code{\link{phsg}},
 \code{\link{readwrite}},

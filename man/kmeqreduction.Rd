@@ -21,8 +21,8 @@ kmeqreduction(xpl$space)
 
 }
 \seealso{
-Other Properties of knowledge structures: 
-\code{\link{kmiswellgraded}()},
-\code{\link{kmnotions}()}
+Other Properties of knowledge structures:
+\code{\link[=kmiswellgraded]{kmiswellgraded()}},
+\code{\link[=kmnotions]{kmnotions()}}
 }
 \concept{Properties of knowledge structures}

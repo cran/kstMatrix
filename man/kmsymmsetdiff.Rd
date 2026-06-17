@@ -30,14 +30,10 @@ kmsetdistance(c(1,0,0), c(1,1,0))
 
 }
 \seealso{
-Other Utilities: 
-\code{\link{kmcolors}()},
-\code{\link{kmdoubleequal}()},
-\code{\link{kmsetiselement}()}
-
-Other Utilities: 
-\code{\link{kmcolors}()},
-\code{\link{kmdoubleequal}()},
-\code{\link{kmsetiselement}()}
+Other Utilities:
+\code{\link[=kmcolors]{kmcolors()}},
+\code{\link[=kmdoubleequal]{kmdoubleequal()}},
+\code{\link[=kmminimalfamset]{kmminimalfamset()}},
+\code{\link[=kmsetiselement]{kmsetiselement()}}
 }
 \concept{Utilities}

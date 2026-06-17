@@ -17,10 +17,10 @@
 #' @export
 kmfamset <- function(x) {
   if (!inherits(x, "matrix")) {
-    stop(sprintf("%s must be of class %s.", dQuote("data"), dQuote("matrix")))
+    stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("matrix")))
   }
   if (any(x != 1*as.logical(x))) {
-    stop(sprintf("%s must be a binary matrix.", dQuote("data")))
+    stop(sprintf("%s must be a binary matrix.", dQuote("x")))
   }
   res <- unique(x, MARGIN = 1)
   class(res) <- unique(c('kmfamset', class(x)))

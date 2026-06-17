@@ -120,7 +120,7 @@ plot(m, vertexshape="oval")
 
 }
 \seealso{
-Other Plotting knowledge structures: 
-\code{\link{kmcolors}()}
+Other Plotting knowledge structures:
+\code{\link[=kmcolors]{kmcolors()}}
 }
 \concept{Plotting knowledge structures}

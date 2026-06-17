@@ -1,7 +1,7 @@
 ---
 title: "kstMatrix"
 author: "Cord Hockemeyer"
-date: "`r Sys.Date()`"
+date: "`{r} format(Sys.time(), '%B %d, %Y')`"
 output: html
 vignette: >
   %\VignetteIndexEntry{kstMatrix}
@@ -194,11 +194,12 @@ plot(xpl$space, arrowhead="empty")
 # Utilities
 This group contains several smaller helper functions.
 
-- `kmsymmsetdiff()`
-- `kmsetdistance()`
-- `kmsetiselement()`
-- `kmdoubleequal()`
-- `kmcolors()`
+- `kmsymmsetdiff()`: Determine the symmetric set difference between two sets.
+- `kmsetdistance()`: Determine the cardinality of the symmetric set difference
+- `kmsetiselement()`: Test if an item is element of a state/set
+- `kmminimalfamset()`: Determine the minimal states within a `kmfamset`
+- `kmdoubleequal()`: Test if two doubles are (almost) equal thus avoiding rounding problems with '=='
+- `kmcolors()`: Create a colors vector for plot().
 
 # Datasets provided by `kstMatrix`
 ## Empirical structures

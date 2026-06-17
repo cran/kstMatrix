@@ -37,11 +37,11 @@ kmassessmultiplicative(c(0.02, 0.1, 0.07, 0.01, 0.4, 0.17, 0.07, 0.08, 0.08),
 
 }
 \seealso{
-Other Knowledge assessment: 
-\code{\link{kmassess}()},
-\code{\link{kmassessbayesian}()},
-\code{\link{kmassesshalfsplit}()},
-\code{\link{kmassessinformative}()},
-\code{\link{kmassessmentsimulation}()}
+Other Knowledge assessment:
+\code{\link[=kmassess]{kmassess()}},
+\code{\link[=kmassessbayesian]{kmassessbayesian()}},
+\code{\link[=kmassesshalfsplit]{kmassesshalfsplit()}},
+\code{\link[=kmassessinformative]{kmassessinformative()}},
+\code{\link[=kmassessmentsimulation]{kmassessmentsimulation()}}
 }
 \concept{Knowledge assessment}

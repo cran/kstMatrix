@@ -31,7 +31,7 @@ kmgenerate(xpl$sim, 15)
 
 }
 \seealso{
-Other Generating knowledge spaces: 
-\code{\link{kmiita2SR}()}
+Other Generating knowledge spaces:
+\code{\link[=kmiita2SR]{kmiita2SR()}}
 }
 \concept{Generating knowledge spaces}

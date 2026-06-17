@@ -24,11 +24,11 @@ kmassesshalfsplit(c(0.02, 0.1, 0.07, 0.01, 0.4, 0.17, 0.07, 0.08, 0.08),
 
 }
 \seealso{
-Other Knowledge assessment: 
-\code{\link{kmassess}()},
-\code{\link{kmassessbayesian}()},
-\code{\link{kmassessinformative}()},
-\code{\link{kmassessmentsimulation}()},
-\code{\link{kmassessmultiplicative}()}
+Other Knowledge assessment:
+\code{\link[=kmassess]{kmassess()}},
+\code{\link[=kmassessbayesian]{kmassessbayesian()}},
+\code{\link[=kmassessinformative]{kmassessinformative()}},
+\code{\link[=kmassessmentsimulation]{kmassessmentsimulation()}},
+\code{\link[=kmassessmultiplicative]{kmassessmultiplicative()}}
 }
 \concept{Knowledge assessment}

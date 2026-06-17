@@ -35,12 +35,12 @@ Determining the Fringe of a Knowledge State.
 \emph{Journal of Mathematical Psychology, 41,} 275–279.
 }
 \seealso{
-Other Fringes & learning paths: 
-\code{\link{kmbasisneighbourhood}()},
-\code{\link{kmfringe}()},
-\code{\link{kmgradations}()},
-\code{\link{kmlearningpaths}()},
-\code{\link{kmneighbourhood}()},
-\code{\link{kmnneighbourhood}()}
+Other Fringes & learning paths:
+\code{\link[=kmbasisneighbourhood]{kmbasisneighbourhood()}},
+\code{\link[=kmfringe]{kmfringe()}},
+\code{\link[=kmgradations]{kmgradations()}},
+\code{\link[=kmlearningpaths]{kmlearningpaths()}},
+\code{\link[=kmneighbourhood]{kmneighbourhood()}},
+\code{\link[=kmnneighbourhood]{kmnneighbourhood()}}
 }
 \concept{Fringes & learning paths}

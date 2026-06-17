@@ -24,8 +24,8 @@ kmfamset(m)
 
 }
 \seealso{
-Other Constructors: 
-\code{\link{kmspace}()},
-\code{\link{kmstructure}()}
+Other Constructors:
+\code{\link[=kmspace]{kmspace()}},
+\code{\link[=kmstructure]{kmstructure()}}
 }
 \concept{Constructors}

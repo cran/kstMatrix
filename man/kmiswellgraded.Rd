@@ -24,8 +24,8 @@ Doignon, J.-P. & Falmagne, J.-C. (1999). \emph{Knowledge Spaces.}
 Springer–Verlag, Berlin.
 }
 \seealso{
-Other Properties of knowledge structures: 
-\code{\link{kmeqreduction}()},
-\code{\link{kmnotions}()}
+Other Properties of knowledge structures:
+\code{\link[=kmeqreduction]{kmeqreduction()}},
+\code{\link[=kmnotions]{kmnotions()}}
 }
 \concept{Properties of knowledge structures}

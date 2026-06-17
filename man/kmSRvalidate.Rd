@@ -28,8 +28,8 @@ kmSRvalidate(xpl$data, xpl$sr)
 
 }
 \seealso{
-Other Validating knowledge spaces: 
-\code{\link{kmdist}()},
-\code{\link{kmvalidate}()}
+Other Validating knowledge spaces:
+\code{\link[=kmdist]{kmdist()}},
+\code{\link[=kmvalidate]{kmvalidate()}}
 }
 \concept{Validating knowledge spaces}

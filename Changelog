@@ -1,3 +1,6 @@
+2026-06-17: Version 2.3-3 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* New utility function kmminimalfamset() (primarily for use in CbKST package)
+
 2026-04-26: Version 2.3-2 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Correcting rownames and class of kmnotions() result
 * Setting basis rownames to NULL in kmbasis.kmsurmiserelation()

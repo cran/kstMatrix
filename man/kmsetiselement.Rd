@@ -22,9 +22,10 @@ kmsetiselement(c(1,1,1,0), xpl$space)
 
 }
 \seealso{
-Other Utilities: 
-\code{\link{kmcolors}()},
-\code{\link{kmdoubleequal}()},
-\code{\link{kmsymmsetdiff}()}
+Other Utilities:
+\code{\link[=kmcolors]{kmcolors()}},
+\code{\link[=kmdoubleequal]{kmdoubleequal()}},
+\code{\link[=kmminimalfamset]{kmminimalfamset()}},
+\code{\link[=kmsymmsetdiff]{kmsymmsetdiff()}}
 }
 \concept{Utilities}

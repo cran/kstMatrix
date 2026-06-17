@@ -61,11 +61,11 @@ kmassessmentsimulation(
 
 }
 \seealso{
-Other Knowledge assessment: 
-\code{\link{kmassess}()},
-\code{\link{kmassessbayesian}()},
-\code{\link{kmassesshalfsplit}()},
-\code{\link{kmassessinformative}()},
-\code{\link{kmassessmultiplicative}()}
+Other Knowledge assessment:
+\code{\link[=kmassess]{kmassess()}},
+\code{\link[=kmassessbayesian]{kmassessbayesian()}},
+\code{\link[=kmassesshalfsplit]{kmassesshalfsplit()}},
+\code{\link[=kmassessinformative]{kmassessinformative()}},
+\code{\link[=kmassessmultiplicative]{kmassessmultiplicative()}}
 }
 \concept{Knowledge assessment}

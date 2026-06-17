@@ -29,7 +29,7 @@ Therefore, a minimal number of items can be passed to
 delivers the matrix of the computed surmise relation.
 }
 \seealso{
-Other Generating knowledge spaces: 
-\code{\link{kmgenerate}()}
+Other Generating knowledge spaces:
+\code{\link[=kmgenerate]{kmgenerate()}}
 }
 \concept{Generating knowledge spaces}

@@ -22,11 +22,11 @@ kmsurmisefunction(xpl$space)
 
 }
 \seealso{
-Other Different representations for knowledge spaces: 
-\code{\link{kmSF2basis}()},
-\code{\link{kmSR2basis}()},
-\code{\link{kmbasis}()},
-\code{\link{kmsurmiserelation}()},
-\code{\link{kmunionclosure}()}
+Other Different representations for knowledge spaces:
+\code{\link[=kmSF2basis]{kmSF2basis()}},
+\code{\link[=kmSR2basis]{kmSR2basis()}},
+\code{\link[=kmbasis]{kmbasis()}},
+\code{\link[=kmsurmiserelation]{kmsurmiserelation()}},
+\code{\link[=kmunionclosure]{kmunionclosure()}}
 }
 \concept{Different representations for knowledge spaces}
