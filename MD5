@@ -1,5 +1,5 @@
-aefdd5ecef47d1ffa05b8cc3b83bddc8 *Changelog
-232c4ad5889f6591af9d893c8bdedd93 *DESCRIPTION
+a87b724fe05c9c5fde8d6114a0c9af81 *Changelog
+7b84d7c09999180087c3b0f143910d6f *DESCRIPTION
 ce86cdb3ee61937e7ed772ed8b93b162 *NAMESPACE
 855266e83f838bb4bfcc42928a3bcd57 *R/cad.R
 25727664c0dde775e6e3507fe4cac611 *R/fractions.R
@@ -28,7 +28,7 @@ d3fe3aab12f1f83c23b679d57a9b5c24 *R/kmgradations.R
 0245b59d22fe083789121280a35c7cba *R/kmiita2SR.R
 8eb728a950f0832e5beca9961bd27bb0 *R/kmiswellgraded.R
 b398cbc5bbd5ce3843ea2ce01cfafe15 *R/kmlearningpaths.R
-9e859aa637d9c859a3af5f932642bcec *R/kmminimalfamset.R
+acfc17b9971beb405d93d1bdb64f3658 *R/kmminimalfamset.R
 db99a95d6c5c763ac574acca485470cf *R/kmneighbourhood.R
 054a844a08115b154e40a72b0824a567 *R/kmnotions.R
 f32840255bb6715365a250fc3cda5651 *R/kmsassess.R
@@ -50,16 +50,16 @@ c2267b3b3e4ef666a09dde72b4aefa72 *R/kmvalidate.R
 768964868ea36bda9c4ff293c32ab460 *R/plot.R
 44756bed15513d0fb1afb3abdac83c8b *R/readwrite.R
 878a67e92ee18b8ab7d7ce5930a78bd6 *R/xpl.R
-f51ba7c8bc94d8cf1fd072b85c6e53ab *build/partial.rdb
-e84b1b6ce979eef8b04d6f12043f8d6a *build/vignette.rds
+21c9401b8c07f38d762ade4612fc4ffe *build/partial.rdb
+b4a7c637b6cdc4fcf01715e2f2a1cf40 *build/vignette.rds
 c4877d08be783e30f0104e39f9fa2cc2 *data/cad.rda
 1299316b97575399ee8d933c692d51e2 *data/fractions.rda
 4e44f47b89071122f5931ca5fa48404c *data/phsg.rda
 b6e182fafdbc422b7bb7b239f58a2dee *data/readwrite.rda
 117ccb7e6cd471c0016737961fd625f8 *data/xpl.rda
 26ac805c6c74866cb39d8d095713a53f *inst/doc/kstMatrix.R
-6072bef9e45b47de23295f60911b4acb *inst/doc/kstMatrix.Rmd
-33d4756700d2fa37ec9cf28a635ae8d9 *inst/doc/kstMatrix.html
+7b7a7bd80db496cfdbf9c3b165666e08 *inst/doc/kstMatrix.Rmd
+376af154152e7afe8b166efef2309bbc *inst/doc/kstMatrix.html
 4781df87892e14f86e3ff91b8ba0a5d9 *man/cad.Rd
 1d15159c1af6cb50dbb0438fef1f9986 *man/fractions.Rd
 b16a6e47bf0ff251b462732d2a013a20 *man/kmSF2basis.Rd
@@ -85,7 +85,7 @@ a30ad0ec4ba1acd94e0b0ea0205edb84 *man/kmgradations.Rd
 f3d6cefbd92e495a5a41228eccac60da *man/kmiita2SR.Rd
 3a901637d37cdb3f91260e12f54f7a5e *man/kmiswellgraded.Rd
 a0fd051ad7fca490533f0794caac335a *man/kmlearningpaths.Rd
-69f70789996f98e05210e647440815ec *man/kmminimalfamset.Rd
+c30857d2e6bb9762c898bdd44075479d *man/kmminimalfamset.Rd
 1e247c8df421feeef16744e058e2b5e2 *man/kmneighbourhood.Rd
 5c601c070305ec705e3f333e17b23543 *man/kmnneighbourhood.Rd
 8fa18cf2969ad013f4dd94468441ac0b *man/kmnotions.Rd
@@ -110,5 +110,5 @@ ce8041144f0df289a034225618bd2e81 *src/dist.c
 6f2bc8f73d7462539822adbdee6e5061 *src/helpers.c
 8e6fc1f921177eafadd7461701311273 *src/kstMatrix.h
 f06eeaf6ccfc87234bed1964693c5258 *src/kstMatrix_init.c
-6072bef9e45b47de23295f60911b4acb *vignettes/kstMatrix.Rmd
+7b7a7bd80db496cfdbf9c3b165666e08 *vignettes/kstMatrix.Rmd
 a9d6a697db0170ce318ae3159aea6918 *vignettes/kstMatrixClasses.png

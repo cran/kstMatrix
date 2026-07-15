@@ -11,6 +11,14 @@ kmminimalfamset(x)
 }
 \value{
 kmfamset of minimal states
+
+\code{kmminimalfamset()} determines the sub family of minimal sets
+within a famset. If \code{x} is a knowledge structure, the result will
+be a family containing (only) the empty set because the empty set is a
+state in any knowledge structure and is its minimal state.
+
+The concept of the minimal state of a family of sets should not be confused
+with the concept of knowledge states minimal for some item.
 }
 \description{
 Determine subfamily of minimal states in a \code{kmfamset}

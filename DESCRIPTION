@@ -1,7 +1,7 @@
 Package: kstMatrix
 Type: Package
-Date: 2026-06-17
-Version: 2.3-3
+Date: 2026-07-15
+Version: 2.3-4
 Title: Basic Functions in Knowledge Space Theory Using Matrix
         Representation
 Description: Knowledge space theory by Doignon and Falmagne (1999)
@@ -35,8 +35,8 @@ Encoding: UTF-8
 LazyData: true
 VignetteBuilder: litedown
 Config/roxygen2/version: 8.0.0
-Packaged: 2026-06-17 05:40:50 UTC; cord
+Packaged: 2026-07-15 12:45:17 UTC; cord
 Author: Cord Hockemeyer [aut, cre],
   Peter Steiner [aut],
   Wai Wong [aut]
-Date/Publication: 2026-06-17 11:30:02 UTC
+Date/Publication: 2026-07-15 13:40:02 UTC

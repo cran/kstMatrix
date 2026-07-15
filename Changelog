@@ -1,3 +1,6 @@
+2026-06-17: Version 2.3-4 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Bugfix in kmminimalfamset() caused by copying wrong/old version
+
 2026-06-17: Version 2.3-3 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * New utility function kmminimalfamset() (primarily for use in CbKST package)
 
