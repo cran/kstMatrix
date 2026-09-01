@@ -1,0 +1,14 @@
+citation(auto = meta)
+
+
+bibentry(
+  bibtype = "Incollection",
+  title = "Structuring and Assessing Knowledge with Knowledge Space Theory",
+  author = "Peter Steiner and Cord Hockemeyer and Michael Kickmeier-Rust and Jan Hochweber",
+  booktitle = "Quantitative Methods in Educational Research: Concepts and Applications",
+  editor = "Wilson, M. L. and Tawfik, A. A. and Ritzhaupt, A. D. and Lowdermilk, A. T.",
+  year = "2026",
+  publisher = "EdTech Books",
+  url = "https://edtechbooks.org/qmerca/knowledgespacetheory",
+  note = "in print"
+)

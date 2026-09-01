@@ -127,7 +127,7 @@
 #' @importFrom DiagrammeR grViz
 #' @importFrom rsvg rsvg_png
 #'
-#' @family Knowledge assessment
+#' @family Knowledge assessment functions
 #' @aliases Assessment
 #'
 #' @export

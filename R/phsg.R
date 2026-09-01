@@ -9,6 +9,4 @@
 #'
 #' @format A list containing the basis and the list of items
 #'
-#'
-#' @family Data
 "phsg"

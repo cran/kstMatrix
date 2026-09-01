@@ -4,14 +4,32 @@
 \alias{kmlearningpaths}
 \title{Determine all learning paths in a knowledge structure}
 \usage{
-kmlearningpaths(structure)
+kmlearningpaths(
+  structure,
+  through = NULL,
+  from = NULL,
+  to = NULL,
+  simplified = FALSE
+)
 }
 \arguments{
 \item{structure}{Knowledge structure}
+
+\item{through}{Knowledge state through which the paths should go}
+
+\item{from}{Knowledge state where paths should start}
+
+\item{to}{Knowledge state where paths should end}
+
+\item{simplified}{Simplified printing of states within the paths (default FALSE)}
 }
 \value{
 A list of learning paths where each learning path is a
 list of states
+
+If \code{through} is specified, only those learning paths are listed
+which go through that state (binary vector). If \code{from} and
+\code{to} are specified, the respective sub paths are returned.
 }
 \description{
 Determine all learning paths in a knowledge structure
@@ -22,12 +40,9 @@ kmlearningpaths(xpl$space)
 
 }
 \seealso{
-Other Fringes & learning paths:
-\code{\link[=kmbasisfringe]{kmbasisfringe()}},
-\code{\link[=kmbasisneighbourhood]{kmbasisneighbourhood()}},
-\code{\link[=kmfringe]{kmfringe()}},
+Other Functions for wellgradedness & learning paths:
 \code{\link[=kmgradations]{kmgradations()}},
-\code{\link[=kmneighbourhood]{kmneighbourhood()}},
-\code{\link[=kmnneighbourhood]{kmnneighbourhood()}}
+\code{\link[=kmiswellgraded]{kmiswellgraded()}},
+\code{\link[=kmlearningpathmatrices]{kmlearningpathmatrices()}}
 }
-\concept{Fringes & learning paths}
+\concept{Functions for wellgradedness & learning paths}

@@ -1,11 +1,17 @@
 #' Determine the basis for a surmise function
 #'
-#' @param x Surmise Function
-#' @returns Basis
+#' \code{kmbasis.kmsurmisefunction} takes a surmise function and returns
+#' the corresponding basis, i.e. effectively the collection of all clauses
+#' in the surmise function.
 #'
-#' @family Different representations for knowledge spaces
+#' @param x Surmise Function
+#'
+#' @examples
+#' kmbasis(xpl$sf)
+#'
 #'
 #' @method kmbasis kmsurmisefunction
+#' @family Different representations for knowledge structures
 #' @rdname kmbasis
 #' @export
 kmbasis.kmsurmisefunction <- function(x) {

@@ -2,9 +2,12 @@
 % Please edit documentation in R/kmneighbourhood.R
 \name{kmneighbourhood}
 \alias{kmneighbourhood}
+\alias{kmnneighbourhood}
 \title{Compute the neighbourhod of a state within a knowledge structure}
 \usage{
 kmneighbourhood(state, struct, include = FALSE)
+
+kmnneighbourhood(state, struct, distance, include = FALSE)
 }
 \arguments{
 \item{state}{Binary vector representing a knowledge state}
@@ -12,27 +15,34 @@ kmneighbourhood(state, struct, include = FALSE)
 \item{struct}{Binary matrix representing a knowledge structure}
 
 \item{include}{Boolean whether the original state should be included
-in the result (default FALSE)}
+(defaul FALSE)}
+
+\item{distance}{Size of the n-neighbourhood}
 }
 \value{
+Matrix containing the neighbouring states, one per row
+
 Matrix containing the neighbouring states, one per row
 }
 \description{
 \code{kmneighbourhood} computes the neighbourhood of a state
 within a knowledge structure, i.e. the family of all other
 states with a symmetric set difference of 1.
+
+\code{kmnneighbourhood} computes the n-neighbourhood of a state
+within a knowledge structure, i.e. the family of all other
+states with a symmetric set difference maximal n.
 }
 \examples{
 kmneighbourhood(c(1,1,0,0), xpl$space)
 
+kmnneighbourhood(c(1,1,0,0), xpl$space, 2)
+
 }
 \seealso{
-Other Fringes & learning paths:
+Other Functions for fringes & neighbourhoods:
 \code{\link[=kmbasisfringe]{kmbasisfringe()}},
 \code{\link[=kmbasisneighbourhood]{kmbasisneighbourhood()}},
-\code{\link[=kmfringe]{kmfringe()}},
-\code{\link[=kmgradations]{kmgradations()}},
-\code{\link[=kmlearningpaths]{kmlearningpaths()}},
-\code{\link[=kmnneighbourhood]{kmnneighbourhood()}}
+\code{\link[=kmfringe]{kmfringe()}}
 }
-\concept{Fringes & learning paths}
+\concept{Functions for fringes & neighbourhoods}

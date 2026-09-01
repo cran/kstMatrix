@@ -9,7 +9,7 @@
 #' kmgradations(xpl$space)
 #'
 #'
-#' @family Fringes & learning paths
+#' @family Functions for wellgradedness & learning paths
 #'
 #' @export
 kmgradations <- function(structure,

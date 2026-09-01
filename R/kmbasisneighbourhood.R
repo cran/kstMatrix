@@ -13,7 +13,7 @@
 #' @examples
 #' kmbasisneighbourhood(c(1,1,0,0), xpl$basis)
 #'
-#' @family Fringes & learning paths
+#' @family Functions for fringes & neighbourhoods
 #'
 #' @export
 kmbasisneighbourhood <- function(state, basis, include = FALSE) {

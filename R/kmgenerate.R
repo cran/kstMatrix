@@ -22,7 +22,7 @@
 #' @useDynLib kstMatrix
 #'
 #'
-#' @family Generating knowledge spaces
+#' @family Functions for working with data
 #'
 #' @export
 kmgenerate <- function(x, threshold = 0) {

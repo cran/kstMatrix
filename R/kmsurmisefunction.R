@@ -5,18 +5,19 @@
 #' data frame are ordered by item name.
 #'
 #' @param x Binary matrix representing a knowledge space or basis
+#' @param itemname Name for the first column of the resulting data frame
 #' @return Data frame  representing the surmise unction of \code{x}.
 #'
 #' @examples
 #' kmsurmisefunction(xpl$space)
 #'
-#' @family Different representations for knowledge spaces
+#' @family Different representations for knowledge structures
 #'
 #' @importFrom sets as.set set_is_subset set %e%
 #' @importFrom pks as.pattern as.binmat
 #'
 #' @export
-kmsurmisefunction <- function(x) {
+kmsurmisefunction <- function(x, itemname="Item") {
   if (!inherits(x, "kmfamset")) {
     stop(sprintf("%s must be of class %s.", dQuote("x"), dQuote("kmfamset")))
   }
@@ -57,7 +58,7 @@ kmsurmisefunction <- function(x) {
     hdf <- data.frame(cbind(t(t(rep(item, hr))), hm))
     df <<- rbind(df, hdf)
   })
-  colnames(df) <- c("Item", colnames(x))
-  class(df) <- unique(c("kmsurmisefunction", class(df)))
+  colnames(df) <- c(itemname, colnames(x))
+  class(df) <- unique(c("kmsurmisefunction", "kmattributionfunction", class(df)))
   df
 }

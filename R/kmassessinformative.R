@@ -1,6 +1,6 @@
 #' Determine next question for probabilistic knowledge assessment
 #'
-#' \code{kmassessinfmrative} determines the next question in a probabiliststic
+#' \code{kmassessinformative} determines the next question in a probabiliststic
 #' assessment according to the informative rule.
 #'
 #' @param probs Probability distribution over the knowledge structure (vector)
@@ -23,7 +23,7 @@
 #'                   NULL
 #'                  )
 #'
-#' @family Knowledge assessment
+#' @family Knowledge assessment functions
 #'
 #' @export
 kmassessinformative <- function(probs, ks, update, beta, eta, zeta0, zeta1) {

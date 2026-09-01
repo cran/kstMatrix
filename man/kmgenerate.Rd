@@ -31,7 +31,11 @@ kmgenerate(xpl$sim, 15)
 
 }
 \seealso{
-Other Generating knowledge spaces:
-\code{\link[=kmiita2SR]{kmiita2SR()}}
+Other Functions for working with data:
+\code{\link[=kmSRvalidate]{kmSRvalidate()}},
+\code{\link[=kmdist]{kmdist()}},
+\code{\link[=kmiita2SR]{kmiita2SR()}},
+\code{\link[=kmsimulate]{kmsimulate()}},
+\code{\link[=kmvalidate]{kmvalidate()}}
 }
-\concept{Generating knowledge spaces}
+\concept{Functions for working with data}

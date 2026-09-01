@@ -1,12 +1,7 @@
-#' Close a family of sets under union
+#' Close a family of sets under union, i.e. determine the smallest knowledge space containing it
 #'
-#' \code{kmunionclosure} returns a matrix representing a knowledge space. Please note
-#' that it may take quite some time for computing larger knowledge spaces.
-#'
-#' @param x Binary matrix representing a family of sets
-#' @return Binary matrix representing the corresponding knowledge space, i.e. the
-#'         closure of the family under union including the empty set and
-#'         the full set.
+#' @param x Family of set
+#' @returns Knowledge space
 #'
 #' \code{kmunionclosure} implements the irredundant algorithm developed by Dowling (1993).
 #'
@@ -16,13 +11,24 @@
 #' @examples
 #' kmunionclosure(xpl$basis)
 #'
-#' @useDynLib kstMatrix
 #'
-#'
-#' @family Different representations for knowledge spaces
-#'
-#' @rdname kmunionclosure
+#' @family Closure operators
 #' @export
 kmunionclosure <- function(x) {
-  UseMethod("kmunionclosure")
+  x <- kmbasis(x)
+
+  noi <- as.integer(dim(x)[2])
+  nob <- as.integer(dim(x)[1])
+  storage.mode(x) <- "integer"
+  nos <- as.integer(0)
+  result <- .C("constr", noi, nob, t(x), nos, package="kstMatrix")
+  nos <- result[[4]][1]
+  space <- matrix(1:(noi*nos), ncol=noi, nrow=nos, byrow = TRUE)
+  storage.mode(space) <- "integer"
+  result2 <- .C("constr_results", space, package="kstMatrix")
+  s <- result2[[1]]
+  colnames(s) <- colnames(x)
+  class(s) <- unique(c("kmspace", "kmstructure", "kmfamset", class(s)))
+  s
 }
+

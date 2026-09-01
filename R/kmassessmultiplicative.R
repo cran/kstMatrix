@@ -20,7 +20,7 @@
 #'                  1
 #'                 )
 #'
-#' @family Knowledge assessment
+#' @family Knowledge assessment functions
 #'
 #' @export
 kmassessmultiplicative <- function(probs, ks, zeta0, zeta1, question, response) {

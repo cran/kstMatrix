@@ -25,7 +25,7 @@ kmassessinformative(probs, ks, update, beta, eta, zeta0, zeta1)
 Number of the selected question
 }
 \description{
-\code{kmassessinfmrative} determines the next question in a probabiliststic
+\code{kmassessinformative} determines the next question in a probabiliststic
 assessment according to the informative rule.
 }
 \examples{
@@ -40,11 +40,11 @@ kmassessinformative(c(0.02, 0.1, 0.07, 0.01, 0.4, 0.17, 0.07, 0.08, 0.08),
 
 }
 \seealso{
-Other Knowledge assessment:
+Other Knowledge assessment functions:
 \code{\link[=kmassess]{kmassess()}},
 \code{\link[=kmassessbayesian]{kmassessbayesian()}},
 \code{\link[=kmassesshalfsplit]{kmassesshalfsplit()}},
 \code{\link[=kmassessmentsimulation]{kmassessmentsimulation()}},
 \code{\link[=kmassessmultiplicative]{kmassessmultiplicative()}}
 }
-\concept{Knowledge assessment}
+\concept{Knowledge assessment functions}

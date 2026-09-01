@@ -1,3 +1,21 @@
+2026-07-24: Version 3.0-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Integrating kmunionclosure() method into new kmclosure() method
+  - Adding kmclosure() variants for attribution functions and relations
+* Making kmspace() a more general constructor method
+* Deprecating several functions
+* New kmqspace() S3 method and kmqspace class for  quasi-ordinal knowledge spaces
+* New kmunion() and kmintersection() S3 methods computing the "union" and
+  "intersection", respectively, of knowledge structures, surmise relations,
+  and surmise functions
+* New function kmexpand() expanding an attribution function to a larger
+  set of items
+* New function kmrefine() to dissolve notions
+* Moving binarymatrixproduct() from CDSS to kstMatrix
+* New functions/methods taken over from KST-Tools programs: kmheights(),
+  kmprettyprint(), kmsubstructure()
+* Expanding plot() methods
+* Additional functionality for learning paths
+
 2026-06-17: Version 2.3-4 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Bugfix in kmminimalfamset() caused by copying wrong/old version
 
@@ -33,7 +51,7 @@
   in the changes for versions 2.0-0 and 2.1-0
   In this context: additional optional parameter arrowtail for plot()
 * New function kmbasisfringe(), kmbasisinnerfringe(), kmbasisouterfringe(),
-  and kmbasisneighbourhood() mimplementing the algorithm by Hockemeyer
+  and kmbasisneighbourhood() implementing the algorithm by Hockemeyer
   (1997, JMP)
 
 2025-11-21: Version 2.1-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)

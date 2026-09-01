@@ -21,13 +21,15 @@ Test two double numbers on equity with a certain tolerance
 }
 \examples{
 kmdoubleequal(0.5+0.5, 1)
+0.5 + 0.5 == 1
 
 }
 \seealso{
 Other Utilities:
-\code{\link[=kmcolors]{kmcolors()}},
+\code{\link[=binary_matrix_product]{binary_matrix_product()}},
 \code{\link[=kmminimalfamset]{kmminimalfamset()}},
 \code{\link[=kmsetiselement]{kmsetiselement()}},
-\code{\link[=kmsymmsetdiff]{kmsymmsetdiff()}}
+\code{\link[=kmsymmsetdiff]{kmsymmsetdiff()}},
+\code{\link{kmtrivial}}
 }
 \concept{Utilities}

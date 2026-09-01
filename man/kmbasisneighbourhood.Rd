@@ -27,12 +27,9 @@ kmbasisneighbourhood(c(1,1,0,0), xpl$basis)
 
 }
 \seealso{
-Other Fringes & learning paths:
+Other Functions for fringes & neighbourhoods:
 \code{\link[=kmbasisfringe]{kmbasisfringe()}},
 \code{\link[=kmfringe]{kmfringe()}},
-\code{\link[=kmgradations]{kmgradations()}},
-\code{\link[=kmlearningpaths]{kmlearningpaths()}},
-\code{\link[=kmneighbourhood]{kmneighbourhood()}},
-\code{\link[=kmnneighbourhood]{kmnneighbourhood()}}
+\code{\link[=kmneighbourhood]{kmneighbourhood()}}
 }
-\concept{Fringes & learning paths}
+\concept{Functions for fringes & neighbourhoods}

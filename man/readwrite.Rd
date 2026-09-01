@@ -35,12 +35,4 @@ spaces using only their basis. In Cornelia E. Dowling, Fred S. Roberts, & Peter
 Theuns, editors, \emph{Recent Progress in Mathematical Psychology,} pp. 133–141.
 Lawrence Erlbaum Associates Ltd., Mahwah, NJ.
 }
-\seealso{
-Other Data:
-\code{\link{cad}},
-\code{\link{fractions}},
-\code{\link{phsg}},
-\code{\link{xpl}}
-}
-\concept{Data}
 \keyword{datasets}

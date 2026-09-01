@@ -14,12 +14,4 @@ phsg
 Basis of a small knowledge space and list of items on linear functions
 used in a manuscript by Steiner et al.
 }
-\seealso{
-Other Data:
-\code{\link{cad}},
-\code{\link{fractions}},
-\code{\link{readwrite}},
-\code{\link{xpl}}
-}
-\concept{Data}
 \keyword{datasets}

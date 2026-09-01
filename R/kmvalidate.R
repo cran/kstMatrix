@@ -22,7 +22,7 @@
 #' @examples
 #' kmvalidate(xpl$data, xpl$space)
 #'
-#' @family Validating knowledge spaces
+#' @family Functions for working with data
 #'
 #' @export
 kmvalidate <- function(data, struct) {

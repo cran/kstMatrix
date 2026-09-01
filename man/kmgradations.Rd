@@ -25,12 +25,9 @@ kmgradations(xpl$space)
 
 }
 \seealso{
-Other Fringes & learning paths:
-\code{\link[=kmbasisfringe]{kmbasisfringe()}},
-\code{\link[=kmbasisneighbourhood]{kmbasisneighbourhood()}},
-\code{\link[=kmfringe]{kmfringe()}},
-\code{\link[=kmlearningpaths]{kmlearningpaths()}},
-\code{\link[=kmneighbourhood]{kmneighbourhood()}},
-\code{\link[=kmnneighbourhood]{kmnneighbourhood()}}
+Other Functions for wellgradedness & learning paths:
+\code{\link[=kmiswellgraded]{kmiswellgraded()}},
+\code{\link[=kmlearningpathmatrices]{kmlearningpathmatrices()}},
+\code{\link[=kmlearningpaths]{kmlearningpaths()}}
 }
-\concept{Fringes & learning paths}
+\concept{Functions for wellgradedness & learning paths}

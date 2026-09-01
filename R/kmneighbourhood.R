@@ -13,7 +13,7 @@
 #' @examples
 #' kmneighbourhood(c(1,1,0,0), xpl$space)
 #'
-#' @family Fringes & learning paths
+#' @family Functions for fringes & neighbourhoods
 #'
 #' @export
 kmneighbourhood <- function(state, struct, include = FALSE) {
@@ -61,7 +61,8 @@ kmneighbourhood <- function(state, struct, include = FALSE) {
 #' @examples
 #' kmnneighbourhood(c(1,1,0,0), xpl$space, 2)
 #'
-#' @family Fringes & learning paths
+#' @family Functions for fringes & neighbourhoods
+#' @rdname kmneighbourhood
 #'
 #' @export
 kmnneighbourhood <- function(state, struct, distance, include=FALSE) {

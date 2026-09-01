@@ -4,11 +4,12 @@
 #' corresponding basis.
 #'
 #' @param x Surmise relation
-#' @return Basis
 #'
-#' @family Different representations for knowledge spaces
+#' @examples
+#' kmbasis(xpl$sr)
 #'
 #' @method kmbasis kmsurmiserelation
+#' @family Different representations for knowledge structures
 #' @rdname kmbasis
 #' @export
 kmbasis.kmsurmiserelation <- function(x) {

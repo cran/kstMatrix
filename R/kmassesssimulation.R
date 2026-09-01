@@ -31,7 +31,7 @@
 #'   0.55
 #' )
 #'
-#' @family Knowledge assessment
+#' @family Knowledge assessment functions
 #'
 #' @importFrom tidyr unnest
 #'

@@ -1,17 +1,16 @@
-#' Convert a binary matrix to a \code{kmspace} object
+#' \code{kmspace} constructor method
 #'
-#' \code{kmspace()} returns a \code{kmspace} object for a binary matrix.
+#' \code{kmspace()} determines the knowledge space corresponding to a KST object
 #'
-#' @param x Binary matrix representing a family of sets
-#' @return \code{kmspace} object
+#' @param x KST object
+#' @return Corresponding knowledge space
 #'
 #' @examples
-#' m <- matrix(c(1,0,0,0,1,0,1,1,1), nrow=3, byrow=TRUE)
-#' kmspace(m)
+#' kmspace(xpl$basis)
+#' kmspace(xpl$sf)
 #'
 #' @family Constructors
-#'
 #' @export
 kmspace <- function(x) {
-  kmunionclosure(kmstructure(x))
+  UseMethod("kmspace")
 }

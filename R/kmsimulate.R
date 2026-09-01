@@ -25,7 +25,7 @@
 #' kmsimulate(xpl$space, 50, c(0.2, 0.25, 0.15, 0.2), c(0.1, 0.15, 0.05, 0.1))
 #' kmsimulate(xpl$space, 50, c(0.2, 0.25, 0.15, 0.2), 0)
 #'
-#' @family Simulating response patterns
+#' @family Functions for working with data
 #'
 #' @importFrom stats runif
 #' @export

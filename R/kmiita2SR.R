@@ -10,13 +10,13 @@
 #'
 #' The \code{iita()} function looses information on the item names and
 #' uses consecutive numbers instead. The \code{implications} part of its
-#' result does not give any hint on isolated items, i.e. items which#
+#' result does not give any hint on isolated items, i.e. items which
 #' neither have a prerequisite nor are prerequisite of any other item.
 #' Therefore, a minimal number of items can be passed to
 #' \code{kmiita2SR()}. If the highest item number within
 #' \code{implications} is higher, this \code{items} parameter is ignored.
 #'
-#' @family Generating knowledge spaces
+#' @family Functions for working with data
 #'
 #' @export
 kmiita2SR <- function(ii, names = NULL, items = 0) {

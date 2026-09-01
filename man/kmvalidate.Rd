@@ -37,8 +37,11 @@ kmvalidate(xpl$data, xpl$space)
 
 }
 \seealso{
-Other Validating knowledge spaces:
+Other Functions for working with data:
 \code{\link[=kmSRvalidate]{kmSRvalidate()}},
-\code{\link[=kmdist]{kmdist()}}
+\code{\link[=kmdist]{kmdist()}},
+\code{\link[=kmgenerate]{kmgenerate()}},
+\code{\link[=kmiita2SR]{kmiita2SR()}},
+\code{\link[=kmsimulate]{kmsimulate()}}
 }
-\concept{Validating knowledge spaces}
+\concept{Functions for working with data}

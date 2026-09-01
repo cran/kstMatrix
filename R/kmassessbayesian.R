@@ -20,7 +20,7 @@
 #'                  1
 #'                 )
 #'
-#' @family Knowledge assessment
+#' @family Knowledge assessment functions
 #'
 #' @export
 kmassessbayesian <- function(probs, ks, beta, eta, question, response) {

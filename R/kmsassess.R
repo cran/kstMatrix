@@ -32,7 +32,7 @@
 #' @examples
 #' kmsassess(c(1,1,0,0), xpl$space, "halfsplit", "Bayesian", 0.1, 0.1, NULL, NULL, 0.55)
 #'
-#' @family Knowledge assessment
+#' @family Knowledge assessment functions
 #'
 #' @rdname kmassess
 #' @export

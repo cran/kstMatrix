@@ -41,4 +41,12 @@ kmsimulate(xpl$space, 50, c(0.2, 0.25, 0.15, 0.2), 0)
 Doignon, J.-P. & Falmagne, J.-C. (1999). \emph{Knowledge Spaces.}
 Springer–Verlag, Berlin.
 }
-\concept{Simulating response patterns}
+\seealso{
+Other Functions for working with data:
+\code{\link[=kmSRvalidate]{kmSRvalidate()}},
+\code{\link[=kmdist]{kmdist()}},
+\code{\link[=kmgenerate]{kmgenerate()}},
+\code{\link[=kmiita2SR]{kmiita2SR()}},
+\code{\link[=kmvalidate]{kmvalidate()}}
+}
+\concept{Functions for working with data}

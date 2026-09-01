@@ -17,7 +17,7 @@
 #' @examples
 #' kmsurmiserelation(xpl$space)
 #'
-#' @family Different representations for knowledge spaces
+#' @family Different representations for knowledge structures
 #'
 #' @export
 kmsurmiserelation <- function(x) {
@@ -47,6 +47,6 @@ kmsurmiserelation <- function(x) {
   storage.mode(sr) <- "integer"
   rownames(sr) <- colnames(x)
   colnames(sr) <- colnames(x)
-  class(sr) <- unique(c("kmsurmiserelation", class(sr)))
+  class(sr) <- unique(c("kmsurmiserelation", "kmattributionrelation", class(sr)))
   sr
 }

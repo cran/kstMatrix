@@ -26,8 +26,26 @@ Please note that the computation time for creating large power sets can grow qui
 large easily.
 }
 \examples{
-kmminimalspace(5)
-kmmaximalspace(5)
+kmminimalspace(3)
+kmmaximalspace(3)
 
 }
-\concept{Trivial knowledge spaces}
+\seealso{
+Other Utilities:
+\code{\link[=binary_matrix_product]{binary_matrix_product()}},
+\code{\link[=kmdoubleequal]{kmdoubleequal()}},
+\code{\link[=kmminimalfamset]{kmminimalfamset()}},
+\code{\link[=kmsetiselement]{kmsetiselement()}},
+\code{\link[=kmsymmsetdiff]{kmsymmsetdiff()}}
+
+Other Functions for working with knowledge structures:
+\code{\link[=kmeqreduction]{kmeqreduction()}},
+\code{\link[=kmexpand]{kmexpand()}},
+\code{\link[=kmintersection]{kmintersection()}},
+\code{\link[=kmmesh]{kmmesh()}},
+\code{\link[=kmnotions]{kmnotions()}},
+\code{\link[=kmsubstructure]{kmsubstructure()}},
+\code{\link[=kmunion]{kmunion()}}
+}
+\concept{Functions for working with knowledge structures}
+\concept{Utilities}

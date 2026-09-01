@@ -1,40 +1,63 @@
 ---
 title: "kstMatrix"
 author: "Cord Hockemeyer"
-date: "`{r} format(Sys.time(), '%B %d, %Y')`"
-output: html
+date: "Version 3.0-0"
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{kstMatrix}
-  %\VignetteEngine{litedown::vignette}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
-
 ---
 
+<style type="text/css">
+  body {
+    font-family: Helvetica;
+    font-size: 15pt;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    font-family: Arial;
+  }
+</style>
+
 ```{r setup, include = FALSE}
-# knitr::opts_chunk$set(
-#   collapse = TRUE,
-#   comment = "#>"
-# )
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
 library(kstMatrix)
 library(grDevices)
 library(sets)
 library(pks)
+library(Rgraphviz)
 ```
 
 # Content
 
 - [Introduction](#introduction)
 - [S3 classes in `kstMatrix`](#s3-classes-in-kstmatrix)
+    - [Constructors](#constructors)
 - [Different representations for knowledge spaces](#different-representations-for-knowledge-spaces)
-- [Propertiesd of knowledge spaces](#propertiesd-of-knowledge-spaces)
-- [Creating trivial knowledge spaces](#creating-trivial-knowledge-spaces)
-- [Simulating response patterns](#simulating-response-patterns)
-- [Validating knowledge structures](#validating-knowledge-structures)
+- [Working with knowledge structures](#working-with-knowledge-structures)
+    - [Creating trivial knowledge spaces](#creating-trivial-knowledge-spaces)
+    - [Determining variants](#determining-variants)
+        - [Closure operatorsa](#closure-operators)
+        - [Dealing with equivalent items](#dealing-with-equivalent-items)
+        - [Combining knowledge structures](#combining-knowledge-structures)
+        - [Reducing and expanding structures](#reducing-and-expanding-structures)
+- [Working with data](#working-with-data)
+    - [Simulating response patterns](#simulating-response-patterns)
+    - [Generating knowledge structures from data](#generating-knowledge-structures-from-data)
+    - [Validating knowledge structures](#validating-knowledge-structures)
 - [Assessment](#assessment)
 - [Fringes and learning paths](#fringes-and-learning-paths)
-- [Plotting](#plotting)
+- [Plotting and pretty-printing](#plotting-and-pretty-printing)
+    - [Creating color vectors](#creating-color-vectors)
+    - [Pretty-printing](#pretty-printing)
 - [Utilities](#utilities)
 - [Datasets provided by `kstMatrix`](#datasets-provided-by-kstmatrix)
+    - [Empirical structures](#empirical-structures)
+    - [Example structures](#example-structures)
+- [Removed and obsoleted functions and methods](#removed-and-obsoleted-functions-and-methods)
 - [References](#references)
 
 # Introduction
@@ -54,89 +77,134 @@ Subsequently, we start with a introduction into the S3 classes used in `kstMatri
 the various functions are presented groupd by topic.
 
 # S3 classes in `kstMatrix`
-With version 2, S3 classes were introduced in `kstMatrix`. The following classes are used:
+With version 2, S3 classes were introduced in `kstMatrix` most of which are in some hierarchy. 
+A short explanation of the various classes:
 
-* `kmfamset`
-* `kmbasis`
-* `kmstructure`
-* `kmspace`
-* `kmneighbourhood`
-* `kmsurmiserelation`
-* `kmsurmisefunction`
+- `kmdata`: A matrix of response patterns. These may be either empirical or simulated.
+- `kmfamset`: A family of sets, i.e. of knowledge states. Due to the set character, any row may occur only once.
+- `kmbasis`: Basis of a knowledge space; sub-class of `kmfamset`.
+- `kmstructure`: Knowledge structure; a `kmfamset` which contains teh empty set and the full item set as states.
+- `kmspace`: Knowledge space; a `kmstructure` which is closed under union.
+- `kmqspace`: Quasi-ordinal knowledge space; a `kmspace` which is additionally closed under intersection.
+- `kmneidghbourhood`: The neighbourhood of an individual knowledge state; sub-class of `kmfamset`.
+- `kmattributionrelation`: Incidence matrix of an attribution relation; please note that here the rows contain the minimal states.
+- `kmsurmiserelation`: Closure of a `kmattributionrelation` under reflexivity and transitivity.
+- `kmattributionfunction`: Data frame describing an attribution function.
+- `kmsurmisefunction`: Closure of a `kmattributionfunction` under extended reflexivity, transitivity, and incomparability.
 
-The following figure shows the dependencies between these classes, e.g., `kmspace` being a sub-class of `kmstructure`.
+The following classes are isolated from the general class hierarchy.
 
-<style>
-  img {
-    border: 0;
-  }
-</style>
-![](kstMatrixClasses.png)
-```{r kstMatrixClasses, echo=FALSE, fig.cap="Structure of <tt>kstMatrix</tt> classes", out.width="700"}
-# litedown::include_graphics("kstMatrixClasses.png")
+- `kmlearningpath`: A list of printed knowledge states building a gradation.
+- `kmlearningpaths`: A list of `kmlearningpath` objects.
+- `kmlearningpathmatrix`: A matrix whose rows describe the states within a gradation. Technically also a family of sets.
+- `kmlearningpathmatrices`: A list of `kmlearningpathmatrix` objects.
+
+
+Figure 1 shows the dependencies between the former group of classes, e.g., `kmspace` being a sub-class of `kmstructure`. 
+Besides the `kstMatrix` classes in blue, also the underlying standard `R` classes are shown in green. 
+
+```{r classes, fig.cap = 'Figure 1: kstMatrix object classes', echo = FALSE, fig.align = 'center', cache=FALSE, out.width='95%'}
+knitr::include_graphics("kstMatrix-Classes.png")
 ```
 
 ## Constructors
-There exist four constructors
+There exist several constructors
 
 - `kmfamset()`
 - `kmstructure()`
 - `kmbasis()`
 - `kmspace()`
+- `kmqspace()`
 
-which create the respective objects from a given matrix.
+which create the respective objects from various KST objects.
 
 # Different representations for knowledge spaces
 There exist various ways to represent knowledge spaces: the whole space itself, its basis, and the corresponding
-surmise function; in case of quasi-ordinal spaces also the surmise relation. The subsequent functions allow to 
+surmise function; in case of quasi--ordinal spaces also the surmise relation. The subsequent functions allow to 
 map between these representations.
 
 ## `kmbasis()`
-The `kmbasis()` S3 method allows to ap different representations to bases. There are implementations for the classes
+The `kmbasis()` S3 method allows to map different representations to bases. There are implementations for the classes
 `kmsurmiserelation`, `kmsurmisefunction`, and `matrix`, the latter aiming at `kmfamset`s including `kmstructure`s 
 and `kmspace`s.
 
-## `kmsf2basis()`
-This function determines a basis from a surmise function.
-
-## `kmSR2basis()`
-This function creates a basis from a surmise relation.
+## `kmspace()`
+Beyond being regarded as constructors, certain `kmspace()` S3 methods include mappings betwen different representations
+of knowledge structures.
 
 ## `kmsurmisefunction()`
 This function takes an arbitrary `kmfamset` (family of sets) and determines the surmise function of the smallest
 knowledge space containing this family of sets, i.e. its closure under union.
 
 ## `kmsurmiserelation()`
-This function determines the surmise relation for a quasi-ordinal knowledge space. If the parameter is an arbitrary
-`kmfamset`, the result is the surmise relation for the smalest quasi-ordinal knowledge space containing the family 
+This function determines the surmise relation for a quasi--ordinal knowledge space. If the parameter is an arbitrary
+`kmfamset`, the result is the surmise relation for the smallest quasi--ordinal knowledge space containing the family 
 of sets, i.e. its closure under union *and* intersection.
 
-## `kmunionclosure()`
-This function returns the closure under union (i.e. a knowledge space) of a family of sets.
-
-# Properties of knowledge spaces
-There are `kmeqreduction()` and `kmnotions()` for dealing with equivalent items. The former reduces a famset
-to the structure on its notions, and the latter gives the notions itself.
-
-Another point is the weelgradedness - `kmiswellgraded()`tests if a structure fulfils this condition.
-
-# Creating trivial knowledge spaces
+# Working with knowledge structures
+## Creating trivial knowledge spaces
 For a given item number, there are two trivial knowledge spaces, the maximal knowledge
 space representing absolutely no prerequisite relationships (the knowledge space is the 
 power set of the item set and the basis matrix is the diagonal matrix), and the minimal
 knowledge space representing equivalence of all items (the knowledge space contains just 
 the empty set and the full item set, and the basis matrix contains one line full of '1's).
+These spaces can be generated with `kmmaximalspace()` and `kmminimalspace()`, respectively. 
+Both functions generate the whole space, not the basis.
 
-# Simulating response patterns
+## Determining variants
+### Closure Operators
+Several functions provide closures for respective data.
+
+- `kmclosure()` is the closure method providing closures
+    - from an attribution relation (i.e. an arbitrary binary relation on the
+      set of items) to a surmise relation, and
+    - from an attribution function to a surmise function.
+- `kmunionclosure()` closes a family of sets under union, i.e. it determines
+  the corresponding knowledge space. `kmspace()` does the same.
+- `kmqspace()` close an arbitrary family of sets to a quasi--ordinal knowledge
+  space. `kmintersectionclosure()` does the same restricted to `kmspace` objects.
+
+### Dealing with equivalent items
+`kmnotions()` determines classes of equivalent items, `kmeqreduction()` reduces a family of states to a notion-free
+subset of items.
+
+`kmrefinenotion()` dissolves notions by specifying a structure within the notion. Each basis element containing 
+the notion is replaced by a family of states structured by a second basis on the equivalent items.
+
+### Combining knowledge structures
+`kmunion()` computes the "union" of knowledge structures, surmise relations, or surmise functions. `kmintersection()` 
+analogously computes their "intersection". Both functions return an object of the same type. Please keep in mind that 
+a union of knowledge spaces corresponds to an intersection of the respective surmise relations or surmise functions 
+and vice versa.
+
+`kmmesh()` determines the maximal mesh of two knowledge structures.
+
+### Reducing and expanding structures
+`kmsubstructure()` reduces knowledge structure representations to a subset of items. It is an S3 method applicable for
+data, bases, structures, spaces, surmise relations, and surmise functions. The result is of the same object class as the
+original, i.e. the respective properties are checked/enforced.
+
+`kmexpand()`does the opposite: it expands an attribution function to a superset of items and closes it to a surmise function.
+The additional items are independent, i.e. they neither have nor are prerequisites.
+
+# Working with data
+## Simulating response patterns
 Response patterns are simulated by `kmsimulate()` applying the BLIM (Basic Local
 Independence Model). It assumes identical $\beta$ and $\eta$ values for all items. 
 
 More elaborated functions may follow.
 
-# Validating knowledge structures
+## Generating knowledge structures from data
+`kmgenerate()` offers a trivial, straightforward approach to generating knowledge structures from data:
+any response pattern with an observed frequency beyond a given threshold is taken as a knowledge state.
+
+Furthermore, there exists the `kmiita2SR()` function linking to the <a href="https://cran.r-project.org/package=DAKS" target="_blank">`DAKS`</a> package. It determines the surmise relation 
+(in `kstMatrix` data representation form) from an `iita` object generated with the `DAKS` functions.
+
+## Validating knowledge structures
 There exist two core functions for validation. `kmvalidate()` determines validity indices based on the states in the
-knowledge structure, and `kmSRvalidate()`determines indices based on the surmise relation of a quasi-ordinal knowledge space.
-Furthermore, there is a helpüer function `kmdist()` ehich returns a distance distribution.
+knowledge structure, and `kmSRvalidate()`determines indices based on the surmise relation of a quasi--ordinal knowledge space.
+Furthermore, there is a helper function `kmdist()` which returns a distance distribution.
 
 # Assessment
 There exist several functions in the assessment context. They are all based on a paper by Falmagne & Doignon (1988,
@@ -151,7 +219,7 @@ Both these functions rely on alternative question and update rules realised by `
 these functions allows also for a use in an interactive system, e.g., a Shiny app.
 
 Finally, there is `kmassessmentsimulation()` which does assessments for a whole dataset of response patterns and 
-produces a table which could be further evaluated statistically.
+produces a table which can then be further evaluated statistically.
 
 # Fringes and Learning Paths
 Well-graded learning paths are an important concept in knowledge space theory. With `kmlearningpaths()`, we obtain a 
@@ -169,37 +237,85 @@ may, thus, be faster, especially for large knowledge spaces (see Hockemeyer, 199
 of using the basis, these functions do not apply for general knowledge structures but only for knowledge spaces. 
 Furthermore, due to complexity, there is no `kmbasisnneighbourhood()`(yet).
 
-# Plotting 
+# Plotting and pretty-printing
 With version 2.0  of `kstMatrix`, plotting functionality is provided through the S3 `plot` 
 method. The method is available for the `kmfamset`,  `kmsurmiserelation`, and `kmneighbourhood` classes.
-```{r}
+```{r, eval=FALSE}
 plot(xpl$space)
 plot(xpl$sr)
 ```
+```{r, fig.cap = 'Figure 2: Example space', echo = FALSE, fig.align = 'center', cache=FALSE, out.width='450'}
+knitr::include_graphics("space.jpeg")
+```
+```{r, fig.cap = 'Figure 3: Example surmise relation', echo = FALSE, fig.align = 'center', cache=FALSE, out.width='200'}
+knitr::include_graphics("SR.jpeg")
+```
+
 `plot` uses the `DiagrammeR` package which in turn uses the `Graphviz` software. The default parameters are slightly different for `kmfamset`s and `kmsurmiserelation`s. 
-```{r}
-plot(xpl$sr, colors="#aaffaa", vertexshape="box")
+```{r, eval=FALSE}
+plot(xpl$sr, colors="orange", vertexshape="circle")
 ```
+
 For plotting neighbourhoods, by default three different colors are used.
-```{r}
-plot(kmneighbourhood(c(1,1,0,0), xpl$space, include=TRUE), state=c(1,1,0,0), edgelabel=TRUE)
+```{r, eval=FALSE}
+plot(kmneighbourhood(c(1,1,0,0), xpl$space, include=TRUE), 
+     state=c(1,1,0,0), edgelabel=TRUE)
 ```
+```{r neighbourhood, fig.cap = 'Figure 4: Neighbourhood', echo = FALSE, fig.align = 'center', cache=FALSE, out.width='400'}
+knitr::include_graphics("neighbourhood.jpeg")
+```
+
+Alternatively, one can also plot the whole structure and highlight a certain state and its neighbourhood within the structure.
+Here, four colors are used.
+```{r eval=FALSE}
+plot(xpl$space, state=c(1,1,0,0))
+```
+```{r neighbourhood_space, fig.cap = 'Figure 5: Neighbourhood within a knowledge space', echo = FALSE, fig.align = 'center', cache=FALSE, out.width='650'}
+knitr::include_graphics("neighbourhood2.png")
+```
+
 By default, Hasse diagrams are drawn vertically with just lines as edges. However, on finds also horizontal diagrams
-in which case the arrows are set as arrows from left to right.
-```{r}
+in which case the arrows are set as arrows from left to right. Please note that, for technical reasons, you should specify the `arrowhead` for horizontal but the `arrowtail` for vertical Hasse diagrams if you want arrows instead of plain lines.
+```{r, eval=FALSE}
 plot(xpl$space, horizontal=TRUE, arrowtail="open")
 plot(xpl$space, arrowhead="empty")
+```
+```{r horizontal, fig.cap = 'Figure 6: Horizontal Hasse diagram', echo = FALSE, fig.align = 'center', cache=FALSE, out.width='800'}
+knitr::include_graphics("horizontal.jpeg")
+```
+```{r emptyhead, fig.cap = 'Figure 7: Using arrows instead of lines', echo = FALSE, fig.align = 'center', cache=FALSE, out.width='400'}
+knitr::include_graphics("emptyhead.jpeg")
+```
+
+## Creating color vectors
+`kmcolors()` creates a colors vector for plot() based on an existing palette.
+
+## Pretty-printing
+The `kmprettyprinting()` method prints various KST object types in set notation (or similar).
+```{r prettyprinting}
+kmprettyprint(xpl$basis)
+kmprettyprint(xpl$basis, simplified=TRUE)
+kmprettyprint(xpl$sr,tuple=FALSE)
+cat(kmprettyprint(kmlearningpaths(xpl$space)))
 ```
 
 # Utilities
 This group contains several smaller helper functions.
 
+- `binarymatrixproduct()` computes the Boolean multiplaction of two binary
+  matrices.
 - `kmsymmsetdiff()`: Determine the symmetric set difference between two sets.
 - `kmsetdistance()`: Determine the cardinality of the symmetric set difference
 - `kmsetiselement()`: Test if an item is element of a state/set
 - `kmminimalfamset()`: Determine the minimal states within a `kmfamset`
-- `kmdoubleequal()`: Test if two doubles are (almost) equal thus avoiding rounding problems with '=='
-- `kmcolors()`: Create a colors vector for plot().
+- `kmdoubleequal()`: Test if two doubles are (almost) equal thus avoiding 
+  rounding problems with the '==' operator
+- [`kmcolors()`](#sec:creating-color-vectors): Produce a color vector for 
+  `plot()` based on existing palettes
+- [`kmtrivial()`](#sec:creating-trivial-knowledge-spaces): Create a minimal
+  or a maximal knowledge space for a given number of items
+- `kmheights()`: Determine a table of items and their _heights_ in the 
+  knowledge structure/space
 
 # Datasets provided by `kstMatrix`
 ## Empirical structures
@@ -232,7 +348,23 @@ is used in a manuscript by Steiner et al.
 
 ### xpl
 This is just a small fictitious 4-item-example used for the examples in the
-documentation. Please note that this knowledge space is not quasi-ordinal.
+documentation. Please note that this knowledge space is not quasi--ordinal.
+
+# Removed and obsoleted functions and methods
+With the never-ending addition of new functions and methods, is sometimes becomes necessary 
+to re-structure the interface.
+
+## Removed/renamed functions with `kstMatrix` version 2.0-0
+The functions `kmhasse()`, `kmbasisdiagram()`, and `kmSRdiagram()` were 
+moved/renamed into S3 `plot()` methods for the respective object classes.
+
+## Removed functions and methods with `kstMatrix` version 3.0-0
+The following functions and methods were removed:
+- The `kmunionclosure()` methods has been merged into a new `kmclosure()` 
+  S3 method which also offers closure methods for attribution relations and 
+  attribution functions.
+- The `kmSF2basis()` and `kmSR2basis()` functions have been removed after their 
+  integration into the `kmbasis()` S3 method with the earlier version 2.0-0.
 
 # References
 - Baumunk, K. & Dowling, C. E. (1997). Validity of spaces for assessing knowledge 

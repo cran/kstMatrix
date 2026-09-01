@@ -16,14 +16,8 @@ kmcolors(prob, palette = cm.colors)
 creates a color vector to be used with \code{kstMatrix::plot}.
 }
 \seealso{
-Other Plotting knowledge structures:
+Other Functions for plotting and printing knowledge structures:
+\code{\link[=kmprettyprint]{kmprettyprint()}},
 \code{\link{plot}}
-
-Other Utilities:
-\code{\link[=kmdoubleequal]{kmdoubleequal()}},
-\code{\link[=kmminimalfamset]{kmminimalfamset()}},
-\code{\link[=kmsetiselement]{kmsetiselement()}},
-\code{\link[=kmsymmsetdiff]{kmsymmsetdiff()}}
 }
-\concept{Plotting knowledge structures}
-\concept{Utilities}
+\concept{Functions for plotting and printing knowledge structures}

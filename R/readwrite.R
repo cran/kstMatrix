@@ -28,6 +28,4 @@
 #' Theuns, editors, _Recent Progress in Mathematical Psychology,_ pp. 133–141.
 #' Lawrence Erlbaum Associates Ltd., Mahwah, NJ.
 #'
-#' @family Data
-#'
 "readwrite"

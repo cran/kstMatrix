@@ -7,7 +7,7 @@
 kmeqreduction(x)
 }
 \arguments{
-\item{x}{Binary matrix}
+\item{x}{Family of sets (\code{kmfamset} object)}
 }
 \value{
 Binary matrix reduced by equivalences
@@ -21,8 +21,13 @@ kmeqreduction(xpl$space)
 
 }
 \seealso{
-Other Properties of knowledge structures:
-\code{\link[=kmiswellgraded]{kmiswellgraded()}},
-\code{\link[=kmnotions]{kmnotions()}}
+Other Functions for working with knowledge structures:
+\code{\link[=kmexpand]{kmexpand()}},
+\code{\link[=kmintersection]{kmintersection()}},
+\code{\link[=kmmesh]{kmmesh()}},
+\code{\link[=kmnotions]{kmnotions()}},
+\code{\link[=kmsubstructure]{kmsubstructure()}},
+\code{\link{kmtrivial}},
+\code{\link[=kmunion]{kmunion()}}
 }
-\concept{Properties of knowledge structures}
+\concept{Functions for working with knowledge structures}

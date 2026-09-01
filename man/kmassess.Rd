@@ -193,11 +193,11 @@ Hoxkemeyer, C. (2002). A comparison of non-deterministic procedures for the
 adaptive assessment of knowledge. \emph{Psychlogische Beiträge, 44(4),} 495-503.
 }
 \seealso{
-Other Knowledge assessment:
+Other Knowledge assessment functions:
 \code{\link[=kmassessbayesian]{kmassessbayesian()}},
 \code{\link[=kmassesshalfsplit]{kmassesshalfsplit()}},
 \code{\link[=kmassessinformative]{kmassessinformative()}},
 \code{\link[=kmassessmentsimulation]{kmassessmentsimulation()}},
 \code{\link[=kmassessmultiplicative]{kmassessmultiplicative()}}
 }
-\concept{Knowledge assessment}
+\concept{Knowledge assessment functions}

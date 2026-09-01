@@ -7,13 +7,14 @@
 kmiswellgraded(x)
 }
 \arguments{
-\item{x}{Binary matrix representing a knowledge space}
+\item{x}{\code{kmspace} or \code{kmbasis}}
 }
 \value{
-Logical value specifying whether \code{x} is wellgraded
+Logical value specifying whether \code{x} is well-graded
 }
 \description{
-\code{kmiswellgraded} returns whether a knowledge structure is wellgraded.
+\code{kmiswellgraded()} returns whether a knowledge space (or its basis)
+is well-graded.
 }
 \examples{
 kmiswellgraded(xpl$space)
@@ -25,7 +26,13 @@ Springer–Verlag, Berlin.
 }
 \seealso{
 Other Properties of knowledge structures:
-\code{\link[=kmeqreduction]{kmeqreduction()}},
+\code{\link[=kmheights]{kmheights()}},
 \code{\link[=kmnotions]{kmnotions()}}
+
+Other Functions for wellgradedness & learning paths:
+\code{\link[=kmgradations]{kmgradations()}},
+\code{\link[=kmlearningpathmatrices]{kmlearningpathmatrices()}},
+\code{\link[=kmlearningpaths]{kmlearningpaths()}}
 }
+\concept{Functions for wellgradedness & learning paths}
 \concept{Properties of knowledge structures}

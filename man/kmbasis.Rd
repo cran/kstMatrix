@@ -20,19 +20,12 @@ kmbasis(x)
 \item{x}{Binary matrix representing a knowledge space}
 }
 \value{
-Binary matrix representing the basis of the knowledge space.
-
-Basis
-
-Basis
-
-Binary matrix representing the basis of the knowledge space.
+Binary matrix representing the basis of the corresponding knowledge space.
 }
 \description{
-\code{kmbasis.matrix} returns a matrix representing the basis of a
-knowledge space. If \code{x} is a knowledge structure or an
-arbitrary family of sets \code{kmbasis} returns the basis of
-the smallest knowledge space containing \code{x}.
+\code{kmbasis.kmsurmisefunction} takes a surmise function and returns
+the corresponding basis, i.e. effectively the collection of all clauses
+in the surmise function.
 
 \code{kmbasis.kmsurmiserelation} takes a surmise relation and returns the
 corresponding basis.
@@ -43,17 +36,18 @@ arbitrary family of sets \code{kmbasis} returns the basis of
 the smallest knowledge space containing \code{x}.
 }
 \examples{
-kmbasis(xpl$space)
+kmbasis(xpl$sf)
+
+
+kmbasis(xpl$sr)
 
 kmbasis(xpl$space)
 
 }
 \seealso{
-Other Different representations for knowledge spaces:
-\code{\link[=kmSF2basis]{kmSF2basis()}},
-\code{\link[=kmSR2basis]{kmSR2basis()}},
+Other Different representations for knowledge structures:
+\code{\link[=kmspace]{kmspace()}},
 \code{\link[=kmsurmisefunction]{kmsurmisefunction()}},
-\code{\link[=kmsurmiserelation]{kmsurmiserelation()}},
-\code{\link[=kmunionclosure]{kmunionclosure()}}
+\code{\link[=kmsurmiserelation]{kmsurmiserelation()}}
 }
-\concept{Different representations for knowledge spaces}
+\concept{Different representations for knowledge structures}

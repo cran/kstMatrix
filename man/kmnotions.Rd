@@ -26,7 +26,17 @@ kmnotions(xpl$space)
 }
 \seealso{
 Other Properties of knowledge structures:
-\code{\link[=kmeqreduction]{kmeqreduction()}},
+\code{\link[=kmheights]{kmheights()}},
 \code{\link[=kmiswellgraded]{kmiswellgraded()}}
+
+Other Functions for working with knowledge structures:
+\code{\link[=kmeqreduction]{kmeqreduction()}},
+\code{\link[=kmexpand]{kmexpand()}},
+\code{\link[=kmintersection]{kmintersection()}},
+\code{\link[=kmmesh]{kmmesh()}},
+\code{\link[=kmsubstructure]{kmsubstructure()}},
+\code{\link{kmtrivial}},
+\code{\link[=kmunion]{kmunion()}}
 }
+\concept{Functions for working with knowledge structures}
 \concept{Properties of knowledge structures}

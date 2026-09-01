@@ -5,11 +5,15 @@
 \alias{plot.kmfamset}
 \alias{plot.kmneighbourhood}
 \alias{plot.kmsurmiserelation}
+\alias{plot.kmlearningpathmatrices}
+\alias{plot.kmlearningpathmatrix}
+\alias{plot.kmsurmisefunction}
 \title{Plot a Hasse diagram}
 \usage{
 \method{plot}{kmfamset}(
   x,
   ...,
+  state = NULL,
   horizontal = FALSE,
   colors = NULL,
   keepNames = TRUE,
@@ -34,7 +38,7 @@
   arrowhead = "none",
   arrowtail = "none",
   edgelabel = FALSE,
-  state,
+  state = NULL,
   verbose = 0
 )
 
@@ -49,11 +53,68 @@
   arrowtail = "none",
   verbose = 0
 )
+
+\method{plot}{kmlearningpathmatrices}(
+  x,
+  ...,
+  horizontal = FALSE,
+  colors = NULL,
+  keepNames = TRUE,
+  itemsep = ",",
+  braces = TRUE,
+  vertexshape = "oval",
+  arrowhead = "none",
+  arrowtail = "none",
+  edgelabel = FALSE,
+  verbose = 0,
+  structure = NULL,
+  pathcolors = c("red", "blue", "gold", "deeppink", "brown", "violet", "green")
+)
+
+\method{plot}{kmlearningpathmatrix}(
+  x,
+  ...,
+  horizontal = FALSE,
+  colors = NULL,
+  keepNames = TRUE,
+  itemsep = ",",
+  braces = TRUE,
+  vertexshape = "oval",
+  arrowhead = "none",
+  arrowtail = "none",
+  edgelabel = FALSE,
+  verbose = 0,
+  structure = NULL,
+  pathcolor = "blue"
+)
+
+\method{plot}{kmsurmisefunction}(
+  x,
+  ...,
+  space = FALSE,
+  horizontal = FALSE,
+  colors = "Beige",
+  keepNames = TRUE,
+  itemsep = ",",
+  braces = TRUE,
+  vertexshape = "oval",
+  arrowhead = "none",
+  arrowtail = "none",
+  edgelabel = FALSE,
+  verbose = 0,
+  highlightcolor = "red"
+)
 }
 \arguments{
 \item{x}{Binary matrix representing a family of sets}
 
 \item{...}{Optional inherited parameters}
+
+\item{state}{Knowledge state whose neighbourhood is to be pictured
+(Default `NULL``)
+
+If \code{state} is \code{NULL}, the neighbourhood is depicted as a 'normal'
+family of sets (\code{kmfamset}) and a respective warning is issued.}
 
 \item{horizontal}{Boolean defining orientation of the graph, default FALSE}
 
@@ -86,7 +147,15 @@ horizontal graphs.}
 
 \item{verbose}{Verbosity level (0 (default), 1, or 2)}
 
-\item{state}{Knowledge state whose neighbourhood is to be pictured}
+\item{structure}{Knowledge structure within which the path shall be depicted}
+
+\item{pathcolors}{Colors for the individual learning paths}
+
+\item{pathcolor}{Colors for the individual learning paths (default: blue)}
+
+\item{space}{Should basis or space de depicted? (default FALSE)}
+
+\item{highlightcolor}{Color for highlighting}
 }
 \description{
 \code{plot} draws a Hasse diagram for a family of sets or a surmise relation.
@@ -106,8 +175,14 @@ package (\code{plotOutput()} and \code{renderPlot()} do not work).
 
 Please note that, for equivalent items in a relation plot, the prerequisites
 are lost.
+
+If the KST object to be plotted is a family of sets (\code{kmfamset}) \strong{and}
+a \code{state} is specified, the \code{colors} vector must have four elements, (i)
+the color for the state, (ii) the color for its upper neighbours, (iii)
+the color for its lower neighbours, and (iv) the color for all other states.
 }
 \examples{
+\dontrun{
 plot(phsg$basis)
 
 sp <- kmunionclosure(phsg$basis)
@@ -117,10 +192,12 @@ plot(n, state=phsg$basis[3,])
 m <- matrix(c(1,0,0,1,1,1,1,1,1), ncol=3, byrow=FALSE)
 class(m) <- unique(c("kmsurmiserelation", class(m)))
 plot(m, vertexshape="oval")
+}
 
 }
 \seealso{
-Other Plotting knowledge structures:
-\code{\link[=kmcolors]{kmcolors()}}
+Other Functions for plotting and printing knowledge structures:
+\code{\link[=kmcolors]{kmcolors()}},
+\code{\link[=kmprettyprint]{kmprettyprint()}}
 }
-\concept{Plotting knowledge structures}
+\concept{Functions for plotting and printing knowledge structures}

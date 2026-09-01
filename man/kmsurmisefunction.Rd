@@ -4,10 +4,12 @@
 \alias{kmsurmisefunction}
 \title{Compute the surmise function for a knowledge space or basis}
 \usage{
-kmsurmisefunction(x)
+kmsurmisefunction(x, itemname = "Item")
 }
 \arguments{
 \item{x}{Binary matrix representing a knowledge space or basis}
+
+\item{itemname}{Name for the first column of the resulting data frame}
 }
 \value{
 Data frame  representing the surmise unction of \code{x}.
@@ -22,11 +24,9 @@ kmsurmisefunction(xpl$space)
 
 }
 \seealso{
-Other Different representations for knowledge spaces:
-\code{\link[=kmSF2basis]{kmSF2basis()}},
-\code{\link[=kmSR2basis]{kmSR2basis()}},
+Other Different representations for knowledge structures:
 \code{\link[=kmbasis]{kmbasis()}},
-\code{\link[=kmsurmiserelation]{kmsurmiserelation()}},
-\code{\link[=kmunionclosure]{kmunionclosure()}}
+\code{\link[=kmspace]{kmspace()}},
+\code{\link[=kmsurmiserelation]{kmsurmiserelation()}}
 }
-\concept{Different representations for knowledge spaces}
+\concept{Different representations for knowledge structures}

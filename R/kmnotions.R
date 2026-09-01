@@ -14,6 +14,7 @@
 #' kmnotions(xpl$space)
 #'
 #' @family Properties of knowledge structures
+#' @family Functions for working with knowledge structures
 #'
 #' @export
 kmnotions <- function(x) {

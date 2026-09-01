@@ -6,15 +6,13 @@
 #' the smallest knowledge space containing \code{x}.
 #'
 #' @param x Binary matrix representing a knowledge space
-#' @return Binary matrix representing the basis of the knowledge space.
 #'
 #' @examples
 #' kmbasis(xpl$space)
 #'
-#' @family Different representations for knowledge spaces
-#'
 #' @method kmbasis matrix
 #' @rdname kmbasis
+#' @family Different representations for knowledge structures
 #' @export
 kmbasis.matrix <- function(x) {
   if (!inherits(x, "matrix")) {

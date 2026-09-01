@@ -32,9 +32,10 @@ kmminimalfamset(kmfamset(m))
 }
 \seealso{
 Other Utilities:
-\code{\link[=kmcolors]{kmcolors()}},
+\code{\link[=binary_matrix_product]{binary_matrix_product()}},
 \code{\link[=kmdoubleequal]{kmdoubleequal()}},
 \code{\link[=kmsetiselement]{kmsetiselement()}},
-\code{\link[=kmsymmsetdiff]{kmsymmsetdiff()}}
+\code{\link[=kmsymmsetdiff]{kmsymmsetdiff()}},
+\code{\link{kmtrivial}}
 }
 \concept{Utilities}

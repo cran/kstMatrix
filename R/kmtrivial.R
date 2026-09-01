@@ -11,10 +11,11 @@
 #' @return A binary matrix representing the respective knowledge space
 #'
 #' @examples
-#' kmminimalspace(5)
-#' kmmaximalspace(5)
+#' kmminimalspace(3)
+#' kmmaximalspace(3)
 #'
-#' @family Trivial knowledge spaces
+#' @family Utilities
+#' @family Functions for working with knowledge structures
 #'
 #' @name kmtrivial
 NULL

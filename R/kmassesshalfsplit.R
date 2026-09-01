@@ -11,7 +11,7 @@
 #' kmassesshalfsplit(c(0.02, 0.1, 0.07, 0.01, 0.4, 0.17, 0.07, 0.08, 0.08),
 #'                   xpl$space)
 #'
-#' @family Knowledge assessment
+#' @family Knowledge assessment functions
 #'
 #' @export
 kmassesshalfsplit <- function(probs, ks) {

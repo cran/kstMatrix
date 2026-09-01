@@ -1,7 +1,7 @@
 Package: kstMatrix
 Type: Package
-Date: 2026-07-15
-Version: 2.3-4
+Date: 2026-09-01
+Version: 3.0-0
 Title: Basic Functions in Knowledge Space Theory Using Matrix
         Representation
 Description: Knowledge space theory by Doignon and Falmagne (1999)
@@ -12,11 +12,11 @@ Description: Knowledge space theory by Doignon and Falmagne (1999)
    knowledge structures and knowledge spaces. Opposed to the 'kst'
    package, 'kstMatrix' uses matrix representations for knowledge
    structures. Furthermore, 'kstMatrix' contains several knowledge spaces
-   developed by the research group around Cornelia Dowling through
-   querying experts.
+   obtained in the 1990s by the research group around Cornelia Dowling 
+   through querying experts.
 Depends: R (>= 4.4.0)
 Imports: stats, grDevices, sets, pks, tidyr, DiagrammeR, rsvg
-Suggests: DiagrammeRsvg, litedown, markdown
+Suggests: DiagrammeRsvg, knitr, markdown, Rgraphviz
 Authors@R: c(person(given = "Cord", family = "Hockemeyer",
                     role = c("aut", "cre"),
                     email = "cord.hockemeyer@uni-graz.at"),
@@ -33,10 +33,10 @@ NeedsCompilation: yes
 Repository: CRAN
 Encoding: UTF-8
 LazyData: true
-VignetteBuilder: litedown
-Config/roxygen2/version: 8.0.0
-Packaged: 2026-07-15 12:45:17 UTC; cord
+VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.0
+Packaged: 2026-09-01 14:48:28 UTC; cord
 Author: Cord Hockemeyer [aut, cre],
   Peter Steiner [aut],
   Wai Wong [aut]
-Date/Publication: 2026-07-15 13:40:02 UTC
+Date/Publication: 2026-09-01 16:10:02 UTC

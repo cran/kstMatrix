@@ -15,7 +15,7 @@
 #' @examples
 #' kmbasisfringe(c(1,0,0,0), xpl$basis)
 #'
-#' @family Fringes & learning paths
+#' @family Functions for fringes & neighbourhoods
 #'
 #' @export
 kmbasisfringe <- function(state, basis) {

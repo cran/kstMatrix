@@ -37,11 +37,11 @@ kmassessbayesian(c(0.02, 0.1, 0.07, 0.01, 0.4, 0.17, 0.07, 0.08, 0.08),
 
 }
 \seealso{
-Other Knowledge assessment:
+Other Knowledge assessment functions:
 \code{\link[=kmassess]{kmassess()}},
 \code{\link[=kmassesshalfsplit]{kmassesshalfsplit()}},
 \code{\link[=kmassessinformative]{kmassessinformative()}},
 \code{\link[=kmassessmentsimulation]{kmassessmentsimulation()}},
 \code{\link[=kmassessmultiplicative]{kmassessmultiplicative()}}
 }
-\concept{Knowledge assessment}
+\concept{Knowledge assessment functions}

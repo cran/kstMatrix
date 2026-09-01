@@ -44,7 +44,7 @@ discordance <- function(data, sr) {
 #' @examples
 #' kmSRvalidate(xpl$data, xpl$sr)
 #'
-#' @family Validating knowledge spaces
+#' @family Functions for working with data
 #'
 #' @export
 
