@@ -1,4 +1,9 @@
-2026-07-24: Version 3.0-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+2026-09-08: Version 3.0-1 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
+* Correcting a bug in kmSRvalidate() helper functions (thanks to Peter Steiner)
+* Efficiency-improvement in assessment update functions
+* Updating CITATION file
+
+2026-09-01: Version 3.0-0 (Cord Hockemeyer, cord.hockemeyer@uni-graz.at)
 * Integrating kmunionclosure() method into new kmclosure() method
   - Adding kmclosure() variants for attribution functions and relations
 * Making kmspace() a more general constructor method

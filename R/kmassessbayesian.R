@@ -53,10 +53,11 @@ kmassessbayesian <- function(probs, ks, beta, eta, question, response) {
     up <- beta[question]
     um <- 1 - eta[question]
   }
-  phelp <- sapply((1:nos), function(s) {
-    if (ks[s, question] == 1) up * probs[s]
-    else um * probs[s]
-  })
+  # phelp <- sapply((1:nos), function(s) {
+  #   if (ks[s, question] == 1) up * probs[s]
+  #   else um * probs[s]
+  # })
+  phelp <- ifelse(ks[,question] == 1, up, um) * probs
   pnew <- phelp / sum(phelp)
   if (!(kmdoubleequal(sum(pnew), 1.0))) {
     print(pnew)

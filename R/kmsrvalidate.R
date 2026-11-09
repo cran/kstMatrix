@@ -2,7 +2,7 @@ concordance <- function(data, sr) {
   colnames(data) <- colnames(sr)
   sum(sapply(1:dim(sr)[1], function(x) {
     sum(sapply(1:dim(sr)[1], function(y) {
-      if (data[x,y] == 1) {
+      if (sr[x,y] == 1) {
         ind <- which(data[,x]==1 & data[,y]==0)
         length(ind)
       } else {
@@ -16,7 +16,7 @@ discordance <- function(data, sr) {
   colnames(data) <- colnames(sr)
   sum(sapply(1:dim(sr)[1], function(x) {
     sum(sapply(1:dim(sr)[1], function(y) {
-      if (data[x,y] == 1) {
+      if (sr[x,y] == 1) {
         ind <- which(data[,x]==0 & data[,y]==1)
         length(ind)
       } else {

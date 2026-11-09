@@ -50,10 +50,11 @@ kmassessmultiplicative <- function(probs, ks, zeta0, zeta1, question, response) 
     up <- 1
     um <- zeta0[question]
   }
-  phelp <- sapply((1:nos), function(s) {
-    if (ks[s, question] == 1) up * probs[s]
-    else um * probs[s]
-  })
+  # phelp <- sapply((1:nos), function(s) {
+  #   if (ks[s, question] == 1) up * probs[s]
+  #   else um * probs[s]
+  # })
+  phelp <- ifelse(ks[,question] == 1, up, um) * probs
   pnew <- phelp / sum(phelp)
   if (!(kmdoubleequal(sum(pnew), 1.0))) {
     print(pnew)
